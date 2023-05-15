@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\PerfumeWepAppMVC.NET06.props" />
+</Project>

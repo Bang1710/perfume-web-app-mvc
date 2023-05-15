@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using PerfumeWebApp.NET06.Data;
+
 namespace PerfumeWepAppMVC.NET06
 {
     public class Program
@@ -8,6 +11,11 @@ namespace PerfumeWepAppMVC.NET06
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+
+            builder.Services.AddRazorPages();
+
+            builder.Services.AddDbContext<PerfumeDBContext>(options =>
+             options.UseSqlServer(builder.Configuration.GetConnectionString("PerfumeDBConnect")));
 
             var app = builder.Build();
 

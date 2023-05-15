@@ -3,47 +3,131 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PerfumeWepAppMVC.NET06</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <title>@ViewData["Title"] - Perfume Website</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="shortcut icon" href="./img/R.jpg" type="image/x-icon">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />*@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/PerfumeWepAppMVC.NET06.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
+    @*<link rel="stylesheet" href="~/PerfumeWebApp.NET06.styles.css" asp-append-version="true" />*@
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">PerfumeWepAppMVC.NET06</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+    <div class="header">
+        <div class="container">
+            <div class="content">
+                <div class="image">
+                    <img src="~/img/img-header-footer/logo.png" alt="Logo" height="70px" width="200px">
+                </div>
+                <div class="leftbar">
+                    <ul>
+                        <li><a asp-area="" asp-controller="Home" asp-action="Index">Trang chủ</a></li>
+                        <li><a href="#">Sản phẩm</a></li>
                     </ul>
                 </div>
+                <div class="searchbar">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Nhập từ khóa" aria-label="Search">
+                        <input class="btn btn-outline-light" type="submit" value="Search">
+                    </form>
+                </div>
+
+                <div class="rightbar">
+                    <ul>
+                        <li><a href="#" class="pip">Đăng Ký</a></li>
+                        <div class="pip"></div>
+                        <li><a href="#">Đăng nhập</a></li>
+                    </ul>
+                </div>
+                <div class="cart">
+                    <button class="btn btn-outline-light btn-cart" type="submit">
+                        <a href="#">
+                            <img class="img-cart" src="~/img/img-header-footer/R.png" alt="">
+                        </a>
+                    </button>
+                </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+        </div>
     </div>
 
-    <footer class="border-top footer text-muted">
+    @RenderBody()
+
+    <div class="footer">
         <div class="container">
-            &copy; 2023 - PerfumeWepAppMVC.NET06 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <div class="row">
+                <div class="col-3">
+                    <div class="about-our">
+                        <h1 class="footer-title">VỀ WEBSITE PARFUMERIE</h1>
+                        <a class="footer-des">Trang chủ</a>
+                        <a class="footer-des">Sản phẩm</a>
+                        <a class="footer-des">Liên hệ</a>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="Guid-and-policy">
+                        <h1 class="footer-title">Hướng dẫn và chính sách</h1>
+                        <a class="footer-des">Hướng dẫn sử dụng</a>
+                        <a class="footer-des">Hướng dẫn bảo quản</a>
+                        <a class="footer-des">Chính sách đổi trả và bảo hành</a>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="contact">
+                        <h1 class="footer-title">Phương thức thanh toán</h1>
+                        <div class="pttt">
+                            <img src="~/img/img-header-footer/phuongthucthanhtoan.png" alt="Phương thức thanh toán" width="90%">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <div class="contact">
+                        <h1 class="footer-title">Kết nối với chúng tôi</h1>
+                        <div class="contact-logo">
+                            <div class="logo">
+                                <img src="~/img/img-header-footer/facebook.png" alt="facebook" class="img-logo">
+                            </div>
+                            <div class="logo">
+                                <img src="~/img/img-header-footer/instagram.png" alt="instagram" class="img-logo">
+                            </div>
+                            <div class="logo">
+                                <img src="~/img/img-header-footer/youtube.png" alt="Youtube" class="img-logo">
+                            </div>
+                            <div class="logo">
+                                <img src="~/img/img-header-footer/google-maps.png" alt="google-maps" class="img-logo">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="source">
+                Create by my team
+            </div>
         </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </div>
+
+    @* <footer class="border-top footer text-muted">
+    <div class="container">
+    &copy; 2023 - PerfumeWebApp.NET06 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+    </div>
+    </footer>*@
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    @*<script src="~/lib/jquery/dist/jquery.min.js"></script>*@
+    @*<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/layout.js" asp-append-version="true"></script>
+    <script src="~/js/home.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

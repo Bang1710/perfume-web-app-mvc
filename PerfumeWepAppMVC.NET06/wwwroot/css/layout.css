@@ -1,0 +1,163 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Courier Prime', monospace;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+/* --------------------------------Header------------------------- */
+.header {
+    height: 90px;
+    background-color: black;
+    width: 100%;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+    .content .image {
+        line-height: 90px;
+    }
+
+ul {
+    list-style: none;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftbar {
+    line-height: 80px;
+}
+
+    .leftbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Courier Prime', monospace;
+        padding: 10px;
+        font-size: 17px;
+    }
+
+.rightbar ul li a:hover {
+    color: gold;
+}
+
+.rightbar {
+    line-height: 80px;
+}
+
+    .rightbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        padding: 4px 10px;
+        font-size: 17px;
+    }
+
+        .rightbar ul li a.pip {
+            border-right: 1px;
+            border-color: white;
+            border-right-style: solid;
+        }
+
+.leftbar ul li a:hover {
+    color: gold;
+}
+
+.searchbar {
+    flex: 1;
+    align-self: center;
+    margin: 15px 15px 20px 15px;
+}
+
+input.form-control.me-2 {
+    font-size: 16px;
+    color: black;
+}
+
+input.btn.btn-outline-light {
+    font-size: 15px;
+}
+
+img.img-cart {
+    width: 40px;
+    height: 100%;
+    background: white;
+    padding: 5px;
+}
+
+.cart {
+    line-height: 80px;
+    margin-left: 15px;
+}
+
+button.btn.btn-outline-light.btn-cart {
+    padding: 0px;
+}
+
+img.img-cart:hover {
+    background-color: cornsilk;
+}
+
+/* ------------------------Footer------------------------- */
+
+.footer {
+    background-color: #f8f9fa;
+    /* height: 500px; */
+    width: 100%;
+    padding: 50px 0px 20px;
+    color: black;
+}
+
+h1.footer-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+.footer-des {
+    font-size: 15px;
+    margin: 16px 0px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+    .footer-des:hover {
+        color: forestgreen;
+        cursor: pointer;
+    }
+
+.contact-logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-logo {
+    width: 50%;
+}
+
+.logo {
+    width: 100%;
+}
+
+.source {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+}

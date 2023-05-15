@@ -1,8 +1,214 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Trang chủ";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="slider-container">
+    <div class="mySlide fade-c">
+        <img src="~/img/img-home/slide10.jpg" alt="" />
+    </div>
+
+    <div class="mySlide fade-c">
+        <img src="~/img/img-home/slide06.png" alt="" />
+    </div>
+
+    <div class="mySlide fade-c">
+        <img src="~/img/img-home/slide11.jpg" alt="" />
+    </div>
+
+    <div class="mySlide fade-c">
+        <img src="~/img/img-home/slide08.jpg" alt="" />
+    </div>
+
+    <div class="mySlide fade-c">
+        <img src="~/img/img-home/slide06.png" alt="" />
+    </div>
+
+    <div class="mySlide fade-c">
+        <img src="~/img/img-home/slide07.jpg" alt="" />
+    </div>
 </div>
+
+<div class="brand">
+    <div class="container">
+        <div class="row">
+            <div class="col image-brand dior">
+                <a href="#">
+                    <img src="~/img/img-home/Kerastase_Kérastase_logo_logotype.png" alt="" class="dior">
+                </a>
+            </div>
+            <div class="col image-brand calvin">
+                <a href="#">
+                    <img src="~/img/img-home/Calvin_Klein_logo-700x123.png" alt="" class="calvin">
+                </a>
+            </div>
+            <div class="col image-brand versace">
+                <a href="#">
+                    <img src="~/img/img-home/versace.png" alt="" class="versace">
+                </a>
+            </div>
+            <div class="col image-brand ysl">
+                <a href="#">
+                    <img src="~/img/img-home/ysl.png" alt="" class="ysl">
+                </a>
+            </div>
+
+            <div class="col image-brand lauder">
+                <a href="#">
+                    <img src="~/img/img-home/lauder.png" alt="" class="lauder">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-product">
+    <div class="container">
+        <div class="row">
+            <div class="col perfume-category">
+                <a href="#" class="content-cardImage">
+                    <div class="img">
+                        <img src="~/img/img-home/female.png" alt="" class="img-cart-list">
+                    </div>
+                    <div class="des">
+                        <p>Nước hoa nam</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col perfume-category">
+                <a href="#" class="content-cardImage">
+                    <div class="img">
+                        <img src="~/img/img-home/male.png" alt="" class="img-cart-list">
+                    </div>
+                    <div class="des">
+                        <p>Nước hoa nữ</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col perfume-category">
+                <a href="#" class="content-cardImage">
+                    <div class="img">
+                        <img src="~/img/img-home/unisex.png" alt="" class="img-cart-list">
+                    </div>
+                    <div class="des">
+                        <p>Nước hoa unisex</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col perfume-category">
+                <a href="#" class="content-cardImage">
+                    <div class="card-img">
+                        <img src="~/img/img-home/new.jpg" alt="" class="img-cart-list">
+                    </div>
+                    <div class="des">
+                        <p>Nước hoa mới</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="list-product-trending" style="margin-top: 100px;">
+    <div class="container">
+        <div class="intro-product-trending">
+            <div class="intro-content">
+                <h1 class="intro-content-des">Nước hoa xu hướng</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row" style="margin-top: 40px;">
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="col product-trending">
+                    <div class="card">
+                        <img src="~/img/img-product/product01.png" class="card-img-top" alt="Sản phẩm 01">
+                        <div class="card-body">
+                            <h1 class="card-title-brand">Versace</h1>
+                            <h3 class="card-title-productName">Nước hoa Armaf Club De Nuit Intense For Man <span class="card-capacity">105ml</span></h3>
+                            <span class="card-product-price">775.000 <span>₫</span></span>
+                            <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                            <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="intro-view-all">
+            <a class="btn btn-outline-dark btn-view-all" href="#">
+                Xem tất cả
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col leftbanner">
+                <img src="~/img/img-home/banner01.jpg" alt="" class="left-image" width="645px">
+            </div>
+            <div class="col rightbanner">
+                <img src="~/img/img-home/banner02.jpg" alt="" class="right-image" width="645px">
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Sản phẩm đề xuất*@
+
+<div class="list-product-trending" style="margin-top: 100px; margin-bottom: 50px;">
+    <div class="container">
+        <div class="intro-product-recommend">
+            <div class="intro-content">
+                <h1 class="intro-content-des">Đề xuất cho bạn</h1>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="col-lg product-trending">
+                    <div class="card" style="margin-bottom: 20px">
+                        <img src="~/img/img-product/product01.png" class="card-img-top" alt="Sản phẩm 01">
+                        <div class="card-body">
+                            <h1 class="card-title-brand">Versace</h1>
+                            <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity">70ml</span></h3>
+                            <span class="card-product-price">775.000 <span>₫</span></span>
+                            <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                            <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+        <div class="row">
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="col-lg product-trending">
+                    <div class="card">
+                        <img src="~/img/img-product/product01.png" class="card-img-top" alt="Sản phẩm 01">
+                        <div class="card-body">
+                            <h1 class="card-title-brand">Versace</h1>
+                            <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity">70ml</span></h3>
+                            <span class="card-product-price">775.000 <span>₫</span></span>
+                            <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                            <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</div>
+
+
+
