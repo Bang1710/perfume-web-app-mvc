@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PerfumeWebApp.NET06.Data;
+using PerfumeWepAppMVC.NET06.Models;
 
 namespace PerfumeWepAppMVC.NET06.Controllers
 {
@@ -17,6 +18,11 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public Product getProductById(string id)
+        {
+            return _context.Products.Where(p => p.Product_ID == id).FirstOrDefault();
         }
 
     }

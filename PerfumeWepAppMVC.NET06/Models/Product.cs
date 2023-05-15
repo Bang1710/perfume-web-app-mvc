@@ -1,8 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using PerfumeWebApp.NET06.Data;
 
 namespace PerfumeWepAppMVC.NET06.Models
 {
+
+
     public class Product
     {
         [Key]
@@ -57,4 +60,5 @@ namespace PerfumeWepAppMVC.NET06.Models
         //public virtual ICollection<CartItem> CartItems { get; set; }
         //public virtual ICollection<Review> Reviews { get; set; }
     }
+
 }
