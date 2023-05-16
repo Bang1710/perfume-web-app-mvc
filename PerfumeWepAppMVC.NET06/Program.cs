@@ -17,6 +17,12 @@ namespace PerfumeWepAppMVC.NET06
             builder.Services.AddDbContext<PerfumeDBContext>(options =>
              options.UseSqlServer(builder.Configuration.GetConnectionString("PerfumeDBConnect")));
 
+            builder.Services.Configure<RouteOptions>(options => {
+                options.AppendTrailingSlash = false;        // Thêm d?u / vào cu?i URL
+                options.LowercaseUrls = false;               // url ch? th??ng
+                options.LowercaseQueryStrings = false;      // không b?t query trong url ph?i in th??ng
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

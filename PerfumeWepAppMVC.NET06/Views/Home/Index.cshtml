@@ -1,4 +1,6 @@
-﻿@{
+﻿
+
+@{
     ViewData["Title"] = "Trang chủ";
 }
 
@@ -121,21 +123,22 @@
         </div>
         <hr>
         <div class="row" style="margin-top: 40px;">
-            @for (int i = 0; i < 5; i++)
+            @foreach (var item in ViewBag.listTrending)
             {
                 <div class="col product-trending">
                     <div class="card">
-                        <img src="~/img/img-product/product01.png" class="card-img-top" alt="Sản phẩm 01">
+                        <img src="~/img/img-product/@item.ProductID-01.png" class="card-img-top" alt="Sản phẩm 01">
                         <div class="card-body">
-                            <h1 class="card-title-brand">Versace</h1>
-                            <h3 class="card-title-productName">Nước hoa Armaf Club De Nuit Intense For Man <span class="card-capacity">105ml</span></h3>
-                            <span class="card-product-price">775.000 <span>₫</span></span>
-                            <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                            <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                            <h1 class="card-title-brand">@item.CategoryName</h1>
+                            <h3 class="card-title-productName">@item.ProductName @*<span class="card-capacity">105ml</span>*@</h3>
+                            <span class="card-product-price">@item.ProductPrice.ToString("C0").Replace(",", ".").Substring(1)<span> ₫</span></span>
+                            <h4 class="card-product-gender">Nước hoa cho @item.ProductGender.ToLower()</h4>
+                            <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
             }
+            
         </div>
 
         <div class="intro-view-all">
@@ -163,7 +166,7 @@
 
 @*Sản phẩm đề xuất*@
 
-<div class="list-product-trending" style="margin-top: 100px; margin-bottom: 50px;">
+<div class="list-product-trending" style="margin-top: 100px;">
     <div class="container">
         <div class="intro-product-recommend">
             <div class="intro-content">
@@ -172,40 +175,30 @@
         </div>
         <hr>
         <div class="row">
-            @for (int i = 0; i < 5; i++)
+
+            @foreach (var item in ViewBag.listRecommend)
             {
-                <div class="col-lg product-trending">
-                    <div class="card" style="margin-bottom: 20px">
-                        <img src="~/img/img-product/product01.png" class="card-img-top" alt="Sản phẩm 01">
+                <div class="col product-trending">
+                    <div class="card">
+                        <img src="~/img/img-product/@item.ProductID-01.png" class="card-img-top" alt="Sản phẩm 01">
                         <div class="card-body">
-                            <h1 class="card-title-brand">Versace</h1>
-                            <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity">70ml</span></h3>
-                            <span class="card-product-price">775.000 <span>₫</span></span>
-                            <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                            <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                            <h1 class="card-title-brand">@item.CategoryName</h1>
+                            <h3 class="card-title-productName">@item.ProductName @*<span class="card-capacity">105ml</span>*@</h3>
+                            <span class="card-product-price">@item.ProductPrice.ToString("C0").Replace(",", ".").Substring(1)<span> ₫</span></span>
+                            <h4 class="card-product-gender">Nước hoa cho @item.ProductGender.ToLower()</h4>
+                            <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
                         </div>
                     </div>
                 </div>
             }
+            
+            <div class="intro-view-all">
+                <a class="btn btn-outline-dark btn-view-all" href="#">
+                    Xem tất cả
+                </a>
+            </div>
         </div>
 
-        <div class="row">
-            @for (int i = 0; i < 5; i++)
-            {
-                <div class="col-lg product-trending">
-                    <div class="card">
-                        <img src="~/img/img-product/product01.png" class="card-img-top" alt="Sản phẩm 01">
-                        <div class="card-body">
-                            <h1 class="card-title-brand">Versace</h1>
-                            <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity">70ml</span></h3>
-                            <span class="card-product-price">775.000 <span>₫</span></span>
-                            <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                            <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
 
     </div>
 </div>

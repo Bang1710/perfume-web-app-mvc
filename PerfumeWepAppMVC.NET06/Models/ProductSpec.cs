@@ -10,7 +10,7 @@ namespace PerfumeWepAppMVC.NET06.Models
         [MaxLength(5)]
         public string Product_ID { get; set; }
 
-        [MaxLength(500)]
+        [Required]
         public string Product_Des { get; set; }
 
         [MaxLength(100)]

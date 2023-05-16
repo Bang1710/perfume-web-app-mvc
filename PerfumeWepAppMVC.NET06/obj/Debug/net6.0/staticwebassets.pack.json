@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\css\\layout.css"
     },
     {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\product.css",
+      "PackagePath": "staticwebassets\\css\\product.css"
+    },
+    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -125,6 +129,126 @@
       "PackagePath": "staticwebassets\\img\\img-home\\ysl.png"
     },
     {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1001-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1001-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1001-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1001-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1002-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1002-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1002-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1002-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1003-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1003-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1003-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1003-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1004-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1004-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1004-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1004-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1005-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1005-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1005-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P1005-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2001-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2001-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2001-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2001-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2002-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2002-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2002-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2002-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2003-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2003-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2003-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2003-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2004-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2004-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2004-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2004-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2005-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2005-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P2005-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P2005-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3001-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3001-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3001-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3001-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3002-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3002-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3002-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3002-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3003-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3003-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3003-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3003-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3004-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3004-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3004-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3004-02.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3005-01.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3005-01.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P3005-02.png",
+      "PackagePath": "staticwebassets\\img\\img-product\\P3005-02.png"
+    },
+    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\product01.png",
       "PackagePath": "staticwebassets\\img\\img-product\\product01.png"
     },
@@ -135,6 +259,10 @@
     {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\layout.js",
       "PackagePath": "staticwebassets\\js\\layout.js"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\product.js",
+      "PackagePath": "staticwebassets\\js\\product.js"
     },
     {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\site.js",

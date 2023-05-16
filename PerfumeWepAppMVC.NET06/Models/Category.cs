@@ -13,5 +13,9 @@ namespace PerfumeWepAppMVC.NET06.Models
         public string Category_Name { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+
+        public Category() { 
+            
+        }
     }
 }

@@ -132,8 +132,7 @@ namespace PerfumeWepAppMVC.NET06.Migrations
 
                     b.Property<string>("Product_Des")
                         .IsRequired()
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Recommended_Age")
                         .IsRequired()

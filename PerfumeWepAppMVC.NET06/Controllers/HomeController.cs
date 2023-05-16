@@ -17,13 +17,30 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         public IActionResult Index()
         {
+            var ListproductTrending = _context.Products.Where(p => p.Product_IsTrending == true).Select(p =>
+                new
+                {
+                    ProductID = p.Product_ID,
+                    ProductName = p.Product_Name,
+                    CategoryName = p.Category.Category_Name,
+                    ProductPrice = p.Product_Price,
+                    ProductGender = p.Product_Gender,
+                }    
+            ).ToList().Take(5);
+            ViewBag.listTrending = ListproductTrending;
+
+            var ListproductRecommend = _context.Products.Where(p => p.Product_IsRecommend == true).Select(p =>
+                new 
+                {
+                    ProductID = p.Product_ID,
+                    ProductName = p.Product_Name,
+                    CategoryName = p.Category.Category_Name,
+                    ProductPrice = p.Product_Price,
+                    ProductGender = p.Product_Gender,
+                }).ToList().Take(5);
+
+            ViewBag.listRecommend = ListproductRecommend;
             return View();
         }
-
-        public Product getProductById(string id)
-        {
-            return _context.Products.Where(p => p.Product_ID == id).FirstOrDefault();
-        }
-
     }
 }
