@@ -24,10 +24,8 @@
         localStorage.setItem(p.id, p.checked);
     })
 
-    //var concentration = document.getElementsByName("concentration");
-    //concentration.forEach(p => {
-    //    localStorage.setItem(p.id, p.checked);
-    //})
+    var searchHistory = document.getElementById('searchHistory');
+    localStorage.setItem('searchHistoryValue', searchHistory.value);
 });
 
 window.addEventListener("load", function () {
@@ -36,8 +34,7 @@ window.addEventListener("load", function () {
     var brand = document.getElementsByName("brand");
     var capacity = document.getElementsByName("capacity");
     var original = document.getElementsByName("original");
-    //var concentration = document.getElementsByName("concentration");
-
+    var searchHistory = document.getElementsByName("searchHistory");
 
     gender.forEach(g => {
         g.checked = localStorage.getItem(g.id) === "true";
@@ -58,8 +55,6 @@ window.addEventListener("load", function () {
         p.checked = localStorage.getItem(p.id) === "true";
     })
 
-    //concentration.forEach(p => {
-    //    p.checked = localStorage.getItem(p.id) === "true";
-    //})
+    searchHistory.value = localStorage.getItem('searchHistoryValue');
 
 });

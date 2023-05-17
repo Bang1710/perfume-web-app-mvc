@@ -1,16 +1,15 @@
 ﻿@model List<Product>
 
 @{
-    ViewData["Title"] = "Danh sách sản phẩm đã lọc";
+    ViewData["Title"] = "Tìm kiếm";
 }
-
 
 <div class="stuff" style="margin: 20px 0px 100px;">
     <div class="content-header container">
         <nav aria-label="breadcrumb" class="breadcrumb-des">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Trang chủ</a></li>
-                <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">Danh sách sản phẩm nước hoa</li>
+                <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">Tìm kiếm</li>
             </ol>
             <hr>
         </nav>
@@ -21,13 +20,19 @@
                 <div class="leftbar-title">Bộ lọc</div>
                 <div class="leftbar-des">Giúp lọc nhanh sản phẩm mà bạn tìm kiếm</div>
                 <hr>
-                <form method="get" class="form-filter" id="form-filter-id" asp-action="Filter" asp-asp-controller="Product">
+                <form method="get" class="form-filter" id="form-filter-id" asp-action="Search" asp-controller="Product">
                     <div class="leftbar-btn">
                         <input type="submit" value="Áp dụng" class="btn btn-outline-dark btn-submit">
                         <input type="reset" value="Reset" class="btn btn-outline-dark btn-reset">
                     </div>
+                    @if (@ViewBag.Search != null)
+                    {
+                        <input type="hidden" name="searchHistory" id="searchHistory" value="@ViewBag.Search" />
+                    } else
+                    {
+                        <input type="hidden" name="searchHistory" id="searchHistory" value="@ViewBag.StringSearchHistory" />
 
-                    @*<input type="hidden" name="productIds" value="@Model.Select(p => p.Product_ID)" />*@
+                    }
 
                     <div class="accordion filter" id="Filter">
                         @*Giá sản phẩm*@
@@ -146,8 +151,8 @@
                 </form>
             </div>
             <div class="content-rightbar col-9">
-                <div class="rightbar-title alert @ViewBag.Alert" role="alert">
-                    @ViewBag.Message
+                <div class="rightbar-title alert @ViewBag.Alert " role="alert" style="margin: 20px 0px; width: 70%;">
+                    @ViewData["MessageSearch"]
                 </div>
                 <div class="row">
                     @foreach (var item in @Model)
@@ -166,16 +171,9 @@
                         </div>
                     }
                 </div>
-                <nav aria-label="Page navigation example" class="nav-paging">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
             </div>
         </div>
     </div>
 </div>
+
+

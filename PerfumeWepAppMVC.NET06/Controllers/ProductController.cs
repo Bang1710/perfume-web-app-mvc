@@ -31,14 +31,9 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             var volumeProduct = _context.Products.Select(p => p.Product_Volume).Distinct().ToList();
             ViewBag.VolumeProduct = volumeProduct;
-
-            var releaseYearProduct = _context.Products.Select(p => p.Product_ReleaseYear).Distinct().ToList();
-            ViewBag.releaseYearProduct = releaseYearProduct;
-
-            var concentrationProduct = _context.ProductSpecs.Select(p => p.Concentration).Distinct().ToList();
-            ViewBag.ConcentrationProduct = concentrationProduct;
         }
 
+        [Route("danh-sach-san-pham/")]
         public IActionResult Index()
         {
             SetValueViewBag();
@@ -51,6 +46,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         public string AlertMessage { get; set; }
 
         [HttpGet]
+        [Route("loc-san-pham/")]
         public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             SetValueViewBag();
@@ -97,15 +93,13 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             {
                 MessageStatus = "Danh sách kết quả sau khi lọc";
                 AlertMessage = "alert-success";
-                ViewBag.Message = MessageStatus;
-                ViewBag.Alert = AlertMessage;
             } else
             {
                 MessageStatus = "Không có sản phẩm nào phụ hợp với kết quả lọc của bạn";
                 AlertMessage = "alert-danger";
-                ViewBag.Message = MessageStatus;
-                ViewBag.Alert = AlertMessage;
             }
+            ViewBag.Message = MessageStatus;
+            ViewBag.Alert = AlertMessage;
             return View(products);
         }
 
@@ -136,6 +130,112 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             ViewBag.ProductRelated = productRelated;
             return View(product);
         }
+
+        public string MessageStatusSearch { get; set; }
+
+        //[HttpGet]
+        //[Route("tim-kiem/{searchString?}")]
+        //public ActionResult Search(string? searchString)
+        //{
+        //    SetValueViewBag();
+        //    var products = _context.Products.Where(p => p.Product_Name.Contains(searchString)).ToList();
+        //    if (products != null && products.Any())
+        //    {
+        //        MessageStatusSearch = $"Danh sách sản phẩm sau khi tìm kiếm với từ khóa '{searchString}'";
+        //        AlertMessage = "alert-success";
+        //    } else
+        //    {
+        //        MessageStatusSearch = $"Không có sản phẩm phù hợp với kết quả tìm kiếm với từ khóa '{searchString}'";
+        //        AlertMessage = "alert-danger";
+        //    }
+
+        //    ViewData["MessageSearch"] = MessageStatusSearch;
+        //    //ViewBag.ProductSearch = products;
+        //    ViewBag.Alert = AlertMessage;
+        //    return View(products);
+        //}
+
+        [HttpGet]
+        //[Route("tim-kiem-va-loc/")]
+        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        {
+            SetValueViewBag();
+            var stringSearchHistory = "";
+            //var searchstring = Request.RouteValues["searchString"] as string;
+            var products = _context.Products.ToList();
+            if (searchString != null && searchString.Any())
+            {
+                products = _context.Products.Where(p => p.Product_Name.Contains(searchString)).ToList();
+            }
+
+            ViewBag.Search = searchString;
+
+            if (searchHistory != null && searchHistory.Any())
+            {
+                products = _context.Products.Where(p => p.Product_Name.Contains(searchHistory)).ToList();
+                stringSearchHistory = Request.Query["searchHistory"].ToString();
+                ViewBag.StringSearchHistory = stringSearchHistory;
+            }
+
+
+
+            if (priceSortOrder != null && priceSortOrder.Any())
+            {
+                if (priceSortOrder == "asc")
+                {
+                    products = products.OrderBy(p => p.Product_Price).ToList();
+                }
+                else if (priceSortOrder == "desc")
+                {
+                    products = products.OrderByDescending(p => p.Product_Price).ToList();
+                }
+            }
+
+            //Sort theo mã loại sp
+            if (brand != null && brand.Any())
+            {
+                products = products.Where(p => brand.Contains(p.Category_ID)).ToList();
+            }
+
+            //Sort theo giới tính
+            if (gender != null && gender.Any())
+            {
+                products = products.Where(p => gender.Contains(p.Product_Gender)).ToList();
+            }
+
+            //Sort theo dung tích
+            if (capacity != null && capacity.Any())
+            {
+                products = products.Where(p => capacity.Contains(p.Product_Volume)).ToList();
+            }
+
+            //Sort theo Xuất xứ
+            if (original != null && original.Any())
+            {
+                products = products.Where(p => original.Contains(p.Product_Origin)).ToList();
+            }
+
+
+            if (products != null && products.Any())
+            {
+                MessageStatusSearch = $"Danh sách sản phẩm sau khi tìm kiếm và lọc sản phẩm";
+                AlertMessage = "alert-success";
+            }
+            else
+            {
+                MessageStatusSearch = $"Không có sản phẩm phù hợp với kết quả tìm kiếm và lọc sản phẩm";
+                AlertMessage = "alert-danger";
+            }
+
+            ViewData["MessageSearch"] = MessageStatusSearch;
+            ViewBag.ProductSearch = products;
+            ViewBag.Alert = AlertMessage;
+            return View(products);
+        }
+
+
+
+
 
 
     }

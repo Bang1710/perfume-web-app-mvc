@@ -282,7 +282,7 @@ table.table {
 img.tab-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: scale-down;
 }
 
 tr.tr-row {
@@ -369,7 +369,7 @@ a.btn.btn-outline-success.card-view-detail {
 }
 
 .rightbar-title {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     letter-spacing: 1px;
     margin-bottom: 10px;
