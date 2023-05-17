@@ -1,7 +1,8 @@
-﻿@model Product
+﻿@*@model  *@
 
 @{
-    ViewData["Title"] = "Sản phẩm";
+    ViewData["Title"] = "Sản phẩm " + Model.Product_Name;
+    var productSpec = ViewBag.ProductSpec as ProductSpec;
 }
 
 
@@ -9,25 +10,26 @@
         <div class="content-header container">
                 <nav aria-label="breadcrumb" class="breadcrumb-des">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Trang chủ</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">@Model.Category.Category_Name</a></li>
-                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Nước hoa @Model.Category.Category_Name</a></li>
+                    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index" class="breadcrumb-item-title">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="" class="breadcrumb-item-title">@ViewBag.productById</a></li>
+                    <li class="breadcrumb-item"><a href="" class="breadcrumb-item-title">Nước hoa @ViewBag.productById</a></li>
                     <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">@Model.Product_Name</li>
                 </ol>
                 <hr>
             </nav>
         </div>
+
         <div class="content-section container">
             <div class="row">
                 <div class="col-lg-5">
                     <div class="content-section-image">
-                        <img src="./img/img-product/@Model.Product_ID-01.png" alt="" class="content-section-img-detail">
+                        <img src="~/img/img-product/@Model.Product_ID-01.png" alt="" class="content-section-img-detail">
                     </div>
                 </div>
                 <div class="col-lg-7">
                     <div class="content-section-nd-detail">
                         <div class="content-detail-brand">
-                            @Model.Category.Category_Name
+                           @ViewBag.productById
                         </div>
                         <div class="content-detail-product-name">
                             @Model.Product_Name
@@ -71,6 +73,7 @@
                 </div>
             </div>
         </div>
+
         <div class="content-section-product-detail-des container">
             <div class="row">
                 <div class="col-lg-11">
@@ -95,16 +98,16 @@
                                 <div class="tab-product-detail">
                                     <div class="tab-product-detail-header">Tổng quan về @Model.Product_Name</div>
                                     <div class="tab-product-detail-des">
-
+                                        @productSpec.Product_Des
                                     </div>
                                     <div class="tab-product-detail-image">
-                                        <img class="tab-image" src="./img/img-product/@Model.Product_ID-02.png" alt="">
+                                        <img class="tab-image" src="~/img/img-product/@Model.Product_ID-02.png" alt="">
                                     </div>
                                     <div class="tab-product-detail-scent">Mùi hương đặc trưng của @Model.Product_Name </div>
                                     <div>
-                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương đầu:</span class="tab-product-detail-item-nd"> <span> Chanh vàng, Ớt hồng, Bạc hà</span></li>
-                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương giữa:</span class="tab-product-detail-item-nd"> <span> Chanh vàng, Ớt hồng, Bạc hà</span></li>
-                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương cuối:</span class="tab-product-detail-item-nd"> <span> Chanh vàng, Ớt hồng, Bạc hà</span></li>
+                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương đầu:</span class="tab-product-detail-item-nd"> <span> @productSpec.Top_Note</span></li>
+                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương giữa:</span class="tab-product-detail-item-nd"> <span> @productSpec.Middle_Note</span></li>
+                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương cuối:</span class="tab-product-detail-item-nd"> <span> @productSpec.Base_Note</span></li>
                                     </div>
                                     <hr>
                                     <div class="tab-product-tb-header">Bảng thông số chi tiết của nước hoa nam Bleu De Chanel EDP</div>
@@ -121,42 +124,42 @@
                                               <tr class="tr-row">
                                                 <th scope="row">1</th>
                                                 <td>Nhóm nước hoa: </td>
-                                                <td>Hương gỗ thơm</td>
+                                                <td>@productSpec.Fragrance_Group</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">2</th>
                                                 <td>Giới tính:</td>
-                                                <td>Nam</td>
+                                                <td>@Model.Product_Gender</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">3</th>
                                                 <td>Độ tuổi khuyên dùng: </td>
-                                                <td>Trên 25</td>
+                                                <td>@productSpec.Recommended_Age</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">4</th>
                                                 <td>Nồng độ:</td>
-                                                <td>EDP</td>
+                                                <td>@productSpec.Concentration</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">5</th>
                                                 <td>Độ lưu hương:</td>
-                                                <td>Tạm ổn - 4 giờ đến trên 6 giờ</td>
+                                                <td>@productSpec.Longevity</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">6</th>
                                                 <td>Phong cách:</td>
-                                                <td>Nam tính, Lịch lãm, Sang trọng</td>
+                                                <td>@Model.Product_Style</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">7</th>
                                                 <td>Độ toả hương:</td>
-                                                <td>Gần - Toả hương trong vòng một cánh tay</td>
+                                                <td>@productSpec.Sillage</td>
                                               </tr>
                                               <tr class="tr-row">
                                                 <th scope="row">8</th>
                                                 <td>Thời điểm phù hợp: </td>
-                                                <td>Ngày & Đêm - Sử dụng hàng ngày</td>
+                                                <td>@productSpec.Right_Time</td>
                                               </tr>
                                             </tbody>
                                           </table>
@@ -387,7 +390,6 @@
                                                     Tip chia sẽ kinh nghiệm cá nhân khi xài chai này các bạn xịt vào 2 bên vai áo, bảo đảm mùi sẽ giữ được lâu hơn và cứ thoang thoảng quanh người rất hay bảo đảm sẽ có nhiều cô gái thích mùi này hehe.
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -411,57 +413,21 @@
                 <div class="row">
                     <div class="col-lg-10">
                         <div class="row">
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
-                                <div class="card">
-                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
-                                    <div class="card-body">
-                                      <h1 class="card-title-brand">Versace</h1>
-                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
-                                      <span class="card-product-price">775.000 <span>₫</span></span>
-                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                            @foreach (var item in ViewBag.ProductRelated)
+                            {
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
+                                    <div class="card">
+                                        <img src="~/img/img-product/@item.ProductID-01.png" class="card-img-top" alt="Sản phẩm 01">
+                                        <div class="card-body">
+                                          <h1 class="card-title-brand">@item.CategoryName</h1>
+                                          <h3 class="card-title-productName">@item.ProductName</h3>
+                                          <span class="card-product-price">@item.ProductPrice.ToString("C0").Replace(",", ".").Substring(1) <span>₫</span></span>
+                                          <h4 class="card-product-gender">Nước hoa cho @item.ProductGender</h4>
+                                          <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-        
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
-                                <div class="card">
-                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
-                                    <div class="card-body">
-                                      <h1 class="card-title-brand">Versace</h1>
-                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
-                                      <span class="card-product-price">775.000 <span>₫</span></span>
-                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
-                                <div class="card">
-                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
-                                    <div class="card-body">
-                                      <h1 class="card-title-brand">Versace</h1>
-                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
-                                      <span class="card-product-price">775.000 <span>₫</span></span>
-                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
-                                <div class="card">
-                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
-                                    <div class="card-body">
-                                      <h1 class="card-title-brand">Versace</h1>
-                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
-                                      <span class="card-product-price">775.000 <span>₫</span></span>
-                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
-                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
-                                    </div>
-                                </div>
-                            </div>
+                            }
                         </div>
                     </div>
                 </div>

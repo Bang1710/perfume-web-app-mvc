@@ -8,6 +8,7 @@ ol.breadcrumb {
 a.breadcrumb-item-title {
     text-decoration: none;
     color: black;
+    text-transform: uppercase;
 }
 
 li.breadcrumb-item.active.breadcrumb-item-des {
@@ -274,6 +275,8 @@ table.table {
 .tab-product-detail-image {
     width: 70%;
     overflow: hidden;
+    height: 700px;
+    margin: 20px auto;
 }
 
 img.tab-image {

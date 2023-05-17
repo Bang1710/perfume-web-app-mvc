@@ -192,11 +192,10 @@
                 </form>
             </div>
             <div class="content-rightbar col-9">
-                <div class="rightbar-title">
+                <div class="rightbar-title alert @ViewBag.Alert" role="alert">
                     @ViewBag.Message
                 </div>
                 <div class="row">
-
                     @foreach (var item in @Model)
                     {
                         <div class="col-lg-3 product-trending">
