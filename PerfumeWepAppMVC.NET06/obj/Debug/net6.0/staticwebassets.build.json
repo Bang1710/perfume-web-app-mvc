@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rvgbwfOM8YwwCX271UqDWA9Cf/X7H5ICNPgFfrLg6Xg=",
+  "Hash": "Iy2oMOdTMcZchcMjUd0NmOu7xu/eMpl1TLOHy2jIGNQ=",
   "Source": "PerfumeWepAppMVC.NET06",
   "BasePath": "_content/PerfumeWepAppMVC.NET06",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\PerfumeWepAppMVC.NET06.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\detail.css",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "css/detail.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\detail.css"
     },
     {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\home.css",
@@ -1103,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\img-product\\product01.png"
+    },
+    {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\detail.js",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "js/detail.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\detail.js"
     },
     {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\home.js",

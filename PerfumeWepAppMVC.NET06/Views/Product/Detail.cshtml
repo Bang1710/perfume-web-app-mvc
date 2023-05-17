@@ -1,0 +1,471 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Sản phẩm";
+}
+
+
+    <div class="nd-product-detail" style="margin: 50px 0px 50px;">
+        <div class="content-header container">
+                <nav aria-label="breadcrumb" class="breadcrumb-des">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Trang chủ</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">@Model.Category.Category_Name</a></li>
+                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Nước hoa @Model.Category.Category_Name</a></li>
+                    <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">@Model.Product_Name</li>
+                </ol>
+                <hr>
+            </nav>
+        </div>
+        <div class="content-section container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="content-section-image">
+                        <img src="./img/img-product/@Model.Product_ID-01.png" alt="" class="content-section-img-detail">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="content-section-nd-detail">
+                        <div class="content-detail-brand">
+                            @Model.Category.Category_Name
+                        </div>
+                        <div class="content-detail-product-name">
+                            @Model.Product_Name
+                        </div>
+                        <div class="row content-detail-intro">
+                            <div class="col-lg-4 content-detail-origin">
+                                <span class="lb-detail">Xuất xứ: </span> <span  class="nd-detail">@Model.Product_Origin</span>
+                            </div>
+                            <div class="col-lg-4 content-detail-origin">
+                                <span class="lb-detail">Giới tính: </span> <span class="nd-detail">@Model.Product_Gender</span>
+                            </div>
+                            <div class="col-lg-4 content-detail-origin">
+                                <span class="lb-detail">Năm phát hành: </span> <span class="nd-detail">@Model.Product_ReleaseYear</span>
+                            </div>
+                        </div>
+                        <div class="content-detail-des">
+                            @Model.Product_Intro
+                        </div>
+                        <div class="content-detail-price">
+                            @Model.Product_Price.ToString("C0").Replace(",", ".").Substring(1) ₫
+                        </div>
+                        <div class="content-detail-styles">
+                            <span class="lb-styles-detail">Phong cách: </span> <span class="nd-styles-nd">@Model.Product_Style</span>
+                        </div>
+                        <div class="content-detail-capacity">
+                            <span class="lb-styles-detail">Dung tích: </span> <span class="nd-styles-nd">@Model.Product_Volume</span>
+                        </div>
+
+                        <div class="conteng-detail-input-number">
+                            <span class="lb-styles-detail">Số lượng: </span> 
+                            <div class="input-number">
+                                <button class="minus">-</button>
+                                <input type="number" value="0" min="0" class="input-number-product">
+                                <button class="plus">+</button>
+                            </div>
+                        </div>
+                        <div class="content-detail-add-to-card">
+                            <input type="submit" value="Thêm vào giỏ hàng" class="input-submit-add-card">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-section-product-detail-des container">
+            <div class="row">
+                <div class="col-lg-11">
+                    <div class="product-tabcontrol">
+                        <hr style="margin: 10px 0px 10px;">
+                        <div class="tabs">
+                            <div class="tab-item active">
+                                Thông tin chi tiết
+                            </div>
+                            <div class="tab-item">
+                                Hướng dẫn sử dụng và bảo quản
+                            </div>
+                            <div class="tab-item">
+                                Đánh giá
+                            </div>
+                            <div class="line"></div>
+                        </div>
+            
+                        <!-- Tab content -->
+                        <div class="tab-content">
+                            <div class="tab-pane active">
+                                <div class="tab-product-detail">
+                                    <div class="tab-product-detail-header">Tổng quan về @Model.Product_Name</div>
+                                    <div class="tab-product-detail-des">
+
+                                    </div>
+                                    <div class="tab-product-detail-image">
+                                        <img class="tab-image" src="./img/img-product/@Model.Product_ID-02.png" alt="">
+                                    </div>
+                                    <div class="tab-product-detail-scent">Mùi hương đặc trưng của @Model.Product_Name </div>
+                                    <div>
+                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương đầu:</span class="tab-product-detail-item-nd"> <span> Chanh vàng, Ớt hồng, Bạc hà</span></li>
+                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương giữa:</span class="tab-product-detail-item-nd"> <span> Chanh vàng, Ớt hồng, Bạc hà</span></li>
+                                        <li class="tab-product-detail-list"><span class="tab-product-detail-item-lb">Hương cuối:</span class="tab-product-detail-item-nd"> <span> Chanh vàng, Ớt hồng, Bạc hà</span></li>
+                                    </div>
+                                    <hr>
+                                    <div class="tab-product-tb-header">Bảng thông số chi tiết của nước hoa nam Bleu De Chanel EDP</div>
+                                    <div>
+                                        <table class="table">
+                                            <thead>
+                                              <tr class="tr-header">
+                                                <th scope="col">STT</th>
+                                                <th scope="col">Thông số sản phẩm</th>
+                                                <th scope="col">Giá trị</th>
+                                              </tr>
+                                            </thead>
+                                            <tbody>
+                                              <tr class="tr-row">
+                                                <th scope="row">1</th>
+                                                <td>Nhóm nước hoa: </td>
+                                                <td>Hương gỗ thơm</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">2</th>
+                                                <td>Giới tính:</td>
+                                                <td>Nam</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">3</th>
+                                                <td>Độ tuổi khuyên dùng: </td>
+                                                <td>Trên 25</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">4</th>
+                                                <td>Nồng độ:</td>
+                                                <td>EDP</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">5</th>
+                                                <td>Độ lưu hương:</td>
+                                                <td>Tạm ổn - 4 giờ đến trên 6 giờ</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">6</th>
+                                                <td>Phong cách:</td>
+                                                <td>Nam tính, Lịch lãm, Sang trọng</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">7</th>
+                                                <td>Độ toả hương:</td>
+                                                <td>Gần - Toả hương trong vòng một cánh tay</td>
+                                              </tr>
+                                              <tr class="tr-row">
+                                                <th scope="row">8</th>
+                                                <td>Thời điểm phù hợp: </td>
+                                                <td>Ngày & Đêm - Sử dụng hàng ngày</td>
+                                              </tr>
+                                            </tbody>
+                                          </table>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane">
+                                <div class="tab-product-guid-preserve">
+                                    <div class="guid-product">
+                                        <div class="guid-product-header">Hướng dẫn sử dụng</div>
+                                        <hr>
+                                        <div class="guid-product-detail">
+                                            <li class="guid-product-detail-item-label">Thời gian xịt nước hoa: <span class="guid-product-detail-item-nd">Nên xịt nước hoa vào buổi sáng sau khi tắm xong hoặc buổi tối trước khi ra ngoài với bạn bè, gia đình.</span></li>
+                                            <li class="guid-product-detail-item-label">Vị trí xịt nước hoa: <span class="guid-product-detail-item-nd">phía sau cổ, bên trong khuỷu tay, bên trong cổ tay.</span></li>
+                                            <li class="guid-product-detail-item-label">Không chà xát nước hoa sau khi xịt: <span class="guid-product-detail-item-nd">: Xịt xong chờ khoảng 5 - 10 giây, nước hoa sẽ gặp nhiệt trên da sẽ tự lên mùi và tỏa ngát trọng vẹn hương thơm.</span></li>
+                                            <li class="guid-product-detail-item-label">Thử ướp hương lên tóc: <span class="guid-product-detail-item-nd">: Xịt nước hoa ra chiếc lược, rồi chờ 2-3 giây cho mùi hương hoa dịu lại rồi chải lên tóc.</span></li>
+                                            <li class="guid-product-detail-item-label">Không dùng quá nhiều</li>
+                                        </div>
+                                    </div>
+
+                                    <div class="preserve-product">
+                                        <div class="preserve-product-header">Hướng dẫn bảo quản</div>
+                                        <hr>
+                                        <div class="preserve-product-detail">
+                                            <li class="preserve-product-lable"> Ánh sáng:  <span class="preserve-product-nd">tiếp xúc trực tiếp với ánh sáng trong một khoảng thời gian chắc chắn sẽ khiến nước hoa bị biến chất. Nên để nước hoa trong hộp, nơi tối, khô thoáng (tủ đồ, kệ tủ)</span></li>
+                                            <li class="preserve-product-lable"> Nhiệt độ: <span class="preserve-product-nd">nhiệt độ dao động quá cao sẽ nhanh chóng làm hỏng mùi hương. Vì vậy để nước hoa trong nhà tắm có khả năng hư hỏng nhanh hơn nhiều so với nước hoa được lưu trữ trong không gian khác(tủ đồ, kệ tủ,...).</span></li>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                           
+                            <div class="tab-pane">
+                                <div class="tab-reviews">
+                                    <form method="post" action="#" class="form-review">
+                                        <div class="review-rating">1. Hãy đánh giá cho sản phẩm này:</div>
+                                        <div class="rating">
+                                            <div class="star selected" data-value="1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                  <path fill="none" d="M0 0h24v24H0z"/>
+                                                  <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star selected" data-value="2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                  <path fill="none" d="M0 0h24v24H0z"/>
+                                                  <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star selected" data-value="3">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                  <path fill="none" d="M0 0h24v24H0z"/>
+                                                  <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star selected" data-value="4">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                  <path fill="none" d="M0 0h24v24H0z"/>
+                                                  <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="star selected" data-value="5">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                  <path fill="none" d="M0 0h24v24H0z"/>
+                                                  <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                </svg>
+                                            </div>  
+                                        </div>
+                                        <input type="hidden" id="rating" name="rating" value="5" />
+                                        <input type="hidden" id="Product_ID" name="Product_ID" value="" />
+                                        <div class="mb-3">
+                                            <div class="write-review">2. Viết nhận xét của bạn vào bên dưới:</div>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="txt-review" rows="3" placeholder="Hãy cho chúng tôi biết đánh giá của bạn về sản phẩm này !"></textarea>
+                                        </div>
+                                        <div class="infor-personal">3. Thông tin cá nhân của bạn</div>
+                                        <div class="mb-3 form-personal-infor">
+                                            <input type="text" name="input-fullname" id="input-fullname" placeholder="Họ và tên">
+                                            <div class="row">
+                                                <div class="col-lg-6  col-md-6 col-sm-6 col-12">
+                                                    <input type="tel" name="input-telephone" id="input-telephone" placeholder="Số điện thoại">
+                                                </div>
+                                                <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                                    <input type="email" class="form-control" id="input-email" placeholder="abc@gmail.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-submit">
+                                            <input type="submit" value="Gửi đánh giá" class="input-submit-review">
+                                        </div>
+                                    </form>
+
+                                    <hr>
+                                    <div class="form-review-answer">
+                                        <div class="review-answer-personal">
+                                            <div class="personal-logo">
+                                                <img src="./img/logo-user.png" alt="" class="logo-image">
+                                            </div>
+                                            <div class="infor-user">
+                                                <div class="rating">
+                                                    <div class="star-answer" data-value="1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="4">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>  
+                                                </div>
+                                                <input type="hidden" id="rating-answer" name="rating-answer" value="4" />
+                                                <div class="infor-username">Văn Bang <span class="infor-user-datetime">08:44, 14/04/2023</span></div>
+                                                <div class="infor-user-review">
+                                                    Tip chia sẽ kinh nghiệm cá nhân khi xài chai này các bạn xịt vào 2 bên vai áo, bảo đảm mùi sẽ giữ được lâu hơn và cứ thoang thoảng quanh người rất hay bảo đảm sẽ có nhiều cô gái thích mùi này hehe.
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="review-answer-personal">
+                                            <div class="personal-logo">
+                                                <img src="./img/logo-user.png" alt="" class="logo-image">
+                                            </div>
+                                            <div class="infor-user">
+                                                <div class="rating">
+                                                    <div class="star-answer" data-value="1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="4">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>  
+                                                </div>
+                                                <input type="hidden" id="rating-answer" name="rating-answer" value="4" />
+                                                <div class="infor-username">Văn Bang <span class="infor-user-datetime">08:44, 14/04/2023</span></div>
+                                                <div class="infor-user-review">
+                                                    Tip chia sẽ kinh nghiệm cá nhân khi xài chai này các bạn xịt vào 2 bên vai áo, bảo đảm mùi sẽ giữ được lâu hơn và cứ thoang thoảng quanh người rất hay bảo đảm sẽ có nhiều cô gái thích mùi này hehe.
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="review-answer-personal">
+                                            <div class="personal-logo">
+                                                <img src="./img/logo-user.png" alt="" class="logo-image">
+                                            </div>
+                                            <div class="infor-user">
+                                                <div class="rating">
+                                                    <div class="star-answer" data-value="1">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="3">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="4">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="star-answer" data-value="5">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                            <path fill="none" d="M0 0h24v24H0z"/>
+                                                            <path d="M12 16.53L18.18 20l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 20z"/>
+                                                        </svg>
+                                                    </div>  
+                                                </div>
+                                                <input type="hidden" id="rating-answer" name="rating-answer" value="4" />
+                                                <div class="infor-username">Văn Bang <span class="infor-user-datetime">08:44, 14/04/2023</span></div>
+                                                <div class="infor-user-review">
+                                                    Tip chia sẽ kinh nghiệm cá nhân khi xài chai này các bạn xịt vào 2 bên vai áo, bảo đảm mùi sẽ giữ được lâu hơn và cứ thoang thoảng quanh người rất hay bảo đảm sẽ có nhiều cô gái thích mùi này hehe.
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section-product-related container">
+            <div class="product-related-header">
+                Danh sách các sản phẩm liên quan
+            </div>
+            <div class="row">
+                <div class="col-lg-11">
+                    <hr style="margin-bottom: 20px; height: 2px; font-weight: 700; color: black;">
+                </div>
+            </div>
+            <div class="product-related-list">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
+                                <div class="card">
+                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
+                                    <div class="card-body">
+                                      <h1 class="card-title-brand">Versace</h1>
+                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
+                                      <span class="card-product-price">775.000 <span>₫</span></span>
+                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
+                                <div class="card">
+                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
+                                    <div class="card-body">
+                                      <h1 class="card-title-brand">Versace</h1>
+                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
+                                      <span class="card-product-price">775.000 <span>₫</span></span>
+                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
+                                <div class="card">
+                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
+                                    <div class="card-body">
+                                      <h1 class="card-title-brand">Versace</h1>
+                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
+                                      <span class="card-product-price">775.000 <span>₫</span></span>
+                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
+                                <div class="card">
+                                    <img src="./img/product01-image02.jpg" class="card-img-top" alt="Sản phẩm 01">
+                                    <div class="card-body">
+                                      <h1 class="card-title-brand">Versace</h1>
+                                      <h3 class="card-title-productName">Nước Hoa Unisex Maison Franci<span class="card-capacity"> 70ml</span></h3>
+                                      <span class="card-product-price">775.000 <span>₫</span></span>
+                                      <h4 class="card-product-gender">Nước hoa cho nam</h4>
+                                      <a href="#" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>

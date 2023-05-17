@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PerfumeWebApp.NET06.Data;
+using PerfumeWepAppMVC.NET06.Models;
 
 namespace PerfumeWepAppMVC.NET06.Controllers
 {
@@ -38,41 +39,72 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             ViewBag.ConcentrationProduct = concentrationProduct;
         }
 
-        [HttpGet]
         public IActionResult Index()
         {
             SetValueViewBag();
             var listAllProduct = _context.Products.ToList();
+            //TempData["products"] = listAllProduct;
             return View(listAllProduct);
         }
 
+        public string MessageStatus { get; set; }
+
         [HttpGet]
-        public IActionResult Filter(string priceSortOrder, List<string> brand, List<string> gender, List<string> capacity, List<string> original, List<string> concentration, List<string> YearRelease)
+        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             SetValueViewBag();
             var products = _context.Products.ToList();
 
-            if (priceSortOrder != null)
+            if (priceSortOrder != null && priceSortOrder.Any())
             {
-                switch (priceSortOrder)
+                if (priceSortOrder == "asc")
                 {
-                    case "asc":
-                        products = products.OrderBy(p => p.Product_Price).ToList();
-                        break;
-                    case "desc":
-                        products = products.OrderByDescending(p => p.Product_Price).ToList();
-                        break;
-                    default:
-                        products = products.OrderBy(p => p.Product_Price).ToList();
-                        break;
+                    products = products.OrderBy(p => p.Product_Price).ToList();
+                }
+                else if (priceSortOrder == "desc")
+                {
+                    products = products.OrderByDescending(p => p.Product_Price).ToList();
                 }
             }
-
-            if (brand != null)
+            
+            if (brand != null && brand.Any())
             {
                 products = products.Where(p => brand.Contains(p.Category_ID)).ToList();
             }
-            return View("Filter", products);
+
+            if (gender != null && gender.Any())
+            {
+                products = products.Where(p => gender.Contains(p.Product_Gender)).ToList();
+            }
+
+            if (capacity != null && capacity.Any())
+            {
+                products = products.Where(p => capacity.Contains(p.Product_Volume)).ToList();
+            }
+
+            if (original != null && original.Any())
+            {
+                products = products.Where(p => original.Contains(p.Product_Origin)).ToList();
+            }
+
+            if (products != null && products.Any())
+            {
+                MessageStatus = "Danh sách kết quả sau khi lọc";
+                ViewBag.Message = MessageStatus;
+            } else
+            {
+                MessageStatus = "Không có sản phẩm nào phụ hợp với kết quả lọc của bạn";
+                ViewBag.Message = MessageStatus;
+            }
+            return View(products);
+        }
+
+        [HttpGet]
+        [Route("chi-tiet-san-pham/{id?}")]
+        public ActionResult Detail(string? id)
+        {
+            var product = _context.Products.Where(p => p.Product_ID == id).FirstOrDefault();
+            return View(product);
         }
     }
 }
