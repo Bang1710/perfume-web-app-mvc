@@ -8,7 +8,7 @@ ol.breadcrumb {
 a.breadcrumb-item-title {
     text-decoration: none;
     color: black;
-    text-transform: uppercase;
+    text-transform:  none;
 }
 
 li.breadcrumb-item.active.breadcrumb-item-des {

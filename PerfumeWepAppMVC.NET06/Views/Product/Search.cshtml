@@ -31,7 +31,6 @@
                     } else
                     {
                         <input type="hidden" name="searchHistory" id="searchHistory" value="@ViewBag.StringSearchHistory" />
-
                     }
 
                     <div class="accordion filter" id="Filter">
@@ -151,8 +150,19 @@
                 </form>
             </div>
             <div class="content-rightbar col-9">
-                <div class="rightbar-title alert @ViewBag.Alert " role="alert" style="margin: 20px 0px; width: 70%;">
-                    @ViewData["MessageSearch"]
+                <div class="rightbar-title alert @ViewBag.Alert " role="alert" style="margin: 20px 0px;">
+                    @ViewBag.currentUrl
+                    @if (ViewBag.Alert == "alert-success")
+                    {
+                        <div>
+                            Danh sách sản phẩm sau khi tìm kiếm với từ khóa <span style="font-weight:700; color: black">'@ViewData["MessageSearch"]'</span> và lọc sản phẩm
+                        </div>
+                    } else
+                    {
+                        <div>
+                            Không có sản phẩm nào phụ hợp sau khi tìm kiếm với từ khóa <span style="font-weight:700; color: black"> '@ViewData["MessageSearch"]'</span> và lọc sản phẩm
+                        </div>
+                    }
                 </div>
                 <div class="row">
                     @foreach (var item in @Model)
@@ -171,6 +181,22 @@
                         </div>
                     }
                 </div>
+                @*<nav aria-label="Page navigation example" class="nav-paging">
+                    <ul class="pagination">
+
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            if (i == ViewBag.CurrentPage)
+                            {
+                                <li class="page-item"><a class="page-link">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" asp-action="Search" asp-controller="Product" asp-route-page="@i">@i</a></li>
+                            }
+                        }
+                    </ul>
+                </nav>*@
             </div>
         </div>
     </div>

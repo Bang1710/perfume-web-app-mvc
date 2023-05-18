@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PerfumeWebApp.NET06.Data;
 using PerfumeWepAppMVC.NET06.Models;
+using System.Drawing.Printing;
 
 namespace PerfumeWepAppMVC.NET06.Controllers
 {
@@ -34,10 +36,17 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         }
 
         [Route("danh-sach-san-pham/")]
-        public IActionResult Index()
+        public IActionResult Index(int page = 1, int pageSize = 8)
         {
             SetValueViewBag();
-            var listAllProduct = _context.Products.ToList();
+            var listAllProduct = _context.Products
+                                            .OrderBy(p => p.Product_ID)
+                                            .Skip((page - 1) * pageSize)
+                                            .Take(pageSize)
+                                            .ToList();
+
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling(_context.Products.Count() / (double)pageSize);
             //TempData["products"] = listAllProduct;
             return View(listAllProduct);
         }
@@ -45,9 +54,19 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         public string MessageStatus { get; set; }
         public string AlertMessage { get; set; }
 
+        private string GetCommaSeparatedValues(List<string> values)
+        {
+            if (values != null && values.Any())
+            {
+                return string.Join(",", values);
+            }
+
+            return string.Empty;
+        }
+
         [HttpGet]
-        [Route("loc-san-pham/")]
-        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        [Route("loc-san-pham-theo-thong-so-cua-sp/")]
+        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original/*, int page = 1, int pageSize = 8*/)
         {
             SetValueViewBag();
             var products = _context.Products.ToList();
@@ -98,6 +117,24 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 MessageStatus = "Không có sản phẩm nào phụ hợp với kết quả lọc của bạn";
                 AlertMessage = "alert-danger";
             }
+
+            //var productTotal = products.Count();
+
+            //products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            //ViewBag.PriceSortOrder = priceSortOrder;
+            //ViewBag.brandQueryString = GetCommaSeparatedValues(brand as List<string>);
+            //ViewBag.genderQueryString = GetCommaSeparatedValues(brand as List<string>);
+            //ViewBag.capacityQueryString = GetCommaSeparatedValues(brand as List<string>);
+            //ViewBag.originalQueryString = GetCommaSeparatedValues(brand as List<string>);
+
+            ////ViewBag.Gender = gender;
+            ////ViewBag.Capacity = capacity;
+            ////ViewBag.Original = original;
+
+            //ViewBag.CurrentPage = page;
+            //ViewBag.TotalPages = (int)Math.Ceiling(productTotal / (double)pageSize);
+
             ViewBag.Message = MessageStatus;
             ViewBag.Alert = AlertMessage;
             return View(products);
@@ -133,42 +170,17 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         public string MessageStatusSearch { get; set; }
 
-        //[HttpGet]
-        //[Route("tim-kiem/{searchString?}")]
-        //public ActionResult Search(string? searchString)
-        //{
-        //    SetValueViewBag();
-        //    var products = _context.Products.Where(p => p.Product_Name.Contains(searchString)).ToList();
-        //    if (products != null && products.Any())
-        //    {
-        //        MessageStatusSearch = $"Danh sách sản phẩm sau khi tìm kiếm với từ khóa '{searchString}'";
-        //        AlertMessage = "alert-success";
-        //    } else
-        //    {
-        //        MessageStatusSearch = $"Không có sản phẩm phù hợp với kết quả tìm kiếm với từ khóa '{searchString}'";
-        //        AlertMessage = "alert-danger";
-        //    }
-
-        //    ViewData["MessageSearch"] = MessageStatusSearch;
-        //    //ViewBag.ProductSearch = products;
-        //    ViewBag.Alert = AlertMessage;
-        //    return View(products);
-        //}
-
         [HttpGet]
-        //[Route("tim-kiem-va-loc/")]
-        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        [Route("tim-kiem-va-loc-san-pham-theo-thong-so-cua-sp/")]
+        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original/*, int page = 1, int pageSize = 8*/)
         {
             SetValueViewBag();
             var stringSearchHistory = "";
-            //var searchstring = Request.RouteValues["searchString"] as string;
             var products = _context.Products.ToList();
             if (searchString != null && searchString.Any())
             {
                 products = _context.Products.Where(p => p.Product_Name.Contains(searchString)).ToList();
             }
-
-            ViewBag.Search = searchString;
 
             if (searchHistory != null && searchHistory.Any())
             {
@@ -176,8 +188,6 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 stringSearchHistory = Request.Query["searchHistory"].ToString();
                 ViewBag.StringSearchHistory = stringSearchHistory;
             }
-
-
 
             if (priceSortOrder != null && priceSortOrder.Any())
             {
@@ -215,18 +225,28 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 products = products.Where(p => original.Contains(p.Product_Origin)).ToList();
             }
 
+            var result = (searchString != null) ? searchString : searchHistory;
 
             if (products != null && products.Any())
             {
-                MessageStatusSearch = $"Danh sách sản phẩm sau khi tìm kiếm và lọc sản phẩm";
                 AlertMessage = "alert-success";
             }
             else
             {
-                MessageStatusSearch = $"Không có sản phẩm phù hợp với kết quả tìm kiếm và lọc sản phẩm";
                 AlertMessage = "alert-danger";
             }
 
+            if (!(products != null && !products.Any()))
+            {
+                ViewBag.Search = searchString;
+            }
+
+            //products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
+            //ViewBag.CurrentPage = page;
+            //ViewBag.TotalPages = (int)Math.Ceiling(_context.Products.Count() / (double)pageSize);
+
+            MessageStatusSearch = result;
             ViewData["MessageSearch"] = MessageStatusSearch;
             ViewBag.ProductSearch = products;
             ViewBag.Alert = AlertMessage;

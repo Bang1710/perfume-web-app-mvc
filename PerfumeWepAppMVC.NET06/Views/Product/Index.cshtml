@@ -40,7 +40,7 @@
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderLowToHigh" value="asc" checked >
+                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderLowToHigh" value="asc">
                                         <label class="form-check-label" for="priceSortOrderLowToHigh">
                                             Giá từ thấp đến cao
                                         </label>
@@ -146,8 +146,8 @@
                 </form>
             </div>
             <div class="content-rightbar col-9">
-                <div class="rightbar-title">
-                    Tất cả sản phẩm
+                <div class="rightbar-title alert alert-primary" style="font-size:15px;">
+                    Sản phẩm ở trang @ViewBag.CurrentPage
                 </div>
                 <div class="row">
 
@@ -169,11 +169,10 @@
                 </div>
                 <nav aria-label="Page navigation example" class="nav-paging">
                     <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                        {
+                            <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Product" asp-route-page="@i" >@i</a></li>
+                        }
                     </ul>
                 </nav>
             </div>

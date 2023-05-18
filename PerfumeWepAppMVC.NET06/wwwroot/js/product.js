@@ -24,6 +24,9 @@
         localStorage.setItem(p.id, p.checked);
     })
 
+    var searchString = document.getElementById('searchString');
+    localStorage.setItem('searchStringValue', searchHistory.value);
+
     var searchHistory = document.getElementById('searchHistory');
     localStorage.setItem('searchHistoryValue', searchHistory.value);
 });
@@ -35,6 +38,7 @@ window.addEventListener("load", function () {
     var capacity = document.getElementsByName("capacity");
     var original = document.getElementsByName("original");
     var searchHistory = document.getElementsByName("searchHistory");
+    var searchString = document.getElementById('searchString');
 
     gender.forEach(g => {
         g.checked = localStorage.getItem(g.id) === "true";
@@ -56,5 +60,7 @@ window.addEventListener("load", function () {
     })
 
     searchHistory.value = localStorage.getItem('searchHistoryValue');
+
+    searchString.value = localStorage.getItem('searchStringValue');
 
 });
