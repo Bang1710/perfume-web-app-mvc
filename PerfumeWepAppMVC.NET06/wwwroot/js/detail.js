@@ -65,3 +65,15 @@ listStarAnswer.forEach(function (star, index) {
         star.classList.remove('selected');
     }
 });
+
+var mainSideNavigation = document.getElementsByClassName('main-sidenav')[0];
+var sideNavigations = document.getElementsByClassName('sidenav-btn')[0];
+var closeButton = document.querySelector('.close');
+
+sideNavigations.addEventListener('click', function (event) {
+    mainSideNavigation.style.width = '300px';
+});
+
+closeButton.addEventListener('click', function () {
+    mainSideNavigation.style.width = 0;
+});

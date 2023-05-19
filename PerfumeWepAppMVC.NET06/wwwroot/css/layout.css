@@ -20,6 +20,11 @@ body {
     width: 100%;
 }
 
+img.logo-header {
+    height: 70px;
+    width: 200px;
+}
+
 .content {
     height: 100%;
     display: flex;
@@ -97,7 +102,7 @@ img.img-cart {
     padding: 5px;
 }
 
-.cart {
+.cart, .toogle-bar {
     line-height: 80px;
     margin-left: 15px;
 }
@@ -108,6 +113,31 @@ button.btn.btn-outline-light.btn-cart {
 
 img.img-cart:hover {
     background-color: cornsilk;
+}
+
+i.fa-solid.fa-cart-plus {
+    font-size: 25px;
+    color: white;
+    margin-top: 5px;
+}
+
+i.fa-solid.fa-cart-plus:hover {
+    color: greenyellow;
+}
+
+.toggle-bar {
+    line-height: 80px;
+    margin-left: 15px;
+}
+
+i.fa-solid.fa-bars {
+    font-size: 25px;
+    color: white;
+    margin-top: 5px;
+}
+
+i.fa-solid.fa-bars:hover {
+    color: greenyellow;
 }
 
 /* ------------------------Footer------------------------- */
@@ -161,3 +191,108 @@ h1.footer-title {
     letter-spacing: 1px;
     text-align: center;
 }
+
+/*toogle bar*/
+
+/*.active {
+    background-color: #059862;
+}*/
+
+
+
+.main-sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    /* bottom: 0; */
+    background-color: black;
+    transition: .2s;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.main-slidebar-toogle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 10px 20px 0px;
+}
+
+.slidebar-toogle-image-logo > img {
+    width: 90px;
+}
+
+.slidebar-toogle-image-logo {
+    margin-bottom: 20px;
+}
+
+a:hover {
+    color: #f1f1f1;
+}
+
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 5rem;
+}
+
+i.fa-solid.fa-xmark.close {
+    color: white;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+h3.slidebar-toogle-hello {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+}
+
+.slidebar-toogle-btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.slidebar-toogle-btn > a {
+    font-size: 15px;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    padding: 0;
+    margin: 10px;
+    margin: 10px;
+}
+
+.slidebar-toogle-btn > a.btn-register {
+    border-right: 1px solid white;
+    padding: 0px 22px 0px 0px;
+}
+
+.slidebar-toogle-home > a {
+    font-size: 15px;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+

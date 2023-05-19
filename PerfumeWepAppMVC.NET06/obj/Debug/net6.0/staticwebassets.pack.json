@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets\\css\\product.css"
     },
     {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\responsive_layout.css",
+      "PackagePath": "staticwebassets\\css\\responsive_layout.css"
+    },
+    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },
@@ -49,6 +53,10 @@
       "PackagePath": "staticwebassets\\img\\img-header-footer\\instagram.png"
     },
     {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-header-footer\\logo-user.png",
+      "PackagePath": "staticwebassets\\img\\img-header-footer\\logo-user.png"
+    },
+    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-header-footer\\logo.png",
       "PackagePath": "staticwebassets\\img\\img-header-footer\\logo.png"
     },
@@ -69,10 +77,6 @@
       "PackagePath": "staticwebassets\\img\\img-home\\Calvin_Klein_logo-700x123.png"
     },
     {
-      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\Kerastase_Kérastase_logo_logotype.png",
-      "PackagePath": "staticwebassets\\img\\img-home\\Kerastase_Kérastase_logo_logotype.png"
-    },
-    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\banner01.jpg",
       "PackagePath": "staticwebassets\\img\\img-home\\banner01.jpg"
     },
@@ -81,12 +85,20 @@
       "PackagePath": "staticwebassets\\img\\img-home\\banner02.jpg"
     },
     {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\chanel.png",
+      "PackagePath": "staticwebassets\\img\\img-home\\chanel.png"
+    },
+    {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\dior.png",
+      "PackagePath": "staticwebassets\\img\\img-home\\dior.png"
+    },
+    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\female.png",
       "PackagePath": "staticwebassets\\img\\img-home\\female.png"
     },
     {
-      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\lauder.png",
-      "PackagePath": "staticwebassets\\img\\img-home\\lauder.png"
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\gucci.png",
+      "PackagePath": "staticwebassets\\img\\img-home\\gucci.png"
     },
     {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\male.png",
@@ -127,10 +139,6 @@
     {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\versace.png",
       "PackagePath": "staticwebassets\\img\\img-home\\versace.png"
-    },
-    {
-      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\ysl.png",
-      "PackagePath": "staticwebassets\\img\\img-home\\ysl.png"
     },
     {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1001-01.png",

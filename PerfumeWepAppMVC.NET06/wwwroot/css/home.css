@@ -53,40 +53,40 @@
 
 .brand {
     margin-top: 20px;
-    margin-left: 48px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
+    margin-left: 10px;
 }
 img.dior {
-    height: 100px;
-    width: 200px;
+    width: 100%;
 }
 
 .col.image-brand.dior {
-    margin-top: 10px;
+    margin-top: 30px;
 }
 
 .col.image-brand.calvin {
-    margin-top: 35px;
+    margin-top: 41px;
 }
 
 img.calvin {
-    width: 200px;
-    height: 50px;
+    width: 100%;
+}
+
+.col-xxl.col-xl.col-lg.col.image-brand.versace {
+    margin-top: 10px;
 }
 
 
 img.versace {
-    width: 200px;
-    height: 135px;
+    width: 100%;
 }
 
 .col.image-brand.ysl {
-    margin-top: 25px;
+    margin-top: 10px;
 }
 
 img.ysl {
-    width: 200px;
-    height: 80px;
+    width: 100%;
 }
 
 .col.image-brand.lauder {
@@ -94,8 +94,7 @@ img.ysl {
 }
 
 img.lauder {
-    width: 200px;
-    height: 40px;
+    width: 100%;
 }
 
 .banner {
@@ -105,30 +104,38 @@ img.lauder {
 
 img.img-cart-list {
     width: 100%;
-    height: 384px;
+    height: 360px;
+    object-fit: cover;
 }
 
 .content-cardImage {
     text-decoration: none;
     color: black;
+    text-transform: uppercase;
 }
 
-    .content-cardImage .des p {
-        font-size: 20px;
-        font-weight: 600;
-        text-align: center;
-        margin: 10px 0;
-    }
+.content-cardImage .des p {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin: 10px 0;
+}
 
 .card-product {
     margin: 0px 0px 50px;
 }
 
 .perfume-category {
-    margin: 0px 10px;
-    border: 1px solid gray;
+    /*margin: 0px 10px;*/
+    /*border: 1px solid gray;*/
     border-radius: 3px;
     padding: 0px;
+}
+
+.perfume-category-block {
+    margin: 0 10px;
+    border: 1px solid #c3bcbc;
+    border-radius: 3px;
 }
 
 .intro-product-trending {
@@ -210,4 +217,20 @@ a.btn.btn-outline-success.card-view-detail {
 
 .intro-product-recommend {
     text-align: center;
+}
+
+img.left-image {
+    width: 100%;
+}
+
+img.right-image {
+    width: 100%;
+}
+
+a:hover {
+    color: gray;
+}
+
+.col-xxl.col-lg.col-6.product-trending {
+    width: 20%;
 }

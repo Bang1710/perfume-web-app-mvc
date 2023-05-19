@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CvEl8Xv8LGnR4v7tVXbCdyT+/mUhfBuroFujQkg1cik=",
+  "Hash": "oWIZC+ZXhrxLGLG0eJuBNX17I1Qj0sKtKRHU2cfSB80=",
   "Source": "PerfumeWepAppMVC.NET06",
   "BasePath": "_content/PerfumeWepAppMVC.NET06",
   "Mode": "Default",
@@ -119,6 +119,23 @@
       "OriginalItemSpec": "wwwroot\\css\\product.css"
     },
     {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\responsive_layout.css",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "css/responsive_layout.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\responsive_layout.css"
+    },
+    {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\site.css",
       "SourceId": "PerfumeWepAppMVC.NET06",
       "SourceType": "Discovered",
@@ -202,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\img-header-footer\\instagram.png"
+    },
+    {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-header-footer\\logo-user.png",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "img/img-header-footer/logo-user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img-header-footer\\logo-user.png"
     },
     {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-header-footer\\logo.png",
@@ -357,6 +391,40 @@
       "OriginalItemSpec": "wwwroot\\img\\img-home\\Calvin_Klein_logo-700x123.png"
     },
     {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\chanel.png",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "img/img-home/chanel.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img-home\\chanel.png"
+    },
+    {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\dior.png",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "img/img-home/dior.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\img-home\\dior.png"
+    },
+    {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\female.png",
       "SourceId": "PerfumeWepAppMVC.NET06",
       "SourceType": "Discovered",
@@ -374,12 +442,12 @@
       "OriginalItemSpec": "wwwroot\\img\\img-home\\female.png"
     },
     {
-      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\Kerastase_Kérastase_logo_logotype.png",
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\gucci.png",
       "SourceId": "PerfumeWepAppMVC.NET06",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
       "BasePath": "_content/PerfumeWepAppMVC.NET06",
-      "RelativePath": "img/img-home/Kerastase_Kérastase_logo_logotype.png",
+      "RelativePath": "img/img-home/gucci.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -388,24 +456,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\img-home\\Kerastase_Kérastase_logo_logotype.png"
-    },
-    {
-      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\lauder.png",
-      "SourceId": "PerfumeWepAppMVC.NET06",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
-      "BasePath": "_content/PerfumeWepAppMVC.NET06",
-      "RelativePath": "img/img-home/lauder.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\img-home\\lauder.png"
+      "OriginalItemSpec": "wwwroot\\img\\img-home\\gucci.png"
     },
     {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\male.png",
@@ -576,23 +627,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\img-home\\versace.png"
-    },
-    {
-      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-home\\ysl.png",
-      "SourceId": "PerfumeWepAppMVC.NET06",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
-      "BasePath": "_content/PerfumeWepAppMVC.NET06",
-      "RelativePath": "img/img-home/ysl.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\img-home\\ysl.png"
     },
     {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-product\\P1001-01.png",
