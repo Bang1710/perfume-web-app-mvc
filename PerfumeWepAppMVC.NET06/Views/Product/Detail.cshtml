@@ -115,49 +115,49 @@
                                         <table class="table">
                                             <thead>
                                               <tr class="tr-header">
-                                                <th scope="col">STT</th>
+                                                @*<th scope="col">STT</th>*@
                                                 <th scope="col">Thông số sản phẩm</th>
                                                 <th scope="col">Giá trị</th>
                                               </tr>
                                             </thead>
                                             <tbody>
                                               <tr class="tr-row">
-                                                <th scope="row">1</th>
+                                                @*<th scope="row">1</th>*@
                                                 <td>Nhóm nước hoa: </td>
                                                 <td>@productSpec.Fragrance_Group</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">2</th>
+                                                @*<th scope="row">2</th>*@
                                                 <td>Giới tính:</td>
                                                 <td>@Model.Product_Gender</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">3</th>
+                                                @*<th scope="row">3</th>*@
                                                 <td>Độ tuổi khuyên dùng: </td>
                                                 <td>@productSpec.Recommended_Age</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">4</th>
+                                                @*<th scope="row">4</th>*@
                                                 <td>Nồng độ:</td>
                                                 <td>@productSpec.Concentration</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">5</th>
+                                                @*<th scope="row">5</th>*@
                                                 <td>Độ lưu hương:</td>
                                                 <td>@productSpec.Longevity</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">6</th>
+                                                @*<th scope="row">6</th>*@
                                                 <td>Phong cách:</td>
                                                 <td>@Model.Product_Style</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">7</th>
+                                                @*<th scope="row">7</th>*@
                                                 <td>Độ toả hương:</td>
                                                 <td>@productSpec.Sillage</td>
                                               </tr>
                                               <tr class="tr-row">
-                                                <th scope="row">8</th>
+                                                @*<th scope="row">8</th>*@
                                                 <td>Thời điểm phù hợp: </td>
                                                 <td>@productSpec.Right_Time</td>
                                               </tr>
@@ -415,7 +415,7 @@
                         <div class="row">
                             @foreach (var item in ViewBag.ProductRelated)
                             {
-                                <div class="col-lg-3 col-md-6 col-sm-6 col-12 product-trending">
+                                <div class="col-lg-3 col-md-6 col-sm-6 col-6 product-trending">
                                     <div class="card">
                                         <img src="~/img/img-product/@item.ProductID-01.png" class="card-img-top" alt="Sản phẩm 01">
                                         <div class="card-body">

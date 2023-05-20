@@ -101,6 +101,13 @@
         </div>
     </div>
 
+    <div class="searchbar mobie">
+        <form class="d-flex" method="get" asp-action="Search" asp-controller="Product">
+            <input class="form-control me-2" type="search" name="searchString" placeholder="Nhập từ khóa" aria-label="Search">
+            <input class="btn btn-search btn-outline-dark" type="submit" value="Search">
+        </form>
+    </div>
+
 
     @RenderBody()
 

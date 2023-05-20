@@ -37,37 +37,3 @@ closeButton.addEventListener('click', function () {
     mainSideNavigation.style.width = 0;
 });
 
-//document.addEventListener('DOMContentLoaded', function () {
-//});
-
-
-
-//var mainSideNavigation = document.getElementsByClassName('main-sidenav')[0];
-//var sideNavigations = document.getElementsByClassName('sidenav-overplay')[0];
-
-//console.log(document.querySelector('.sidenav-overplay'))
-//console.log(document.querySelector('.main-sidenav'  ))
-
-////document.querySelector('.sidenav-overplay').addEventListener('click', function () {
-////    console.log(1)
-////    mainSideNavigation.style.width = '300px';
-////})
-
-//function showToggle() {
-//    mainSideNavigation.style.width = '300px';
-//}
-
-//document.querySelector('.close').addEventListener('click', function () {
-//    // mainSideNavigation.style.display = 'none';
-//    mainSideNavigation.style.width = 0;
-//    //$('.container').style.marginLeft = 0;
-//    //$('body').style.backgroundColor = 'white';
-//})
-//console.log(sideNavigations)
-//console.log(mainSideNavigation)
-////sideNavigations.forEach(function (sidenav) {
-////    sidenav.addEventListener('click', function () {
-////        $('button.active').classList.remove('active')
-////        this.classList.add('active');
-////    })
-////})
