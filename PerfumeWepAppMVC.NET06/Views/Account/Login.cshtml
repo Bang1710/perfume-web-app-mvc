@@ -1,0 +1,74 @@
+﻿@model User
+
+@{
+    ViewData["Title"] = "Trang đăng nhập";
+}
+
+<div class="stuff" style="margin: 20px 0px 100px;">
+    <div class="content-header container">
+        <nav aria-label="breadcrumb" class="breadcrumb-des">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Trang chủ</a></li>
+                <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">Đăng nhập</li>
+            </ol>
+            <hr>
+        </nav>
+    </div>
+
+    <div class="content-nd container">
+        <div class="row">
+            <div class="login-content col-xxl-6 col-xl-6 col-lg-6">
+                <div class="login-header">
+                    <img src="~/img/img-header-footer/logo.png" alt="">
+                </div>
+
+                <form method="post">
+                    @if (!string.IsNullOrEmpty(TempData["User_Email"]?.ToString()))
+                    {
+                        <div class="mb-3">
+                            <label for="User_Email" class="form-label lb-email">Email</label>
+                            <input type="email" class="form-control" id="User_Email" name="User_Email" value="@TempData["User_Email"]">
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="mb-3">
+                            <label for="User_Email" class="form-label lb-email">Email</label>
+                            <input type="email" class="form-control" id="User_Email" name="User_Email" value="">
+                        </div>
+                    } 
+
+                    
+                    @if (!string.IsNullOrEmpty(TempData["User_Password"]?.ToString()))
+                    {
+                        <div class="mb-3">
+                            <label for="User_Password" class="form-label lb-password">Password</label>
+                            <input type="password" class="form-control" id="User_Password" name="User_Password" value="@TempData["User_Password"]">
+                        </div>
+                    } else
+                    {
+                        <div class="mb-3">
+                            <label for="User_Password" class="form-label lb-password">Password</label>
+                            <input type="password" class="form-control" id="User_Password" name="User_Password" value="">
+                        </div>
+                    }
+
+                    @if (ViewData["ErrorMessage"] != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewData["ErrorMessage"]
+                        </div>
+                    }
+
+
+                    <input type="submit" class="btn btn-outline-dark btn-login" value="Đăng nhập">
+                    <div class="not-account">Bạn chưa có tài khoản ? <a asp-action="Register" asp-controller="Account" class="not-account-register">Hãy đăng ký !</a></div>
+
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    
+</div>

@@ -17,6 +17,14 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         public IActionResult Index()
         {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
+                ViewBag.UserID = userid;
+                ViewBag.UserName = userName.User_Name;
+            }
+
             var ListproductTrending = _context.Products.Where(p => p.Product_IsTrending == true).Select(p =>
                 new
                 {

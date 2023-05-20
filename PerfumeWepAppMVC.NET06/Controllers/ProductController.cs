@@ -38,6 +38,13 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         [Route("danh-sach-san-pham/")]
         public IActionResult Index(int page = 1, int pageSize = 8)
         {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
+                ViewBag.UserID = userid;
+                ViewBag.UserName = userName.User_Name;
+            }
             SetValueViewBag();
             var listAllProduct = _context.Products
                                             .OrderBy(p => p.Product_ID)
@@ -66,8 +73,15 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         [HttpGet]
         [Route("loc-san-pham-theo-thong-so-cua-sp/")]
-        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original/*, int page = 1, int pageSize = 8*/)
+        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
+                ViewBag.UserID = userid;
+                ViewBag.UserName = userName.User_Name;
+            }
             SetValueViewBag();
             var products = _context.Products.ToList();
             //Sort theo giá sản phẩm
@@ -144,6 +158,15 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         [Route("chi-tiet-san-pham/{id?}")]
         public ActionResult Detail(string? id)
         {
+
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
+                ViewBag.UserID = userid;
+                ViewBag.UserName = userName.User_Name;
+            }
+
             var product = _context.Products.Where(p => p.Product_ID == id).FirstOrDefault();
 
             var productCategoryName = _context.Products.Where(p => p.Product_ID == id).Select(p => p.Category.Category_Name).FirstOrDefault();
@@ -172,8 +195,17 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         [HttpGet]
         [Route("tim-kiem-va-loc-san-pham-theo-thong-so-cua-sp/")]
-        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original/*, int page = 1, int pageSize = 8*/)
+        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
+
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
+                ViewBag.UserID = userid;
+                ViewBag.UserName = userName.User_Name;
+            }
+
             SetValueViewBag();
             var stringSearchHistory = "";
             var products = _context.Products.ToList();

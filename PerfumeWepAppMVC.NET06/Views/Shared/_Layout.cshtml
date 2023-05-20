@@ -1,9 +1,13 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var userID = ViewData["UserID"];
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Perfume Website</title>
+    <title>@ViewData["Title"] - Névoa Perfume Website @ViewData["UserName"]</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" href="~/img/img-header-footer/logo.png" type="image/x-icon">
@@ -19,6 +23,7 @@
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/product.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/detail.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/responsive_layout.css" asp-append-version="true" />
     @*<link rel="stylesheet" href="~/PerfumeWebApp.NET06.styles.css" asp-append-version="true" />*@
 </head>
@@ -44,11 +49,21 @@
                 </div>
 
                 <div class="rightbar">
-                    <ul>
-                        <li><a href="#" class="pip">Đăng Ký</a></li>
-                        <div class="pip"></div>
-                        <li><a href="#">Đăng nhập</a></li>
-                    </ul>
+                    @if (userID != null)
+                    {
+                        <ul>
+                            <li><a class="pip">Xin chào @ViewData["UserName"]</a></li>
+                            <div class="pip"></div>
+                            <li><a asp-action="Logout" asp-controller="Account">Đăng Xuất</a></li>
+                        </ul>
+                    } else
+                    {
+                        <ul>
+                            <li><a asp-action="Register" asp-controller="Account" class="pip">Đăng Ký</a></li>
+                            <div class="pip"></div>
+                            <li><a asp-action="Login" asp-controller="Account">Đăng nhập</a></li>
+                        </ul>
+                    }
                 </div>
                 <div class="btn-bar">
                     <div class="cart">
@@ -80,10 +95,10 @@
                 </div>
                 <h3 class="slidebar-toogle-hello">Xin chào</h3>
                 <div class="slidebar-toogle-btn">
-                    <a class="btn-register" href="#">
+                    <a asp-action="Register" asp-controller="Account" class="btn-register">
                         Đăng Ký
                     </a>
-                    <a class="btn-login" href="#">
+                    <a asp-action="Login" asp-controller="Account" class="btn-login">
                         Đăng Nhập
                     </a>
                 </div>

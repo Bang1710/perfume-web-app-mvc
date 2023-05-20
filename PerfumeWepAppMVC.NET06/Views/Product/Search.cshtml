@@ -2,6 +2,9 @@
 
 @{
     ViewData["Title"] = "Tìm kiếm";
+    ViewData["Title"] = $"Trang chủ";
+    ViewData["UserID"] = ViewBag.UserID;
+    ViewData["UserName"] = ViewBag.UserName;
 }
 
 <div class="stuff" style="margin: 20px 0px 100px;">
@@ -44,13 +47,13 @@
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderLowToHigh" value="asc" checked="false">
+                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderLowToHigh" value="asc">
                                         <label class="form-check-label" for="priceSortOrderLowToHigh">
                                             Giá từ thấp đến cao
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderHighToLow" value="desc" checked="false">
+                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderHighToLow" value="desc">
                                         <label class="form-check-label" for="priceSortOrderHighToLow">
                                             Giá từ cao xuống thấp
                                         </label>

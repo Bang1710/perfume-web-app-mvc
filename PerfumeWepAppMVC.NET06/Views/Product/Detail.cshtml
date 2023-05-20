@@ -3,6 +3,9 @@
 @{
     ViewData["Title"] = "Sản phẩm " + Model.Product_Name;
     var productSpec = ViewBag.ProductSpec as ProductSpec;
+    ViewData["Title"] = $"Trang chủ";
+    ViewData["UserID"] = ViewBag.UserID;
+    ViewData["UserName"] = ViewBag.UserName;
 }
 
 

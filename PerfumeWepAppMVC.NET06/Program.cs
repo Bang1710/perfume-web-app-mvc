@@ -23,6 +23,16 @@ namespace PerfumeWepAppMVC.NET06
                 options.LowercaseQueryStrings = false;      // không b?t query trong url ph?i in th??ng
             });
 
+
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(30); ;
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -39,6 +49,8 @@ namespace PerfumeWepAppMVC.NET06
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.MapControllerRoute(
                 name: "default",
