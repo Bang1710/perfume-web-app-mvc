@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using PerfumeWebApp.NET06.Data;
 using PerfumeWepAppMVC.NET06.Models;
 
@@ -58,33 +59,59 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult Register(User model)
-        {
-            if (ModelState.IsValid)
-            {
-                // Kiểm tra xem tên đăng nhập đã tồn tại hay chưa
-                bool isUsernameTaken = _context.Users.Any(u => u.User_Name == model.User_Name || u.User_Email == model.User_Email);
-                if (isUsernameTaken)
-                {
-                    ModelState.AddModelError("", "Username is already taken.");
-                    return View(model);
-                }
 
+        [HttpPost]
+        public IActionResult Register(User user, string User_ConfirmPassword)
+        {
+            bool userNameExist = _context.Users.Any(u => u.User_Name == user.User_Name);
+            bool isValid = true;
+            if (userNameExist)
+            {
+                ModelState.AddModelError("User_Name", "Tên người dùng đã tồn tại, hãy nhập tên đăng nhập khác");
+                isValid = false;
+            }
+
+            bool userEmailExist = _context.Users.Any(u => u.User_Email == user.User_Email);
+            if (userEmailExist)
+            {
+                ModelState.AddModelError("User_Email", "Email đã được đăng ký, hãy nhập email khác, hoặc đăng nhập vào tài khoản của bạn");
+                isValid = false;
+            }
+            else if (user.User_Email == null)
+            {
+                ModelState.AddModelError("User_Email", "Email không được bỏ trống");
+                isValid = false;
+            }
+
+            if (user.User_Password != User_ConfirmPassword)
+            {
+                ViewData["ErrorUserPassword"] = "Mật khẩu nhập lại chưa chính xác";
+                isValid = false;
+            }
+
+            if (isValid)
+            {
+                User userRegister = new User()
+                {
+                    User_Name = user.User_Name,
+                    User_Email = user.User_Email,
+                    User_Password = user.User_Password,
+                };
                 // Lưu thông tin người dùng vào cơ sở dữ liệu
-                _context.Users.Add(model);
+                _context.Users.Add(userRegister);
                 _context.SaveChanges();
 
                 // Lưu userid vào Session
-                HttpContext.Session.SetInt32("UserId", model.User_ID);
+                HttpContext.Session.SetInt32("UserId", userRegister.User_ID);
 
                 // Chuyển hướng tới trang đăng nhập hoặc trang chính
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("Index", "Home");
             }
 
-            // Trường hợp dữ liệu không hợp lệ, hiển thị lại form đăng ký với thông báo lỗi
-            return View(model);
+            // Hiển thị lại view với thông tin người dùng và thông báo lỗi
+            return View(user);
         }
+
     }
 
 }

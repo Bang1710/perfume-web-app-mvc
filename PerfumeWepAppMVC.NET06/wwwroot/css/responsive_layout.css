@@ -112,7 +112,7 @@
     .searchbar {
         flex: 1;
         align-self: center;
-        margin: 15px 20px 15px 8px;
+        margin: 15px 5px 15px 8px;
     }
 
     .content-leftbar {
@@ -136,6 +136,14 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
+    }
+
+    a.btn-logout {
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+        margin-top: 10px;
+        display: block;
     }
 }
 

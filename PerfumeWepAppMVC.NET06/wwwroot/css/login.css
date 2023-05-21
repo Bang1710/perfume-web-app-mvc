@@ -10,6 +10,8 @@ label.form-label.lb-password {
     margin-bottom: 10px;
 }
 
+input#User_Name,
+input#User_ConfirmPassword,
 input#User_Email,
 input#User_Password {
     width: 100%;
@@ -46,4 +48,11 @@ a.not-account-register {
     text-decoration: none;
     color: black;
     font-weight: 700;
+}
+
+.login-title {
+    font-size: 16px;
+    color: #47af62;
+    font-weight: 700;
+    margin-bottom: 10px;
 }

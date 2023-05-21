@@ -20,7 +20,7 @@ namespace PerfumeWepAppMVC.NET06.Models
         public string User_Password { get; set;}
         #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        [Required]
+        [Required(ErrorMessage = "Email không được bỏ trống, độ dài tối đa 50 ký tự và theo đinh dạng abc@...")]
         [MaxLength(50)]
         [DataType(DataType.EmailAddress)]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.

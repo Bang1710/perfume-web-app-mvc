@@ -21,7 +21,7 @@
                 <div class="login-header">
                     <img src="~/img/img-header-footer/logo.png" alt="">
                 </div>
-
+                <div class="login-title">Hãy đăng nhập vào tài khoản của bạn !</div>
                 <form method="post">
                     @if (!string.IsNullOrEmpty(TempData["User_Email"]?.ToString()))
                     {
@@ -52,6 +52,7 @@
                             <input type="password" class="form-control" id="User_Password" name="User_Password" value="">
                         </div>
                     }
+
 
                     @if (ViewData["ErrorMessage"] != null)
                     {
