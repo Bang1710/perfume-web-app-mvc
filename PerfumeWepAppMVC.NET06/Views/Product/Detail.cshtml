@@ -1,9 +1,9 @@
-﻿@*@model  *@
+﻿@model Product 
 
 @{
     ViewData["Title"] = "Sản phẩm " + Model.Product_Name;
     var productSpec = ViewBag.ProductSpec as ProductSpec;
-    ViewData["Title"] = $"Trang chủ";
+    //ViewData["Title"] = $"Trang chủ";
     ViewData["UserID"] = ViewBag.UserID;
     ViewData["UserName"] = ViewBag.UserName;
 }
@@ -60,18 +60,25 @@
                         <div class="content-detail-capacity">
                             <span class="lb-styles-detail">Dung tích: </span> <span class="nd-styles-nd">@Model.Product_Volume</span>
                         </div>
-
-                        <div class="conteng-detail-input-number">
-                            <span class="lb-styles-detail">Số lượng: </span> 
-                            <div class="input-number">
-                                <button class="minus">-</button>
-                                <input type="number" value="0" min="0" class="input-number-product">
-                                <button class="plus">+</button>
+                        <form method="post" asp-controller="Cart" asp-action="AddToCart">
+                            
+                            <input  type="hidden" value="@Model.Product_ID" class="Product_ID_Hiden" name="Proudct_ID" />
+                           @* @if(ViewData["UserID"] != null)
+                            {
+                                <input  type="hidden" value="@ViewData["UserID"]" class="User_ID_Hiden" name="UserID" /> 
+                            }*@
+                            <div class="conteng-detail-input-number">
+                                <span class="lb-styles-detail">Số lượng: </span> 
+                                <div class="input-number">
+                                    <button class="minus">-</button>
+                                    <input type="number" value="1" min="0" class="input-number-product" name="Product_Quantity">
+                                    <button class="plus">+</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="content-detail-add-to-card">
-                            <input type="submit" value="Thêm vào giỏ hàng" class="input-submit-add-card">
-                        </div>
+                            <div class="content-detail-add-to-card">
+                                <input type="submit" value="Thêm vào giỏ hàng" class="input-submit-add-card">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

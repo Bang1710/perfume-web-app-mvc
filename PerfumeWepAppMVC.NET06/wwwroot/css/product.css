@@ -216,3 +216,11 @@ i.fa-solid.fa-xmark.btn-close-filter {
     font-size: 30px;
     margin-top: 10px;
 }
+
+img.img-product-cart {
+    width: 100px;
+}
+
+.tb-cart {
+    font-size:15px;
+}

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PerfumeWebApp.NET06.Data;
 
@@ -11,9 +12,11 @@ using PerfumeWebApp.NET06.Data;
 namespace PerfumeWepAppMVC.NET06.Migrations
 {
     [DbContext(typeof(PerfumeDBContext))]
-    partial class PerfumeDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230521212435_fixdatatypeModels")]
+    partial class fixdatatypeModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

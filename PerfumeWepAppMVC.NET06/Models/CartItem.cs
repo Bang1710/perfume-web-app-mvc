@@ -29,7 +29,7 @@ namespace PerfumeWepAppMVC.NET06.Models
 
         public int Product_Price { get; set; }
 
-        public decimal TotalPrice => Product_Price * Quantity;
+        public int TotalPrice => Product_Price * Quantity;
 
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public virtual Cart Cart { get; set; } // Đối tượng Cart liên kết với CartItem

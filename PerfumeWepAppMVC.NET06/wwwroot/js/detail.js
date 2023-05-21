@@ -2,12 +2,15 @@
 const plusBtn = document.querySelector(".input-number .plus");
 const minusBtn = document.querySelector(".input-number .minus");
 
-plusBtn.addEventListener("click", () => {
+plusBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     inputNumber.value = parseInt(inputNumber.value) + 1;
+    console.log(inputNumber.value);
 });
 
-minusBtn.addEventListener("click", () => {
 
+minusBtn.addEventListener("click", (event) => {
+    event.preventDefault();
     if (parseInt(inputNumber.value) - 1 >= 0) {
         inputNumber.value = parseInt(inputNumber.value) - 1;
     }

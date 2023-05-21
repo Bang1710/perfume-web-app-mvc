@@ -172,7 +172,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             var productCategoryName = _context.Products.Where(p => p.Product_ID == id).Select(p => p.Category.Category_Name).FirstOrDefault();
             ViewBag.productById = productCategoryName;
 
-            var productCategoryID = product.Category_ID.ToString();
+            var productCategoryID = _context.Products.Where(p => p.Product_ID == id).Select(p => p.Category_ID).ToString();
 
             var productSpec = _context.ProductSpecs.Where(p => p.Product_ID == id).FirstOrDefault();
             ViewBag.ProductSpec = productSpec;
@@ -190,6 +190,66 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             ViewBag.ProductRelated = productRelated;
             return View(product);
         }
+
+        //[HttpPost]
+        //public IActionResult Detail(string? Product_ID, string Product_Quantity)
+        //{
+
+        //    var product = _context.Products.Where(p => p.Product_ID == Product_ID).FirstOrDefault();
+
+        //    var userid = HttpContext.Session.GetInt32("UserId");
+
+        //    if (userid == null)
+        //    {
+        //        return RedirectToAction("Login", "Account");
+        //    } else
+        //    {
+        //        var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
+        //        ViewBag.UserID = userid;
+        //        ViewBag.UserName = userName.User_Name;
+        //    }
+
+        //    var cart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
+
+        //    if (cart == null)
+        //    {
+        //        cart = new Cart()
+        //        {
+        //            User_ID = (int)userid,
+        //            CartItems = new List<CartItem>()
+        //        };
+        //        _context.Carts.Add(cart);
+        //        _context.SaveChanges();
+        //    }
+
+        //    //var cartItem = cart.CartItems.FirstOrDefault(c => c.Product_ID == Product_ID);
+
+        //    //if (cartItem != null)
+        //    //{
+        //    //    cartItem.Quantity++;
+        //    //}
+        //    //else
+        //    //{
+        //    //    cartItem = new CartItem()
+        //    //    {
+        //    //        Product_ID = product.Product_ID,
+        //    //        Cart_ID = cartItem.Cart_ID,
+        //    //        Quantity = ,
+
+
+
+        //    //    };
+        //    //}
+
+
+
+        //    // Logic xử lý thêm sản phẩm vào giỏ hàng
+
+        //    return View("ViewCart", "Cart");
+        //}
+
+
+
 
         public string MessageStatusSearch { get; set; }
 

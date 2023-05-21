@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Névoa Perfume Website @ViewData["UserName"]</title>
+    <title>@ViewData["Title"] - Névoa Perfume Website</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="shortcut icon" href="~/img/img-header-footer/logo.png" type="image/x-icon">
@@ -68,7 +68,7 @@
                 <div class="btn-bar">
                     <div class="cart">
                         <button class="btn btn-cart" type="submit">
-                            <a href="">
+                            <a asp-controller="Cart" asp-action="ViewCart">
                                 @*<img class="img-cart" src="~/img/img-header-footer/R.png" alt="">*@
                                 <i class="fa-solid fa-cart-plus"></i>
                             </a>

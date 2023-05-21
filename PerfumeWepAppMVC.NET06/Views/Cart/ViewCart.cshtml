@@ -1,0 +1,66 @@
+﻿@model List<PerfumeWepAppMVC.NET06.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Giỏ hàng của bạn";
+    ViewData["UserID"] = ViewBag.UserID;
+    ViewData["UserName"] = ViewBag.UserName;
+    var i = 1;
+}
+
+
+<div class="stuff" style="margin: 20px 0px 100px;">
+    <div class="content-header container">
+        <nav aria-label="breadcrumb" class="breadcrumb-des">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#" class="breadcrumb-item-title">Trang chủ</a></li>
+                <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">Giỏ hàng của bạn</li>
+            </ol>
+            <hr>
+        </nav>
+    </div>
+    <div class="content-nd container">
+        @if (Model != null && Model.Count > 0)
+        {
+            <table class="table tb-cart">
+                <thead>
+                    <tr>
+                        <th scope="col">STT</th>
+                        <th scope="col">Hình ảnh</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Giá sản phẩm</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@i</th>
+                            <td>
+                                @*<a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Product_ID">*@
+                                    <img src="~/img/img-product/@item.Product_ID-01.png" alt="" class="img-product-cart">
+                                @*</a>*@
+                            </td>
+                            <td>@item.Product_Name</td>
+                            <td>@item.Product_Price.ToString("C0").Replace(",", ".").Substring(1) ₫</td>
+                            <td>@item.Quantity.ToString()</td>
+                            <td>@item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1) ₫</td>
+                        </tr>
+
+                        i++;
+
+                    }
+                </tbody>
+            </table>
+        } else
+        {
+            <div class="alert alert-danger" style="font-size: 15px;"> @ViewData["ProductCart"]</div>
+        }
+        
+    </div>
+
+
+   
+
+</div>
