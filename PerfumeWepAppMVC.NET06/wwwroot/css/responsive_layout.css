@@ -150,13 +150,17 @@
         display: none;
     }
 
-    .TotalPrice {
+    .TotalPrice, .TotalPrice-mobie {
         margin: 33px 30px;
     }
 
     .price_product {
         text-align: left;
         color: red;
+    }
+
+    .TotalPrice {
+        display:none;
     }
 }
 
@@ -174,6 +178,10 @@
     }
 
     table.table.tb-cart.tb-cart-mobie {
+        display: none;
+    }
+
+    .TotalPrice-mobie {
         display: none;
     }
 

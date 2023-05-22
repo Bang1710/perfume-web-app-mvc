@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using PerfumeWebApp.NET06.Data;
 using PerfumeWepAppMVC.NET06.Models;
@@ -107,11 +108,38 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             if (cart == null)
             {
-                ViewData["ProductCart"] = "Giỏ hàng của bạn trống !";
+                //ViewData["ProductCart"] = "Giỏ hàng của bạn trống !";
                 return View();
             }
             return View(cart.CartItems.ToList());
+        }
 
+        [HttpPost]
+        public IActionResult RemoveProductFromCart(string Product_ID)
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            Cart cart = _context.Carts.Include(c => c.CartItems).FirstOrDefault(c => c.User_ID == userId);
+
+            if (cart != null)
+            {
+                CartItem cartItem = cart.CartItems.FirstOrDefault(c => c.Product_ID == Product_ID);
+                if (cartItem != null)
+                {
+                    _context.CartItems.Remove(cartItem);
+                    _context.SaveChanges();
+                }
+            }
+
+            // Cập nhật số lượng sản phẩm trong giỏ hàng
+            int cartItemCount = cart.CartItems.Count;
+            ViewBag.CountCart = cartItemCount;
+
+            //if (cartItemCount == 0)
+            //{
+            //    ViewData["ProductCart"] = "Giỏ hàng của bạn trống !";
+            //}
+
+            return RedirectToAction("ViewCart", "Cart");
         }
     }
 }
