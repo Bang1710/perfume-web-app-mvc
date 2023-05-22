@@ -145,6 +145,19 @@
         margin-top: 10px;
         display: block;
     }
+
+    table.table.tb-cart.tb-cart-pc {
+        display: none;
+    }
+
+    .TotalPrice {
+        margin: 33px 30px;
+    }
+
+    .price_product {
+        text-align: left;
+        color: red;
+    }
 }
 
 @media (min-width: 415px) {
@@ -159,4 +172,9 @@
     button.btn.btn-outline-dark.btn-filter {
         display: none;
     }
+
+    table.table.tb-cart.tb-cart-mobie {
+        display: none;
+    }
+
 }

@@ -57,6 +57,10 @@
       "PackagePath": "staticwebassets\\img\\img-header-footer\\instagram.png"
     },
     {
+      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-header-footer\\logo-01.png",
+      "PackagePath": "staticwebassets\\img\\img-header-footer\\logo-01.png"
+    },
+    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\img\\img-header-footer\\logo-user.png",
       "PackagePath": "staticwebassets\\img\\img-header-footer\\logo-user.png"
     },

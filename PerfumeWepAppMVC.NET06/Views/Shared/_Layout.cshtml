@@ -1,5 +1,6 @@
 ﻿@{
     var userID = ViewData["UserID"];
+    var count = ViewData["CountCart"];
 }
 
 <!DOCTYPE html>
@@ -69,8 +70,13 @@
                     <div class="cart">
                         <button class="btn btn-cart" type="submit">
                             <a asp-controller="Cart" asp-action="ViewCart">
-                                @*<img class="img-cart" src="~/img/img-header-footer/R.png" alt="">*@
-                                <i class="fa-solid fa-cart-plus"></i>
+                                <div class="cart-icon">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                    @if (count != null)
+                                    {
+                                         <span class="cart-count">@count</span>
+                                    }
+                                </div>
                             </a>
                         </button>
                     </div>

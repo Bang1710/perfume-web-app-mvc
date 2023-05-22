@@ -2,6 +2,21 @@
 
 @{
     ViewData["Title"] = "Trang đăng nhập";
+    ViewData["CountCart"] = ViewBag.CountCart;
+}
+
+
+@if (TempData["LoginToViewCart"] != null)
+{
+    <div class="container">
+        <div class="alert alert-danger" style="font-size: 15px; margin: 20px 0px;"> @TempData["LoginToViewCart"]</div>
+    </div>
+}
+else if (TempData["LoginToAddCart"] != null)
+{
+    <div class="container">
+        <div class="alert alert-danger" style="font-size: 15px; margin: 20px 0px;"> @TempData["LoginToAddCart"]</div>
+    </div>
 }
 
 <div class="stuff" style="margin: 20px 0px 100px;">
@@ -56,7 +71,7 @@
 
                     @if (ViewData["ErrorMessage"] != null)
                     {
-                        <div class="alert alert-danger" role="alert">
+                        <div class="alert alert-danger" style="font-size: 15px;" role="alert">
                             @ViewData["ErrorMessage"]
                         </div>
                     }

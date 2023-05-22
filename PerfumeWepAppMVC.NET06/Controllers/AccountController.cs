@@ -34,6 +34,15 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
                 var userid = HttpContext.Session.GetInt32("UserId");
 
+                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
+
+                if (userCart != null)
+                {
+                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
+                    HttpContext.Session.SetInt32("count", cartItemCount);
+                    ViewBag.CountCart = HttpContext.Session.GetInt32("count");
+                }
+
                 return RedirectToAction("Index", "Home");
 
             }
@@ -103,6 +112,14 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
                 // Lưu userid vào Session
                 HttpContext.Session.SetInt32("UserId", userRegister.User_ID);
+                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == user.User_ID);
+
+                if (userCart != null)
+                {
+                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
+                    HttpContext.Session.SetInt32("count", cartItemCount);
+                    ViewBag.CountCart = HttpContext.Session.GetInt32("count");
+                }
 
                 // Chuyển hướng tới trang đăng nhập hoặc trang chính
                 return RedirectToAction("Index", "Home");

@@ -28,7 +28,11 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             //bool userId = _context.Users.Where( u => u.User_ID == UserID).Any();
             if (userid == null)
             {
+                TempData["LoginToAddCart"] = "Hãy đăng nhập vào tài khoản để đặt sản phẩm của chúng tôi";
                 return RedirectToAction("Login", "Account");
+            } else
+            {
+                ViewBag.CountCart = HttpContext.Session.GetInt32("count");
             }
             if (cart == null)
             {
@@ -61,21 +65,42 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             _context.SaveChanges();
 
-            return RedirectToAction("ViewCart");
+            Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
+
+            if (userCart != null)
+            {
+                int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
+                ViewBag.CountCart = cartItemCount;
+            }
+
+
+            TempData["AddToCartSuccess"] = "Đã thêm vào giỏ hàng thành công";
+            return RedirectToRoute("MyCustomRoute", new { id = product.Product_ID });
+            //return RedirectToAction("ViewCart");
+            //return RedirectToPage("/chi-tiet-san-pham", new { id = product.Product_ID });
         }
 
+        [Route("gio-hang/chi-tiet-gio-hang-cua-ban")]        
         public IActionResult ViewCart()
         {
             var userId = HttpContext.Session.GetInt32("UserId");
 
             if (userId == null)
             {
+                TempData["LoginToViewCart"] = "Hãy đăng nhập vào tài khoản để xem giỏ hàng của bạn";
                 return RedirectToAction("Login", "Account");
             } else
             {
                 var userName = _context.Users.Where(u => u.User_ID == userId).FirstOrDefault();
                 ViewBag.UserID = userId;
                 ViewBag.UserName = userName.User_Name;
+                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userId);
+
+                if (userCart != null)
+                {
+                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
+                    ViewBag.CountCart = cartItemCount;
+                }
             }
 
             var cart = _context.Carts.Include(c => c.CartItems).FirstOrDefault(c => c.User_ID == userId);
@@ -83,23 +108,9 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             if (cart == null)
             {
                 ViewData["ProductCart"] = "Giỏ hàng của bạn trống !";
+                return View();
             }
             return View(cart.CartItems.ToList());
-
-            //if (cart == null)
-            //{
-            //    // Không tìm thấy giỏ hàng
-            //    //return View(new List<CartItem>());
-            //    return View();
-            //}
-
-            //var ListcartItems = cart.CartItems.ToList();
-
-
-            //ViewBag.CartItems = ListcartItems; // 
-
-            ////return View(ListcartItems);
-            //return View(ListcartItems);
 
         }
     }

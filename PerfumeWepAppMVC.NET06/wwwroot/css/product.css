@@ -224,3 +224,16 @@ img.img-product-cart {
 .tb-cart {
     font-size:15px;
 }
+
+.table > tbody {
+    vertical-align: middle;
+}
+
+.TotalPrice {
+    display: block;
+    text-align: right;
+    font-size: 19px;
+    margin: 33px 70px;
+    font-weight: 700;
+    text-transform: uppercase;
+}

@@ -52,6 +52,17 @@ namespace PerfumeWepAppMVC.NET06
 
             app.UseSession();
 
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "MyCustomRoute",
+                    pattern: "chi-tiet-san-pham/{id?}",
+                    defaults: new { controller = "Product", action = "Detail" }
+                );
+
+                // ...
+            });
+
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");

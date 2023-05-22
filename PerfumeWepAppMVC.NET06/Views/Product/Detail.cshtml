@@ -6,8 +6,16 @@
     //ViewData["Title"] = $"Trang chủ";
     ViewData["UserID"] = ViewBag.UserID;
     ViewData["UserName"] = ViewBag.UserName;
+    ViewData["CountCart"] = ViewBag.CountCart;
+
 }
 
+    @if (TempData["AddToCartSuccess"] != null)
+    {
+            <div class="container">
+                <div class="alert alert-success" style="font-size: 15px; margin: 20px 0px 10px 0px;"> @TempData["AddToCartSuccess"]</div>
+            </div>
+    }
 
     <div class="nd-product-detail" style="margin: 50px 0px 50px;">
         <div class="content-header container">
