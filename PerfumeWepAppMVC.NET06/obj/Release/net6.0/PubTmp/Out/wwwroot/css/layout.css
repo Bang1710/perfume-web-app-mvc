@@ -1,0 +1,320 @@
+﻿* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Courier Prime', monospace;
+    /* font-family: 'Poppins', sans-serif; */
+}
+
+/* --------------------------------Header------------------------- */
+.header {
+    height: 90px;
+    background-color: black;
+    width: 100%;
+}
+
+img.logo-header {
+    height: 70px;
+    width: 200px;
+}
+
+.content {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+    .content .image {
+        line-height: 90px;
+    }
+
+ul {
+    list-style: none;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+.leftbar {
+    line-height: 80px;
+}
+
+    .leftbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Courier Prime', monospace;
+        padding: 10px;
+        font-size: 17px;
+    }
+
+.rightbar ul li a:hover {
+    color: gold;
+}
+
+.rightbar {
+    line-height: 80px;
+}
+
+    .rightbar ul li a {
+        text-decoration: none;
+        color: white;
+        font-family: 'Poppins', sans-serif;
+        padding: 4px 10px;
+        font-size: 17px;
+    }
+
+        .rightbar ul li a.pip {
+            border-right: 1px;
+            border-color: white;
+            border-right-style: solid;
+        }
+
+.leftbar ul li a:hover {
+    color: gold;
+}
+
+.searchbar {
+    flex: 1;
+    align-self: center;
+    margin: 15px 15px 20px 15px;
+}
+
+input.form-control.me-2 {
+    font-size: 16px;
+    color: black;
+}
+
+input.btn.btn-outline-light {
+    font-size: 15px;
+}
+
+img.img-cart {
+    width: 40px;
+    height: 100%;
+    background: white;
+    padding: 5px;
+}
+
+.cart, .toogle-bar {
+    line-height: 80px;
+    margin-left: 15px;
+}
+
+button.btn.btn-outline-light.btn-cart {
+    padding: 0px;
+}
+
+img.img-cart:hover {
+    background-color: cornsilk;
+}
+
+i.fa-solid.fa-cart-plus {
+    font-size: 25px;
+    color: white;
+    margin-top: 5px;
+}
+
+i.fa-solid.fa-cart-plus:hover {
+    color: greenyellow;
+}
+
+.toggle-bar {
+    line-height: 80px;
+    margin-left: 15px;
+}
+
+i.fa-solid.fa-bars {
+    font-size: 25px;
+    color: white;
+    margin-top: 5px;
+}
+
+i.fa-solid.fa-bars:hover {
+    color: greenyellow;
+}
+
+/* ------------------------Footer------------------------- */
+
+.footer {
+    background-color: #f8f9fa;
+    /* height: 500px; */
+    width: 100%;
+    padding: 50px 0px 20px;
+    color: black;
+}
+
+h1.footer-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+
+.footer-des {
+    font-size: 15px;
+    margin: 16px 0px;
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+    .footer-des:hover {
+        color: forestgreen;
+        cursor: pointer;
+    }
+
+.contact-logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.img-logo {
+    width: 50%;
+}
+
+.logo {
+    width: 100%;
+}
+
+.source {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/*toogle bar*/
+
+/*.active {
+    background-color: #059862;
+}*/
+
+
+
+.main-sidenav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    /* bottom: 0; */
+    background-color: black;
+    transition: .2s;
+    overflow: hidden;
+    z-index: 1;
+}
+
+
+
+.main-slidebar-toogle {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 10px 20px 0px;
+}
+
+.slidebar-toogle-image-logo > img {
+    width: 90px;
+}
+
+.slidebar-toogle-image-logo {
+    margin-bottom: 20px;
+}
+
+a:hover {
+    color: #f1f1f1;
+}
+
+
+.close {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 5rem;
+}
+
+i.fa-solid.fa-xmark.close {
+    color: white;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+h3.slidebar-toogle-hello {
+    font-size: 15px;
+    text-align: center;
+    color: white;
+}
+
+.slidebar-toogle-btn {
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.slidebar-toogle-btn > a {
+    font-size: 15px;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    padding: 0;
+    margin: 10px;
+    margin: 10px;
+}
+
+.slidebar-toogle-btn > a.btn-register {
+    border-right: 1px solid white;
+    padding: 0px 22px 0px 0px;
+}
+
+.slidebar-toogle-home > a {
+    font-size: 15px;
+    text-align: left;
+    color: white;
+    text-decoration: none;
+    padding: 0;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: block;
+}
+
+/*Cart*/
+
+
+.cart-icon {
+    position: relative;
+}
+
+.cart-count {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: green;
+    color: white;
+    font-size: 13px;
+    padding: 1px 9px;
+    border-radius: 50%;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

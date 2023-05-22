@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using PerfumeWebApp.NET06.Data;
+using PerfumeWepAppMVC.NET06.Controllers;
 
 namespace PerfumeWepAppMVC.NET06
 {
@@ -13,6 +14,9 @@ namespace PerfumeWepAppMVC.NET06
             builder.Services.AddControllersWithViews();
 
             builder.Services.AddRazorPages();
+
+            //builder.Services.AddScoped<CartController>();
+
 
             builder.Services.AddDbContext<PerfumeDBContext>(options =>
              options.UseSqlServer(builder.Configuration.GetConnectionString("PerfumeDBConnect")));

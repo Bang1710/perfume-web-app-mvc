@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Trang đăng nhập";
-    ViewData["CountCart"] = ViewBag.CountCart;
+    //ViewData["CountCart"] = ViewBag.CountCart;
 }
 
 
@@ -75,7 +75,6 @@ else if (TempData["LoginToAddCart"] != null)
                             @ViewData["ErrorMessage"]
                         </div>
                     }
-
 
                     <input type="submit" class="btn btn-outline-dark btn-login" value="Đăng nhập">
                     <div class="not-account">Bạn chưa có tài khoản ? <a asp-action="Register" asp-controller="Account" class="not-account-register">Hãy đăng ký !</a></div>

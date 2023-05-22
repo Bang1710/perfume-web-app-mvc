@@ -7,8 +7,6 @@ using System.Drawing.Printing;
 
 namespace PerfumeWepAppMVC.NET06.Controllers
 {
-
-
     public class ProductController : Controller
     {
         private readonly ILogger<ProductController> _logger;
@@ -20,7 +18,26 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             _logger = logger;
         }
 
-        
+        public void getCountCartItem(int id)
+        {
+            //Lấy ra Cart của userid đó
+            Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == id);
+
+            //Kiểm tra nếu khác null thì thực hiện việc, lấy số lượng cartItem và lưu vào ViewBag để truyền lại cho _Layout
+            if (userCart != null)
+            {
+                int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
+                HttpContext.Session.SetInt32("count", cartItemCount);
+                ViewBag.CountCart = HttpContext.Session.GetInt32("count");
+            }
+        }
+
+        public void getUserIDAndUserName(int id)
+        {
+            var userName = _context.Users.Where(u => u.User_ID == id).FirstOrDefault();
+            ViewBag.UserID = id;
+            ViewBag.UserName = userName.User_Name;
+        }
 
         public void SetValueViewBag()
         {
@@ -43,16 +60,8 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
             {
-                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
-                ViewBag.UserID = userid;
-                ViewBag.UserName = userName.User_Name;
-                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
-
-                if (userCart != null)
-                {
-                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
-                    ViewBag.CountCart = cartItemCount;
-                }
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
             }
             SetValueViewBag();
             var listAllProduct = _context.Products
@@ -63,43 +72,52 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = (int)Math.Ceiling(_context.Products.Count() / (double)pageSize);
-            //TempData["products"] = listAllProduct;
             return View(listAllProduct);
         }
 
-        public string MessageStatus { get; set; }
-        public string AlertMessage { get; set; }
-
-        private string GetCommaSeparatedValues(List<string> values)
-        {
-            if (values != null && values.Any())
-            {
-                return string.Join(",", values);
-            }
-
-            return string.Empty;
-        }
-
         [HttpGet]
-        [Route("loc-san-pham-theo-thong-so-cua-sp/")]
-        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        [Route("chi-tiet-san-pham/{id?}")]
+        public ActionResult Detail(string? id)
         {
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
             {
-                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
-                ViewBag.UserID = userid;
-                ViewBag.UserName = userName.User_Name;
-                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
-
-                if (userCart != null)
-                {
-                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
-                    ViewBag.CountCart = cartItemCount;
-                }
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
             }
-            SetValueViewBag();
-            var products = _context.Products.ToList();
+
+            var product = _context.Products
+                .Include(p => p.Category)
+                .FirstOrDefault(p => p.Product_ID == id);
+
+            ViewBag.productById = product?.Category?.Category_Name;
+            ViewBag.ProductSpec = _context.ProductSpecs.FirstOrDefault(p => p.Product_ID == id);
+
+            var productRelated = _context.Products
+                .Where(p => p.Category_ID == product.Category_ID && p.Product_ID != id)
+                .Select(p => new
+                {
+                    ProductID = p.Product_ID,
+                    ProductName = p.Product_Name,
+                    CategoryName = p.Category.Category_Name,
+                    ProductPrice = p.Product_Price,
+                    ProductGender = p.Product_Gender,
+                })
+                .Take(4)
+                .ToList();
+
+            ViewBag.ProductRelated = productRelated;
+
+            return View(product);
+        }
+
+        public string MessageStatus { get; set; }
+        public string AlertMessage { get; set; }
+        public string MessageStatusSearch { get; set; }
+
+
+        private List<Product> FilterAndSortProducts(List<Product> products, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        {
             //Sort theo giá sản phẩm
             if (priceSortOrder != null && priceSortOrder.Any())
             {
@@ -137,108 +155,53 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 products = products.Where(p => original.Contains(p.Product_Origin)).ToList();
             }
 
+            return products;
+        }
+
+        public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
+            }
+
+            SetValueViewBag();
+            var products = _context.Products.ToList();
+
+            products = FilterAndSortProducts(products, priceSortOrder, brand, gender, capacity, original);
+
             //Hiển thị thông báo
             if (products != null && products.Any())
             {
                 MessageStatus = "Danh sách kết quả sau khi lọc";
                 AlertMessage = "alert-success";
-            } else
+            }
+            else
             {
-                MessageStatus = "Không có sản phẩm nào phụ hợp với kết quả lọc của bạn";
+                MessageStatus = "Không có sản phẩm nào phù hợp với kết quả lọc của bạn";
                 AlertMessage = "alert-danger";
             }
-
-            //var productTotal = products.Count();
-
-            //products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-            //ViewBag.PriceSortOrder = priceSortOrder;
-            //ViewBag.brandQueryString = GetCommaSeparatedValues(brand as List<string>);
-            //ViewBag.genderQueryString = GetCommaSeparatedValues(brand as List<string>);
-            //ViewBag.capacityQueryString = GetCommaSeparatedValues(brand as List<string>);
-            //ViewBag.originalQueryString = GetCommaSeparatedValues(brand as List<string>);
-
-            ////ViewBag.Gender = gender;
-            ////ViewBag.Capacity = capacity;
-            ////ViewBag.Original = original;
-
-            //ViewBag.CurrentPage = page;
-            //ViewBag.TotalPages = (int)Math.Ceiling(productTotal / (double)pageSize);
 
             ViewBag.Message = MessageStatus;
             ViewBag.Alert = AlertMessage;
             return View(products);
         }
 
-        [HttpGet]
-        [Route("chi-tiet-san-pham/{id?}")]
-        public ActionResult Detail(string? id)
-        {
-
-            var userid = HttpContext.Session.GetInt32("UserId");
-            if (userid != null)
-            {
-                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
-                ViewBag.UserID = userid;
-                ViewBag.UserName = userName.User_Name;
-                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
-
-                if (userCart != null)
-                {
-                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
-                    ViewBag.CountCart = cartItemCount;
-                }
-            }
-
-            var product = _context.Products.Where(p => p.Product_ID == id).FirstOrDefault();
-
-            var productCategoryName = _context.Products.Where(p => p.Product_ID == id).Select(p => p.Category.Category_Name).FirstOrDefault();
-            ViewBag.productById = productCategoryName;
-
-            var productCategoryID = product.Category_ID.ToString();
-
-            var productSpec = _context.ProductSpecs.Where(p => p.Product_ID == id).FirstOrDefault();
-            ViewBag.ProductSpec = productSpec;
-
-            var productRelated = _context.Products.Where(p => p.Category_ID == productCategoryID && p.Product_ID != id).Select(p =>
-                new
-                {
-                    ProductID = p.Product_ID,
-                    ProductName = p.Product_Name,
-                    CategoryName = p.Category.Category_Name,
-                    ProductPrice = p.Product_Price,
-                    ProductGender = p.Product_Gender,
-                }).ToList().Take(4);
-
-            ViewBag.ProductRelated = productRelated;
-            return View(product);
-        }
-
-        public string MessageStatusSearch { get; set; }
-
-        [HttpGet]
-        [Route("tim-kiem-va-loc-san-pham-theo-thong-so-cua-sp/")]
         public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
-
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
             {
-                var userName = _context.Users.Where(u => u.User_ID == userid).FirstOrDefault();
-                ViewBag.UserID = userid;
-                ViewBag.UserName = userName.User_Name;
-                Cart userCart = _context.Carts.FirstOrDefault(c => c.User_ID == userid);
-
-                if (userCart != null)
-                {
-                    int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == userCart.Cart_ID);
-                    ViewBag.CountCart = cartItemCount;
-                }
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
             }
 
             SetValueViewBag();
             var stringSearchHistory = "";
             var products = _context.Products.ToList();
+
             if (searchString != null && searchString.Any())
             {
                 products = _context.Products.Where(p => p.Product_Name.Contains(searchString)).ToList();
@@ -251,41 +214,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 ViewBag.StringSearchHistory = stringSearchHistory;
             }
 
-            if (priceSortOrder != null && priceSortOrder.Any())
-            {
-                if (priceSortOrder == "asc")
-                {
-                    products = products.OrderBy(p => p.Product_Price).ToList();
-                }
-                else if (priceSortOrder == "desc")
-                {
-                    products = products.OrderByDescending(p => p.Product_Price).ToList();
-                }
-            }
-
-            //Sort theo mã loại sp
-            if (brand != null && brand.Any())
-            {
-                products = products.Where(p => brand.Contains(p.Category_ID)).ToList();
-            }
-
-            //Sort theo giới tính
-            if (gender != null && gender.Any())
-            {
-                products = products.Where(p => gender.Contains(p.Product_Gender)).ToList();
-            }
-
-            //Sort theo dung tích
-            if (capacity != null && capacity.Any())
-            {
-                products = products.Where(p => capacity.Contains(p.Product_Volume)).ToList();
-            }
-
-            //Sort theo Xuất xứ
-            if (original != null && original.Any())
-            {
-                products = products.Where(p => original.Contains(p.Product_Origin)).ToList();
-            }
+            products = FilterAndSortProducts(products, priceSortOrder, brand, gender, capacity, original);
 
             var result = (searchString != null) ? searchString : searchHistory;
 
@@ -303,17 +232,18 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 ViewBag.Search = searchString;
             }
 
-            //products = products.Skip((page - 1) * pageSize).Take(pageSize).ToList();
-
-            //ViewBag.CurrentPage = page;
-            //ViewBag.TotalPages = (int)Math.Ceiling(_context.Products.Count() / (double)pageSize);
-
             MessageStatusSearch = result;
             ViewData["MessageSearch"] = MessageStatusSearch;
             ViewBag.ProductSearch = products;
             ViewBag.Alert = AlertMessage;
             return View(products);
         }
+
+
+        
+
+
+        
 
 
 

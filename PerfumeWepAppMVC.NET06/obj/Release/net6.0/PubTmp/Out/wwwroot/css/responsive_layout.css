@@ -1,0 +1,188 @@
+﻿@media (max-width: 415px) {
+
+    .content .image {
+        line-height: 80px;
+    }
+
+    img.logo-header {
+        height: 44px;
+        width: 100px;
+    }
+
+
+    .leftbar {
+        display: none;
+    }
+
+    .rightbar {
+        display: none;
+    }
+
+    .searchbar {
+        display: none;
+    }
+
+    .content {
+        justify-content: space-between;
+        margin: 0 10px;
+    }
+
+    .col-xxl.col-lg.col-6.product-trending {
+        width: 50%;
+    }
+
+    img.img-cart-list {
+        height: 225px;
+    }
+
+    .perfume-category-block {
+        margin: 10px 10px;
+        border: 1px solid #c3bcbc;
+        border-radius: 3px;
+    }
+
+    img.card-img-top {
+        height: 220px;
+    }
+
+    .leftbanner, .rightbanner {
+        margin-bottom: 10px 0;
+    }
+
+    .banner {
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    img.left-image {
+        margin-bottom: 10px;
+    }
+
+    img.dior {
+        width: 100%;
+    }
+
+    .col-xxl.col-xl.col-lg.col.image-brand.dior {
+        margin-top: 20px;
+    }
+
+    .col.image-brand.calvin {
+        margin-top: 21px;
+    }
+
+    img.calvin {
+        width: 100%;
+    }
+
+    .col-xxl.col-xl.col-lg.col.image-brand.versace {
+        margin-top: 14px;
+    }
+
+
+    img.versace {
+        width: 100%;
+    }
+
+    .col.image-brand.ysl {
+        margin-top: 12px;
+    }
+
+    img.ysl {
+        width: 100%;
+    }
+
+    .col.image-brand.lauder {
+        margin-top: 22px;
+    }
+
+    img.lauder {
+        width: 100%;
+    }
+
+    .btn-bar {
+        width: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .searchbar.mobie {
+        display: block;
+    }
+
+    .searchbar {
+        flex: 1;
+        align-self: center;
+        margin: 15px 5px 15px 8px;
+    }
+
+    .content-leftbar {
+        display: none;
+    }
+
+    button.btn.btn-outline-dark.btn-filter {
+        outline: none;
+        box-shadow: none;
+        display: block;
+        margin: 15px 0px;
+        font-size: 13px;
+        margin-left: auto;
+    }
+
+    .tab-product-detail-image {
+        height: auto;
+    }
+
+    .tabs {
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    a.btn-logout {
+        font-size: 15px;
+        color: white;
+        text-decoration: none;
+        margin-top: 10px;
+        display: block;
+    }
+
+    table.table.tb-cart.tb-cart-pc {
+        display: none;
+    }
+
+    .TotalPrice, .TotalPrice-mobie {
+        margin: 33px 30px;
+    }
+
+    .price_product {
+        text-align: left;
+        color: red;
+    }
+
+    .TotalPrice {
+        display:none;
+    }
+}
+
+@media (min-width: 415px) {
+    button.btn.btn-bar {
+        display: none;
+    }
+
+    .searchbar.mobie {
+        display: none;
+    }
+
+    button.btn.btn-outline-dark.btn-filter {
+        display: none;
+    }
+
+    table.table.tb-cart.tb-cart-mobie {
+        display: none;
+    }
+
+    .TotalPrice-mobie {
+        display: none;
+    }
+
+}

@@ -1,0 +1,239 @@
+﻿/* -------------------Content--------------- */
+
+ol.breadcrumb {
+    font-size: 15px;
+    /* color: black; */
+    /* text-decoration: none; */
+}
+
+a.breadcrumb-item-title {
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+}
+
+li.breadcrumb-item.active.breadcrumb-item-des {
+    color: black;
+    font-weight: 700;
+}
+
+nav.breadcrumb-des {
+    margin-bottom: 20px;
+}
+
+.leftbar-title {
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.leftbar-des {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-top: 5px;
+}
+
+form.form-filter {
+    margin: 20px 0;
+}
+
+input.btn.btn-outline-dark.btn-submit {
+    /* width: 120px; */
+    margin-right: 20px;
+    font-size: 13px;
+    padding: 8px 20px;
+}
+
+input.btn.btn-outline-dark.btn-reset {
+    /* width: 120px; */
+    font-size: 13px;
+    padding: 8px 20px;
+}
+
+.content-leftbar.col-3 {
+    padding: 5px 10px 5px 10px;
+    border: 1px solid #eedfdf;
+}
+
+.leftbar-price {
+    margin-top: 20px;
+}
+
+.filter {
+    margin-top: 20px;
+}
+
+button.accordion-button.collapsed {
+    font-size: 13px;
+    outline: none;
+    border: 1px solid black;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color: #181818;
+    outline: 0;
+    font-size: 13px;
+    box-shadow: none;
+    border: 1px solid black;
+    color: black;
+}
+
+.accordion-button:not(.collapsed) {
+    color: black;
+    background-color: white;
+    font-size: 13px;
+    box-shadow: none;
+    border: 1px solid black;
+}
+
+.form-check {
+    margin: 10px 5px;
+    font-size: 13px;
+}
+
+label.form-check-label {
+    margin-left: 5px;
+}
+
+.content-rightbar.col-9 {
+    padding-left: 30px;
+}
+
+.card-product-page {
+    height: 450px;
+    margin-bottom: 15px;
+    border: 1px solid #d5cccc;
+    border-radius: 5px;
+}
+
+img.card-img-top {
+    height: 250px;
+}
+
+h1.card-title-brand {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 3px;
+}
+
+h3.card-title-productName {
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+
+span.card-product-price {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    text-align: center;
+    display: block;
+    margin-bottom: 1px;
+}
+
+h4.card-product-gender {
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+    font-weight: 600;
+}
+
+a.btn.btn-outline-success.card-view-detail {
+    font-size: 14px;
+    padding: 5px 15px;
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
+
+.rightbar-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0px;
+    margin-bottom: 10px;
+}
+
+/* Paging */
+
+.nav-paging {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.page-link {
+    padding: 5px 20px;
+    color: black;
+}
+
+li.page-item {
+    font-size: 16px;
+}
+
+.col-lg-3.product-trending {
+    padding: 0px 5px;
+}
+
+/*content-filter - mobie*/
+
+.content-filter {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0px;
+    height: 100%;
+    bottom: 0;
+    background-color: white;
+    transition: .2s;
+    z-index: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0px;
+    border: none;
+    /*-webkit-box-shadow: 6px 6px 5px 0px rgb(135 131 131);*/
+    /*-moz-box-shadow: 6px 6px 5px 0px rgb(135 131 131);*/
+    box-shadow: none;
+
+}
+
+
+.btn-close-filter {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    font-size: 5rem;
+}
+
+i.fa-solid.fa-xmark.btn-close-filter {
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+img.img-product-cart {
+    width: 100px;
+}
+
+.tb-cart {
+    font-size:15px;
+}
+
+.table > tbody {
+    vertical-align: middle;
+}
+
+.TotalPrice, .TotalPrice-mobie {
+    display: block;
+    text-align: right;
+    font-size: 19px;
+    margin: 33px 70px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
