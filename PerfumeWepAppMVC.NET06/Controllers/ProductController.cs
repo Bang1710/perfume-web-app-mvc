@@ -189,8 +189,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             return View(products);
         }
 
-        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, 
-            List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
