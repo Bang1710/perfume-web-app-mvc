@@ -2,7 +2,6 @@
 
 @{
     ViewData["Title"] = "Tìm kiếm";
-    //ViewData["Title"] = $"Trang chủ";
     ViewData["UserID"] = ViewBag.UserID;
     ViewData["UserName"] = ViewBag.UserName;
     ViewData["CountCart"] = ViewBag.CountCart;
@@ -187,22 +186,6 @@
                         </div>
                     }
                 </div>
-                @*<nav aria-label="Page navigation example" class="nav-paging">
-                    <ul class="pagination">
-
-                        @for (int i = 1; i <= ViewBag.TotalPages; i++)
-                        {
-                            if (i == ViewBag.CurrentPage)
-                            {
-                                <li class="page-item"><a class="page-link">@i</a></li>
-                            }
-                            else
-                            {
-                                <li class="page-item"><a class="page-link" asp-action="Search" asp-controller="Product" asp-route-page="@i">@i</a></li>
-                            }
-                        }
-                    </ul>
-                </nav>*@
             </div>
         </div>
     </div>

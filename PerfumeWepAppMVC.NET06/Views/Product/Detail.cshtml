@@ -3,7 +3,6 @@
 @{
     ViewData["Title"] = "Sản phẩm " + Model.Product_Name;
     var productSpec = ViewBag.ProductSpec as ProductSpec;
-    //ViewData["Title"] = $"Trang chủ";
     ViewData["UserID"] = ViewBag.UserID;
     ViewData["UserName"] = ViewBag.UserName;
     ViewData["CountCart"] = ViewBag.CountCart;
@@ -71,10 +70,6 @@
                         <form method="post" asp-controller="Cart" asp-action="AddToCart">
                             
                             <input  type="hidden" value="@Model.Product_ID" class="Product_ID_Hiden" name="Proudct_ID" />
-                           @* @if(ViewData["UserID"] != null)
-                            {
-                                <input  type="hidden" value="@ViewData["UserID"]" class="User_ID_Hiden" name="UserID" /> 
-                            }*@
                             <div class="conteng-detail-input-number">
                                 <span class="lb-styles-detail">Số lượng: </span> 
                                 <div class="input-number">

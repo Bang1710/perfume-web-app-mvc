@@ -67,24 +67,14 @@
             <table class="table tb-cart tb-cart-mobie">
                 <thead>
                     <tr>
-                        @*<th scope="col" class="hiden-mobie">STT</th>*@
-                        @*<th scope="col" class="hiden-mobie">Hình ảnh</th>*@
                         <th scope="col" style="width:70%;">Sản phẩm</th>
-                        @*<th scope="col">Giá sản phẩm</th>*@
                         <th scope="col">Số lượng</th>
-                        @*<th scope="col" class="hiden-mobie">Thành tiền</th>*@
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var item in Model)
                     {
                         <tr>
-                            @*<th scope="row" class="hiden-mobie">@i</th>*@
-                            @*<td class="hiden-mobie">
-                                <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Product_ID">
-                                    <img src="~/img/img-product/@item.Product_ID-01.png" alt="" class="img-product-cart">
-                                </a>
-                            </td>*@
                             <td>
                                 <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Product_ID" style="text-decoration:none;color:black;font-weight: 700;">
                                     @item.Product_Name
@@ -95,9 +85,7 @@
                                 </a>
                                 <div class="price_product">@item.Product_Price.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
                             </td>
-                            @*<td>@item.Product_Price.ToString("C0").Replace(",", ".").Substring(1) ₫</td>*@
                             <td>@item.Quantity.ToString()</td>
-                            @*<td class="hiden-mobie">@item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1) ₫</td>*@
                         </tr>
                         TotalPriceAllMobie += item.TotalPrice;
                         i++;
@@ -105,8 +93,8 @@
                 </tbody>
             </table>
 
-            <div class="TotalPrice">Tổng giá trị thành tiền @TotalPriceAll.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
-            <div class="TotalPrice-mobie">Tổng giá trị thành tiền @TotalPriceAllMobie.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
+            <div class="TotalPrice">Tổng giá trị thành tiền: @TotalPriceAll.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
+            <div class="TotalPrice-mobie">Tổng giá trị thành tiền: @TotalPriceAllMobie.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
         } else
         {
             <div class="alert alert-danger" style="font-size: 15px;"> Giỏ hàng của bạn trống !</div>

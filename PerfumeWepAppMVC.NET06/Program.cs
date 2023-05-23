@@ -17,19 +17,21 @@ namespace PerfumeWepAppMVC.NET06
 
             //builder.Services.AddScoped<CartController>();
 
-
+            // Add service of DBContext EF Core
             builder.Services.AddDbContext<PerfumeDBContext>(options =>
              options.UseSqlServer(builder.Configuration.GetConnectionString("PerfumeDBConnect")));
 
             builder.Services.Configure<RouteOptions>(options => {
                 options.AppendTrailingSlash = false;        // Thêm d?u / vào cu?i URL
                 options.LowercaseUrls = false;               // url ch? th??ng
-                options.LowercaseQueryStrings = false;      // không b?t query trong url ph?i in th??ng
+                options.LowercaseQueryStrings = false;      // không b?t query trong url ph?i ch? th??ng
             });
 
 
             builder.Services.AddDistributedMemoryCache();
 
+
+            // C?u hình cho session, ?? dùng session ?? l?u tr? d? li?u trong 1 phiên làm vi?c
             builder.Services.AddSession(options =>
             {
                 options.IdleTimeout = TimeSpan.FromMinutes(30); ;
@@ -54,6 +56,7 @@ namespace PerfumeWepAppMVC.NET06
 
             app.UseAuthorization();
 
+            // C?u hình session
             app.UseSession();
 
             app.UseEndpoints(endpoints =>

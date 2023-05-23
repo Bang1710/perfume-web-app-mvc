@@ -1,15 +1,12 @@
 ﻿.slider-container {
     width: 100%;
-    /*margin: 10px auto;*/
     text-align: center;
     position: relative;
 }
 
     .slider-container img {
         width: 100%;
-        /*margin: 0 auto;*/
         height: 80vh;
-        /*object-fit: cover;*/
     }
 
 .mySlide {
@@ -126,8 +123,6 @@ img.img-cart-list {
 }
 
 .perfume-category {
-    /*margin: 0px 10px;*/
-    /*border: 1px solid gray;*/
     border-radius: 3px;
     padding: 0px;
 }

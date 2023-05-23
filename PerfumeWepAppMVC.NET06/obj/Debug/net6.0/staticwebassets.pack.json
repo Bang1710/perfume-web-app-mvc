@@ -357,10 +357,6 @@
       "PackagePath": "staticwebassets\\js\\detail.js"
     },
     {
-      "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\home.js",
-      "PackagePath": "staticwebassets\\js\\home.js"
-    },
-    {
       "Id": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\js\\layout.js",
       "PackagePath": "staticwebassets\\js\\layout.js"
     },

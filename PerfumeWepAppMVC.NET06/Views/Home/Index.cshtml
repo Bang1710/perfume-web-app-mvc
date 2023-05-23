@@ -140,7 +140,7 @@
                         <img src="~/img/img-product/@item.ProductID-01.png" class="card-img-top" alt="Sản phẩm 01">
                         <div class="card-body">
                             <h1 class="card-title-brand">@item.CategoryName</h1>
-                            <h3 class="card-title-productName">@item.ProductName @*<span class="card-capacity">105ml</span>*@</h3>
+                            <h3 class="card-title-productName">@item.ProductName</h3>
                             <span class="card-product-price">@item.ProductPrice.ToString("C0").Replace(",", ".").Substring(1)<span> ₫</span></span>
                             <h4 class="card-product-gender">Nước hoa cho @item.ProductGender.ToLower()</h4>
                             <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
@@ -150,12 +150,7 @@
             }
             
         </div>
-
-        @*<div class="intro-view-all">
-            <a class="btn btn-outline-dark btn-view-all" href="#">
-                Xem tất cả
-            </a>
-        </div>*@
+       
     </div>
 </div>
 
@@ -193,7 +188,7 @@
                         <img src="~/img/img-product/@item.ProductID-01.png" class="card-img-top" alt="Sản phẩm 01">
                         <div class="card-body">
                             <h1 class="card-title-brand">@item.CategoryName</h1>
-                            <h3 class="card-title-productName">@item.ProductName @*<span class="card-capacity">105ml</span>*@</h3>
+                            <h3 class="card-title-productName">@item.ProductName</h3>
                             <span class="card-product-price">@item.ProductPrice.ToString("C0").Replace(",", ".").Substring(1)<span> ₫</span></span>
                             <h4 class="card-product-gender">Nước hoa cho @item.ProductGender.ToLower()</h4>
                             <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.ProductID" class="btn btn-outline-success card-view-detail">Xem chi tiết</a>
@@ -201,12 +196,6 @@
                     </div>
                 </div>
             }
-            
-           @* <div class="intro-view-all">
-                <a class="btn btn-outline-dark btn-view-all" href="#">
-                    Xem tất cả
-                </a>
-            </div>*@
         </div>
 
 
