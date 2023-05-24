@@ -34,8 +34,8 @@ Install dependencies
 
 ```bash
   dotnet watch run or Select IIS Express on Visual Studio
-
-  
+```
+ 
 ## Tech Stack
 
 **Client:** HTML, CSS, JavaScript, Bootstrap, JQuery
