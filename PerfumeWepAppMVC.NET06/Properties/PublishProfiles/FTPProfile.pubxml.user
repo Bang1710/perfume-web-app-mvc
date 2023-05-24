@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAzDWsJPvrNEmGRlqvljO4+AAAAAACAAAAAAAQZgAAAAEAACAAAADTRL8VPO6WR+bJF26IrGkzVQ4w3bfBxn+CiWEsnSrkJQAAAAAOgAAAAAIAACAAAABSByuV0Vv3IAy8+x0yOzVoBWEWXS0e5zPOAgjDtmpaSyAAAADaCi6aCl2Bw59mTd1Bx8+Wj7PBinmCVckqPAIaUbalEkAAAAA4a2Qb64sTsbkyVlmdEyi7Cpp7748R1tiJXJrwwXQ39JK6JMqdG72Vib3p9wOg/aH+nL+ZWwOLRCcEVMC/OEo3</EncryptedPassword>
+    <_PublishTargetUrl>ftp://192.52.242.121/www.peraspnet.somee.com/http://www.peraspnet.somee.com</_PublishTargetUrl>
+    <History>False|2023-05-24T03:34:45.7517809Z;False|2023-05-24T10:32:17.2966727+07:00;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="PerfumeDBConnect">
+      <Value>Data Source=PerfumeDBFinal.mssql.somee.com%3bDatabase=PerfumeDBFinal%3b user id=perfumeDB%3bpwd=17102002%3bpersist security info=False%3bTrustServerCertificate=true%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="PerfumeWebApp.NET06.Data.PerfumeDBContext">
+      <Value>Data Source=PerfumeDBFinal.mssql.somee.com%3bDatabase=PerfumeDBFinal%3b user id=perfumeDB%3bpwd=17102002%3bpersist security info=False%3bTrustServerCertificate=true%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

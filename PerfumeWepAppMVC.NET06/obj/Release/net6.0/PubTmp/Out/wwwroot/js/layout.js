@@ -7,7 +7,6 @@ showSlides()
 
 function showSlides() {
     var slides = $$('.mySlide')
-    //var dots = $$('.dot')
     slideIndex++;
     if (slideIndex > slides.length) { slideIndex = 1 }
 
@@ -17,12 +16,7 @@ function showSlides() {
         slide.style.display = 'none';
     });
 
-    //dots.forEach(dot => {
-    //    dot.className = dot.className.replace(' active', '');
-    //});
-
     slides[slideIndex - 1].style.display = 'block';
-    //dots[slideIndex - 1].className += ' active';
     setTimeout(showSlides, 2000)
 }
 var mainSideNavigation = document.getElementsByClassName('main-sidenav')[0];

@@ -1,8 +1,6 @@
 ﻿
 ol.breadcrumb {
     font-size: 15px;
-    /* color: black; */
-    /* text-decoration: none; */
 }
 
 a.breadcrumb-item-title {
@@ -406,14 +404,14 @@ form.form-review {
     cursor: pointer;
 }
 
-    .star svg, .star-answer {
-        fill: #ddd;
-    }
+.star svg, .star-answer {
+    fill: #ddd;
+}
 
-        .star:hover svg,
-        .star.selected svg, .star-answer.selected svg {
-            fill: #ffcc00;
-        }
+.star:hover svg,
+.star.selected svg, .star-answer.selected svg {
+    fill: #ffcc00;
+}
 
 .review-rating,
 .write-review,

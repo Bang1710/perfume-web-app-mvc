@@ -139,6 +139,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == cart.Cart_ID);
                 ViewBag.CountCart = cartItemCount;
             }
+            TempData["InforSuccessRemove"] = "Bạn đã xóa sản phẩm khỏi giỏ hàng thành công";
 
             return RedirectToAction("ViewCart", "Cart");
         }

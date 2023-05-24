@@ -16,8 +16,6 @@ minusBtn.addEventListener("click", (event) => {
     }
 });
 
-//const $ = document.querySelector.bind(document)
-//const $$ = document.querySelectorAll.bind(document)
 const tabs = $$('.tab-item')
 const tabPanes = $$('.tab-pane')
 const line = $('.tabs .line')
@@ -38,8 +36,6 @@ tabs.forEach(function (tab, index) {
 })
 
 
-// $(document).ready(function() {
-// });
 
 var listStar = document.querySelectorAll('.star');
 var listStarAnswer = document.querySelectorAll('.star-answer');

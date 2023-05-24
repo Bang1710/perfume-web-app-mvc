@@ -194,11 +194,6 @@ h1.footer-title {
 
 /*toogle bar*/
 
-/*.active {
-    background-color: #059862;
-}*/
-
-
 
 .main-sidenav {
     position: fixed;
@@ -206,7 +201,6 @@ h1.footer-title {
     left: 0;
     width: 0;
     height: 100%;
-    /* bottom: 0; */
     background-color: black;
     transition: .2s;
     overflow: hidden;
