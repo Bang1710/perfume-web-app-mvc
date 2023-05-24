@@ -186,6 +186,14 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             ViewBag.Message = MessageStatus;
             ViewBag.Alert = AlertMessage;
+
+            ViewBag.PriceSortOrder = priceSortOrder;
+            ViewBag.SelectedBrands = brand; // selectedBrands là danh sách các thương hiệu đã được chọn
+            ViewBag.SelectedGenders = gender;
+            ViewBag.SelectedCapacities = capacity;
+            ViewBag.SelectedOriginals = original;
+
+
             return View(products);
         }
 
@@ -199,6 +207,11 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             }
 
             SetValueViewBag();
+            ViewBag.PriceSortOrder = priceSortOrder;
+            ViewBag.SelectedBrands = brand; // selectedBrands là danh sách các thương hiệu đã được chọn
+            ViewBag.SelectedGenders = gender;
+            ViewBag.SelectedCapacities = capacity;
+            ViewBag.SelectedOriginals = original;
             var stringSearchHistory = "";
             var products = _context.Products.ToList();
 

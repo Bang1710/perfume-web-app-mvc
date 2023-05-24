@@ -44,13 +44,15 @@
                             <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
                                 <div class="accordion-body">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderLowToHigh" value="asc">
+                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderLowToHigh" value="asc"
+                                        @(ViewBag.PriceSortOrder != null && ViewBag.PriceSortOrder == "asc" ? "checked" : "")>
                                         <label class="form-check-label" for="priceSortOrderLowToHigh">
                                             Giá từ thấp đến cao
                                         </label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderHighToLow" value="desc">
+                                        <input class="form-check-input" type="radio" name="priceSortOrder" id="priceSortOrderHighToLow" value="desc"
+                                        @(ViewBag.PriceSortOrder != null && ViewBag.PriceSortOrder == "desc" ? "checked" : "")>
                                         <label class="form-check-label" for="priceSortOrderHighToLow">
                                             Giá từ cao xuống thấp
                                         </label>
@@ -71,7 +73,8 @@
                                     @foreach (var item in ViewBag.CategoryNames)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="brand" id="@item.Category_ID" value="@item.Category_ID">
+                                            <input class="form-check-input" type="checkbox" name="brand" id="@item.Category_ID" value="@item.Category_ID"
+                                             @(ViewBag.SelectedBrands != null && ViewBag.SelectedBrands.Contains(item.Category_ID) ? "checked" : "")>
                                             <label class="form-check-label" for="@item.Category_ID">
                                                 @item.Category_Name
                                             </label>
@@ -93,7 +96,8 @@
                                     @foreach (var item in ViewBag.GenderProduct)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="gender" id="@item" value="@item">
+                                            <input class="form-check-input" type="checkbox" name="gender" id="@item" value="@item"
+                                            @(ViewBag.SelectedGenders != null && ViewBag.SelectedGenders.Contains(item) ? "checked" : "")>
                                             <label class="form-check-label" for="@item">
                                                 @item
                                             </label>
@@ -115,7 +119,8 @@
                                     @foreach (var item in ViewBag.VolumeProduct)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="capacity" id="@item" value="@item">
+                                            <input class="form-check-input" type="checkbox" name="capacity" id="@item" value="@item"
+                                            @(ViewBag.SelectedCapacities != null && ViewBag.SelectedCapacities.Contains(item) ? "checked" : "")>
                                             <label class="form-check-label" for="@item">
                                                 @item
                                             </label>
@@ -137,7 +142,8 @@
                                     @foreach (var item in ViewBag.OriginProduct)
                                     {
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" name="original" id="@item" value="@item">
+                                            <input class="form-check-input" type="checkbox" name="original" id="@item" value="@item"
+                                            @(ViewBag.SelectedOriginals != null && ViewBag.SelectedOriginals.Contains(item) ? "checked" : "")>
                                             <label class="form-check-label" for="@item">
                                                 @item
                                             </label>

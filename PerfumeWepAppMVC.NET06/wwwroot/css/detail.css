@@ -328,7 +328,7 @@ img.card-img-top {
 h1.card-title-brand {
     text-align: center;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 800;
     letter-spacing: 1px;
     margin-bottom: 3px;
 }
@@ -338,11 +338,12 @@ h3.card-title-productName {
     text-align: center;
     line-height: 20px;
     margin-bottom: 5px;
+    height: 50px;
 }
 
 span.card-product-price {
     font-size: 22px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: 2px;
     text-align: center;
     display: block;
@@ -364,6 +365,7 @@ a.btn.btn-outline-success.card-view-detail {
     width: fit-content;
     margin: 0 auto;
     margin-bottom: 5px;
+    font-weight: 700;
 }
 
 .rightbar-title {
