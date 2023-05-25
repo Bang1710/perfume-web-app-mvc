@@ -10,86 +10,74 @@
 
 <div class="container">
     <div>
-        <h4>Sản phẩm @Model.Product_Name</h4>
+        <div class="title-create-product">
+            <div class="create-header">Sản phẩm @Model.Product_Name</div>
+            <a asp-action="Index" style="color: black;">Quay lại danh sách sản phẩm</a>
+        </div>
         <hr />
-        <dl class="row">
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Name)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Name)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Price)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Price)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Origin)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Origin)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Gender)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Gender)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Style)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Style)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_ReleaseYear)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_ReleaseYear)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Volume)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Volume)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_IsNew)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_IsNew)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_IsRecommend)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_IsRecommend)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_IsTrending)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_IsTrending)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Product_Intro)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Product_Intro)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => model.Category)
-            </dt>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Category.Category_ID)
-            </dd>
-        </dl>
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-12">
+                <div class="form-group">
+                    <label asp-for="Product_Name" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Name" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label  class="control-label form-label form-css-general ">Hình ảnh sản phẩm</label>
+                    <div class="td-content">
+                        <img src="~/img/img-product/@Model.Product_ID-01.png" alt="" class="img-product-cart-detail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Price" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Price" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Origin" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Origin" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Gender" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Gender" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Style" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Style" class="form-control form-css-general " />
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-12">
+                <div class="form-group">
+                    <label asp-for="Product_ReleaseYear" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_ReleaseYear" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Volume" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Volume" class="form-control form-css-general " />
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label form-css-general ">
+                        <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsNew" /> @Html.DisplayNameFor(model => model.Product_IsNew)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label form-css-general ">
+                        <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsRecommend" /> @Html.DisplayNameFor(model => model.Product_IsRecommend)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label form-css-general ">
+                        <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsTrending" /> @Html.DisplayNameFor(model => model.Product_IsTrending)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Intro" class="control-label form-label form-css-general "></label>
+                    <textarea rows="5" asp-for="Product_Intro" class="form-control form-css-general "></textarea>
+                </div>
+                 <a class="btn btn-success btn-submit-create" asp-action="Edit" asp-route-id="@Model?.Product_ID">Chỉnh sửa sản phẩm</a>
+            </div>
+        </div>
     </div>
     <div>
-        <a asp-action="Edit" asp-route-id="@Model?.Product_ID">Edit</a> |
-        <a asp-action="Index">Back to List</a>
     </div>
 
 

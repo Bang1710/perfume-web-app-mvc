@@ -5,89 +5,97 @@
 
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Edit</h1>
+<div class="container">
+    <div class="title-create-product">
+        <div class="create-header">Chỉnh sửa sản phẩm</div>
+        <a asp-action="Index" style="color: black;">Quay lại danh sách sản phẩm</a>
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-xl-10 col-lg-10 col-10">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Product_ID" />
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="form-group">
+                            <label asp-for="Category_ID" class="control-label form-label form-css-general "></label>
+                            <select asp-for="Category_ID" class="form-control form-css-general " asp-items="ViewBag.Category_ID"></select>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Name" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_Name" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_Name" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Price" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_Price" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_Price" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Origin" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_Origin" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_Origin" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Gender" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_Gender" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_Gender" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Style" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_Style" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_Style" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                    </div>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Product_ID" />
-            <div class="form-group">
-                <label asp-for="Category_ID" class="control-label"></label>
-                <select asp-for="Category_ID" class="form-control" asp-items="ViewBag.Category_ID"></select>
-                <span asp-validation-for="Category_ID" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Name" class="control-label"></label>
-                <input asp-for="Product_Name" class="form-control" />
-                <span asp-validation-for="Product_Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Price" class="control-label"></label>
-                <input asp-for="Product_Price" class="form-control" />
-                <span asp-validation-for="Product_Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Origin" class="control-label"></label>
-                <input asp-for="Product_Origin" class="form-control" />
-                <span asp-validation-for="Product_Origin" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Gender" class="control-label"></label>
-                <input asp-for="Product_Gender" class="form-control" />
-                <span asp-validation-for="Product_Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Style" class="control-label"></label>
-                <input asp-for="Product_Style" class="form-control" />
-                <span asp-validation-for="Product_Style" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_ReleaseYear" class="control-label"></label>
-                <input asp-for="Product_ReleaseYear" class="form-control" />
-                <span asp-validation-for="Product_ReleaseYear" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Volume" class="control-label"></label>
-                <input asp-for="Product_Volume" class="form-control" />
-                <span asp-validation-for="Product_Volume" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Product_IsNew" /> @Html.DisplayNameFor(model => model.Product_IsNew)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Product_IsRecommend" /> @Html.DisplayNameFor(model => model.Product_IsRecommend)
-                </label>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Product_IsTrending" /> @Html.DisplayNameFor(model => model.Product_IsTrending)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product_Intro" class="control-label"></label>
-                <input asp-for="Product_Intro" class="form-control" />
-                <span asp-validation-for="Product_Intro" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+                    <div class="col-xl-6 col-lg-6 col-12">
+                        <div class="form-group">
+                            <label asp-for="Product_ReleaseYear" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_ReleaseYear" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_ReleaseYear" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Volume" class="control-label form-label form-css-general "></label>
+                            <input asp-for="Product_Volume" class="form-control form-css-general " />
+                            <span asp-validation-for="Product_Volume" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label form-css-general ">
+                                <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsNew" /> @Html.DisplayNameFor(model => model.Product_IsNew)
+                            </label>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label form-css-general ">
+                                <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsRecommend" /> @Html.DisplayNameFor(model => model.Product_IsRecommend)
+                            </label>
+                        </div>
+                        <div class="form-group form-check">
+                            <label class="form-check-label form-css-general ">
+                                <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsTrending" /> @Html.DisplayNameFor(model => model.Product_IsTrending)
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product_Intro" class="control-label form-label form-css-general "></label>
+                            <textarea rows="5" asp-for="Product_Intro" class="form-control form-css-general "></textarea>
+                            <span asp-validation-for="Product_Intro" class="text-danger " style="font-size:15px;"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Lưu sản phẩm" class="btn btn-success btn-submit-create" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

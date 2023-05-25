@@ -1,0 +1,99 @@
+﻿.tilte-manage {
+    margin: 20px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 15px;
+    font-weight: 900;
+    text-transform: uppercase;
+    align-items: center;
+}
+
+a.btn.btn-outline-dark.btn-create {
+    font-size: 15px;
+    text-transform: none;
+    padding: 5px 15px;
+    font-weight: 600;
+}
+
+th.th-header {
+    font-size: 15px;
+    text-align: center;
+}
+
+td.td-content {
+    font-size: 15px;
+    text-align: center;
+    color: black;
+    font-weight: 600;
+}
+
+.td-btn {
+    font-size: 15px;
+    color: black;
+    text-align: center;
+    margin: 0px 2.5px;
+}
+
+.title-create-product {
+    margin: 20px 0px;
+    font-size: 15px;
+    color: black;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label.control-label.form-label.form-css-general {
+    font-size: 15px;
+    color: black;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.form-control.form-css-general {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: black;
+}
+
+label.form-check-label.form-css-general {
+    font-size: 15px;
+    margin-left: 0;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: black;
+}
+
+.btn.btn-submit-create {
+    font-size: 15px;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    display: block;
+    float: right;
+    margin-top: 20px;
+}
+
+img.img-product-cart-detail {
+    width: auto;
+    height: 400px;
+}
+
+dt.col-sm-4 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+dd.col-sm-8 {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+input.btn.btn-danger.btn-delete-product {
+    font-size: 15px;
+    padding: 5px 15px;
+    display: block;
+    margin-left: auto;
+    margin-top: 10px;
+}
