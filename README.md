@@ -56,7 +56,7 @@ Run project option 2
 
 ## Demo
 
-link to demo: http://nevoaperfume.somee.com/
+link to demo: http://nevoaperfumedemo.somee.com/
 
 
 ## Authors
