@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using PerfumeWebApp.NET06.Data;
 using PerfumeWepAppMVC.NET06.Models;
+using System.Drawing.Drawing2D;
 using System.Drawing.Printing;
 
 namespace PerfumeWepAppMVC.NET06.Controllers
@@ -76,7 +77,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         }
 
         [HttpGet]
-        [Route("Danh-sach-nuoc-hoa/{brandID?}")]
+        [Route("Danh-sach-nuoc-hoa-theo-thuong-hieu/{brandID?}")]
         public IActionResult ViewProductByBrand(string brandID, string? priceSortOrder, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             var userid = HttpContext.Session.GetInt32("UserId");
@@ -86,10 +87,92 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 getCountCartItem((int)userid);
             }
 
+            SetValueViewBag();
+
+
             var CategoryName = _context.Categories.Where(c => c.Category_ID == brandID).Select(c => c.Category_Name).FirstOrDefault();
             ViewBag.CategoryName = CategoryName.ToString();
-            return View();
+
+            var products = _context.Products.ToList();
+
+            if (brandID != null)
+            {
+                products = products.Where(p => p.Category_ID == brandID).ToList();
+            }
+
+            products = FilterAndSortProducts(products, priceSortOrder, null, gender, capacity, original);
+
+
+            ViewBag.PriceSortOrder = priceSortOrder;
+            ViewBag.SelectedGenders = gender;
+            ViewBag.SelectedCapacities = capacity;
+            ViewBag.SelectedOriginals = original;
+
+            return View(products);
         }
+
+        [HttpGet]
+        [Route("Danh-sach-nuoc-hoa-theo-gioi-tinh/{gender?}")]
+        public IActionResult ViewProductByGender(string gender, string? priceSortOrder, List<string>? brand, List<string>? capacity, List<string>? original)
+        {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
+            }
+
+            SetValueViewBag();
+
+
+            ViewBag.ProductGender = gender.ToUpper();
+
+            var products = _context.Products.ToList();
+
+            if (gender != null)
+            {
+                products = products.Where(p => p.Product_Gender == gender).ToList();
+            }
+
+            products = FilterAndSortProducts(products, priceSortOrder, brand, null, capacity, original);
+
+
+            ViewBag.PriceSortOrder = priceSortOrder;
+            ViewBag.SelectedBrands = brand;
+            ViewBag.SelectedCapacities = capacity;
+            ViewBag.SelectedOriginals = original;
+
+            return View(products);
+        }
+
+        [HttpGet]
+        [Route("Danh-sach-nuoc-hoa-moi/")]
+        public IActionResult ViewProductNew(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
+            }
+
+            SetValueViewBag();
+
+            var products = _context.Products.ToList();
+
+            products = FilterAndSortProducts(products, priceSortOrder, brand, gender, capacity, original);
+
+
+            ViewBag.PriceSortOrder = priceSortOrder;
+            ViewBag.SelectedBrands = brand;
+            ViewBag.SelectedGenders = gender;
+            ViewBag.SelectedCapacities = capacity;
+            ViewBag.SelectedOriginals = original;
+
+            return View(products);
+        }
+
+
 
         [HttpGet]
         [Route("chi-tiet-san-pham/{id?}")]
