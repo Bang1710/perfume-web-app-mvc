@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using PerfumeWebApp.NET06.Data;
 using Microsoft.EntityFrameworkCore;
+using System.ComponentModel;
 
 namespace PerfumeWepAppMVC.NET06.Models
 {
@@ -11,6 +12,7 @@ namespace PerfumeWepAppMVC.NET06.Models
 
         [Key]
         [MaxLength(5)]
+        [DisplayName("ID sản phẩm")]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string Product_ID { get; set; }
         #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
@@ -18,21 +20,25 @@ namespace PerfumeWepAppMVC.NET06.Models
         [Required]
         [MaxLength(5)]
         [ForeignKey("Category")]
+        [DisplayName("ID loại sản phẩm")]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string Category_ID { get; set; }
         #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         [Required]
         [MaxLength(500)]
+        [DisplayName("Tên sản phẩm")]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string Product_Name { get; set; }
         #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         [Required]
+        [DisplayName("Giá sản phẩm")]
         public int Product_Price { get; set; }
 
         [Required]
         [MaxLength(20)]
+        [DisplayName("Xuất xứ")]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string Product_Origin { get; set; }
         #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.

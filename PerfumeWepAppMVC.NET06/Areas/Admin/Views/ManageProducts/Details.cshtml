@@ -1,0 +1,97 @@
+﻿@model PerfumeWepAppMVC.NET06.Models.Product
+@using PerfumeWepAppMVC.NET06
+@using PerfumeWepAppMVC.NET06.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div>
+        <h4>Sản phẩm @Model.Product_Name</h4>
+        <hr />
+        <dl class="row">
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Name)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Name)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Price)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Price)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Origin)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Origin)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Gender)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Gender)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Style)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Style)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_ReleaseYear)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_ReleaseYear)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Volume)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Volume)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_IsNew)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_IsNew)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_IsRecommend)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_IsRecommend)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_IsTrending)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_IsTrending)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Product_Intro)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Product_Intro)
+            </dd>
+            <dt class = "col-sm-2">
+                @Html.DisplayNameFor(model => model.Category)
+            </dt>
+            <dd class = "col-sm-10">
+                @Html.DisplayFor(model => model.Category.Category_ID)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model?.Product_ID">Edit</a> |
+        <a asp-action="Index">Back to List</a>
+    </div>
+
+
+</div>
+
