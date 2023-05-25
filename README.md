@@ -30,10 +30,15 @@ Go to the project directory
   cd my-project
 ```
 
-Install dependencies
+Run project option 1
 
 ```bash
-  dotnet watch run or Select IIS Express on Visual Studio
+  dotnet watch run
+```
+
+Run project option 2
+```bash
+  Select IIS Express on Visual Studio
 ```
  
 ## Tech Stack
