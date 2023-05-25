@@ -7,7 +7,7 @@ Névoa Perfume Website là trang web chuyên bán nước hoa của các thươn
 
  ## Features
 - Tham quan trang chủ, xem danh sách sản phẩm theo thương hiệu, xem danh sách sản phẩm theo giới tính, các sản phẩm đề xuất, các sản phẩm xu hướng, các banner thông tin khuyến mãi.
-- Xem các danh sách sản phẩm theo thương hiệu, giới tính, xuất xứ,...
+- Lọc danh sách sản phẩm theo thương hiệu, giới tính, xuất xứ,...
 - Xem thông tin chi tiết của sản phẩm và các sản phẩm liên quan đến sản phẩm đó.
 - Đăng nhập/ Đăng xuất, và đăng ký tài khoản.
 - Thêm sản phẩm vào giỏ hàng, xóa sản phẩm khỏi giỏ hàng
