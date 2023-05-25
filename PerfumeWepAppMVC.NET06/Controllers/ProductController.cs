@@ -158,7 +158,9 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             SetValueViewBag();
 
-            var products = _context.Products.ToList();
+            var products = _context.Products.Where(p => p.Product_IsNew == true).ToList();
+
+
 
             products = FilterAndSortProducts(products, priceSortOrder, brand, gender, capacity, original);
 
