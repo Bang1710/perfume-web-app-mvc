@@ -35,24 +35,29 @@ closeBtnFilter.addEventListener('click', function () {
 
 // Lấy form và nút reset
 var form = document.getElementById('form-filter-id');
-var resetButton = document.querySelector('.btn-reset');
+
+
 
 // Đặt sự kiện click cho nút reset
-resetButton.addEventListener('click', function () {
-    // Lấy tất cả các trường checkbox và radio button trong form
-    var checkboxes = form.querySelectorAll('input[type="checkbox"]');
-    var radios = form.querySelectorAll('input[type="radio"]');
+// Lấy tất cả các nút resetButton
+var resetButtons = document.querySelectorAll('.btn-reset');
 
-    // Lặp qua các checkbox và đặt thuộc tính defaultChecked thành true/false
-    checkboxes.forEach(function (checkbox) {
-        checkbox.defaultChecked = false;
-    });
+// Lặp qua tất cả các nút resetButton và đặt sự kiện click cho từng nút
+resetButtons.forEach(function (resetButton) {
+    resetButton.addEventListener('click', function () {
+        // Lấy tất cả các trường checkbox và radio button trong form
+        var checkboxes = resetButton.closest('form').querySelectorAll('input[type="checkbox"]');
+        var radios = resetButton.closest('form').querySelectorAll('input[type="radio"]');
 
-    // Lặp qua các radio button và đặt thuộc tính defaultChecked thành true/false
-    radios.forEach(function (radio) {
-        radio.defaultChecked = false;
+
+        // Lặp qua các checkbox và đặt thuộc tính defaultChecked thành true/false
+        checkboxes.forEach(function (checkbox) {
+            checkbox.defaultChecked = false;
+        });
+
+        // Lặp qua các radio button và đặt thuộc tính defaultChecked thành true/false
+        radios.forEach(function (radio) {
+            radio.defaultChecked = false;
+        });
     });
 });
-
-
-// Đặt sự kiện click cho nút reset
