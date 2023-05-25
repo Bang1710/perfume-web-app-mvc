@@ -18,7 +18,7 @@
     <hr />
     <div class="row">
         <div class="col-xl-10 col-lg-10 col-10">
-            <form asp-action="Create" method="post">
+            <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-12">
@@ -108,4 +108,7 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
 }

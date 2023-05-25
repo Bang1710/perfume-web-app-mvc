@@ -69,7 +69,7 @@ namespace PerfumeWepAppMVC.NET06.Models
         public string Product_Volume { get; set; }
         #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
-        [Required]
+        [Required(ErrorMessage = "Hãy chọn")]
         [DisplayName("Sản phẩm mới")]
         public bool Product_IsNew { get; set; }
 
@@ -85,7 +85,8 @@ namespace PerfumeWepAppMVC.NET06.Models
         [DisplayName("Giới thiệu sản phẩm")]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public string Product_Intro { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+        #pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
+       
         [DisplayName("Loại sản phẩm")]
         #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public virtual Category Category { get; set; }

@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using PerfumeWebApp.NET06.Data;
 using PerfumeWepAppMVC.NET06.Models;
 
+
 namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
 {
     [Area("Admin")]
@@ -58,7 +59,7 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
         [Route("quan-ly-san-pham/tao-moi-san-pham")]
         public IActionResult Create()
         {
-            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_ID");
+            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_Name");
             return View();
         }
 
@@ -67,16 +68,24 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("quan-ly-san-pham/tao-moi-san-pham")]
         public async Task<IActionResult> Create([Bind("Product_ID,Category_ID,Product_Name,Product_Price,Product_Origin,Product_Gender,Product_Style,Product_ReleaseYear,Product_Volume,Product_IsNew,Product_IsRecommend,Product_IsTrending,Product_Intro")] Product product)
         {
-            if (ModelState.IsValid)
+            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_Name", product.Category != null ? product.Category.Category_ID : null);
+            if (_context.Products.Any(p => p.Product_ID == product.Product_ID))
             {
-                _context.Add(product);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                ModelState.AddModelError("Product_ID", "Mã sản phẩm này đã tồn tại");
+
+                return View(product);
             }
-            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_ID", product.Category_ID);
-            return View(product);
+
+            _context.Add(product);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            //if (ModelState.IsValid)
+            //{
+            //}
+            //return View(product);
         }
 
         // GET: Admin/ManageProducts/Edit/5
