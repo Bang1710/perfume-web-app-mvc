@@ -76,6 +76,22 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         }
 
         [HttpGet]
+        [Route("Danh-sach-nuoc-hoa/{brandID?}")]
+        public IActionResult ViewProductByBrand(string brandID, string? priceSortOrder, List<string>? gender, List<string>? capacity, List<string>? original)
+        {
+            var userid = HttpContext.Session.GetInt32("UserId");
+            if (userid != null)
+            {
+                getUserIDAndUserName((int)userid);
+                getCountCartItem((int)userid);
+            }
+
+            var CategoryName = _context.Categories.Where(c => c.Category_ID == brandID).Select(c => c.Category_Name).FirstOrDefault();
+            ViewBag.CategoryName = CategoryName.ToString();
+            return View();
+        }
+
+        [HttpGet]
         [Route("chi-tiet-san-pham/{id?}")]
         public ActionResult Detail(string? id)
         {

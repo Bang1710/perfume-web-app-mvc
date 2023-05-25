@@ -1,0 +1,24 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Danh sách sản phẩm đã lọc";
+    ViewData["UserID"] = ViewBag.UserID;
+    ViewData["UserName"] = ViewBag.UserName;
+    ViewData["CountCart"] = ViewBag.CountCart;
+    
+
+}
+
+<div class="stuff" style="margin: 20px 0px 100px;">
+    <div class="content-header container">
+        <nav aria-label="breadcrumb" class="breadcrumb-des">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a asp-area="" asp-controller="Home" asp-action="Index" class="breadcrumb-item-title">Trang chủ</a></li>
+                <li class="breadcrumb-item active breadcrumb-item-des" aria-current="page">Danh sách sản phẩm nước hoa @ViewBag.CategoryName</li>
+            </ol>
+            <hr>
+        </nav>
+    </div>
+
+
+</div>
