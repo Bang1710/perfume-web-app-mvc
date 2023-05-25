@@ -16,6 +16,26 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\Project\PerfumeWepAppMVC.NET06\PerfumeWepAppMVC.NET06
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Areas/Admin/Views/ManageProducts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Areas/Admin/Views/ManageProducts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Areas/Admin/Views/ManageProducts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Areas/Admin/Views/ManageProducts/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Areas/Admin/Views/ManageProducts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTWFuYWdlUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -46,6 +66,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Views/Product/Search.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxTZWFyY2guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Views/Product/ViewProductByBrand.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxWaWV3UHJvZHVjdEJ5QnJhbmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Views/Product/ViewProductByGender.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxWaWV3UHJvZHVjdEJ5R2VuZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Views/Product/ViewProductNew.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHVjdFxWaWV3UHJvZHVjdE5ldy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Project/PerfumeWepAppMVC.NET06/PerfumeWepAppMVC.NET06/Views/Shared/_ValidationScriptsPartial.cshtml]
