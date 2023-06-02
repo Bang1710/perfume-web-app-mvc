@@ -123,6 +123,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         }
 
         [HttpPost]
+        [Route("xoa-san-pham")]
         public IActionResult RemoveProductFromCart(string Product_ID)
         {
             var userId = HttpContext.Session.GetInt32("UserId");

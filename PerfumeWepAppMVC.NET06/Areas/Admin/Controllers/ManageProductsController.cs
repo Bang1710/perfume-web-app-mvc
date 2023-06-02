@@ -64,8 +64,6 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
         }
 
         // POST: Admin/ManageProducts/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("quan-ly-san-pham/tao-moi-san-pham")]
@@ -75,17 +73,24 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
             if (_context.Products.Any(p => p.Product_ID == product.Product_ID))
             {
                 ModelState.AddModelError("Product_ID", "Mã sản phẩm này đã tồn tại");
+                return View(product);
+            }
 
+            if (product.Product_ReleaseYear <= 2000 || product.Product_ReleaseYear >= (int)DateTime.Now.Year)
+            {
+                ModelState.AddModelError("Product_ReleaseYear", $"Năm phát hành phải lớn hơn năm 200 và nhỏ hơn năm {DateTime.Now.Year}");
+                return View(product);
+            }
+
+            if (product.Product_Gender != "Nam" || product.Product_Gender != "Nữ" || product.Product_Gender != "Unisex")
+            {
+                ModelState.AddModelError("Product_Gender", "Giá trị của giới tính bắt buộc là Nam hoặc Nữ hoặc Unisex");
                 return View(product);
             }
 
             _context.Add(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-            //if (ModelState.IsValid)
-            //{
-            //}
-            //return View(product);
         }
 
         // GET: Admin/ManageProducts/Edit/5
@@ -102,13 +107,12 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_ID", product.Category_ID);
+            //ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_Name", product.Category.Category_Name);
+            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_Name", product.Category != null ? product.Category.Category_ID : null);
             return View(product);
         }
 
         // POST: Admin/ManageProducts/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Product_ID,Category_ID,Product_Name,Product_Price,Product_Origin,Product_Gender,Product_Style,Product_ReleaseYear,Product_Volume,Product_IsNew,Product_IsRecommend,Product_IsTrending,Product_Intro")] Product product)
@@ -138,7 +142,8 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_ID", product.Category_ID);
+            ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_Name", product.Category != null ? product.Category.Category_ID : null);
+            //ViewData["Category_ID"] = new SelectList(_context.Categories, "Category_ID", "Category_Name", product.Category.Category_Name);
             return View(product);
         }
 

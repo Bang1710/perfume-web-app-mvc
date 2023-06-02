@@ -174,8 +174,6 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             return View(products);
         }
 
-
-
         [HttpGet]
         [Route("chi-tiet-san-pham/{id?}")]
         public ActionResult Detail(string? id)
@@ -259,6 +257,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             return products;
         }
 
+        [Route("loc-san-pham-theo-tieu-chi/")]
         public IActionResult Filter(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             var userid = HttpContext.Session.GetInt32("UserId");
@@ -298,6 +297,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             return View(products);
         }
 
+        [Route("tim-kiem-san-pham/")]
         public ActionResult Search(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             var userid = HttpContext.Session.GetInt32("UserId");

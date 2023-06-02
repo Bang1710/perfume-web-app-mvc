@@ -18,6 +18,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         //Account/login
         [HttpGet]
+        [Route("dang-nhap")]
         public IActionResult Login()
         {
             // truy cập bằng phương thức get
@@ -25,6 +26,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         }
 
         [HttpPost]
+        [Route("dang-nhap")]
         public IActionResult Login(User user)
         {
             // Lấy ra user đã được lưu trong csdl
@@ -52,7 +54,8 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             // Trả về view hiện tại, View Login
             return View();
         }
-
+        
+        [Route("dang-xuat")]
         public IActionResult Logout()
         {
             //Remove session userid của người dùng
@@ -63,6 +66,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         //Account/Register
         [HttpGet]
+        [Route("dang-ky")]
         public IActionResult Register()
         {
             //Truy cập bằng phương thức get
@@ -71,6 +75,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
 
         [HttpPost]
+        [Route("dang-ky")]
         public IActionResult Register(User user, string User_ConfirmPassword)
         {
             // Kiểm tra tên đăng nhập đã tồn tại hay chưa
