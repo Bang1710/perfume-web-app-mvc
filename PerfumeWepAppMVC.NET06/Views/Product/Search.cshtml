@@ -191,6 +191,16 @@
                             </div>
                         </div>
                     }
+
+                    <nav aria-label="Page navigation example" class="nav-paging">
+                        <ul class="pagination">
+                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                            {
+                                @*<li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Product" asp-route-page="@i">@i</a></li>*@
+                                <li class="page-item"><a class="page-link" href="@ViewBag.UrlPage&page=@i">@i</a></li>
+                            }
+                        </ul>
+                    </nav>
                 </div>
             </div>
         </div>
