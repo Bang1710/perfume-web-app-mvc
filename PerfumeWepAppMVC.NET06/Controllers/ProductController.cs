@@ -72,25 +72,6 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                                             .Take(pageSize)
                                             .ToList();
 
-            //var queryString = new RouteValueDictionary(Request.QueryString);
-
-            //// Gán giá trị trang mới cho query string
-            //queryString["page"] = page;
-
-            //// Xây dựng lại URL với các query string đã tồn tại
-            //var urlBuilder = new StringBuilder();
-            //urlBuilder.Append(Request.Path);
-            //if (queryString.Count > 0)
-            //{
-            //    urlBuilder.Append("?");
-            //    foreach (var kvp in queryString)
-            //    {
-            //        urlBuilder.AppendFormat("{0}={1}&", kvp.Key, kvp.Value);
-            //    }
-            //    urlBuilder.Length--; // Loại bỏ dấu & cuối cùng
-            //}
-
-
             ViewBag.CurrentPage = page;
             ViewBag.TotalPages = (int)Math.Ceiling(_context.Products.Count() / (double)pageSize);
             return View(listAllProduct);
@@ -98,7 +79,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
         [HttpGet]
         [Route("Danh-sach-nuoc-hoa-theo-thuong-hieu/{brandID?}")]
-        public IActionResult ViewProductByBrand(string brandID, string? priceSortOrder, List<string>? gender, List<string>? capacity, List<string>? original)
+        public IActionResult ViewProductByBrand(string brandID, string? priceSortOrder, List<string>? gender, List<string>? capacity, List<string>? original, int page = 1, int pageSize = 8)
         {
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
@@ -122,18 +103,45 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             products = FilterAndSortProducts(products, priceSortOrder, null, gender, capacity, original);
 
+            var listAllProduct = products.Skip((page - 1) * pageSize)
+                            .Take(pageSize)
+                            .ToList();
+
+            var url = getUrlQuery(null, null, null, priceSortOrder, null, gender, capacity, original);
+
+            ViewBag.UrlPage = url.ToString();
+
+
+            ViewBag.CurrentPage = page;
+            var total = (int)Math.Ceiling(products.Count() / (double)pageSize);
+            ViewBag.TotalPages = total;
+
+            if (listAllProduct != null && listAllProduct.Any())
+            {
+                MessageStatus = $"Danh sách kết quả sau khi lọc ở trang {page}/{total}";
+                AlertMessage = "alert-success";
+            }
+            else
+            {
+                MessageStatus = "Không có sản phẩm nào phù hợp với kết quả lọc của bạn";
+                AlertMessage = "alert-danger";
+            }
+
+            //Truyền dữ liệu thông báo
+            ViewBag.Message = MessageStatus;
+            ViewBag.Alert = AlertMessage;
 
             ViewBag.PriceSortOrder = priceSortOrder;
             ViewBag.SelectedGenders = gender;
             ViewBag.SelectedCapacities = capacity;
             ViewBag.SelectedOriginals = original;
 
-            return View(products);
+            return View(listAllProduct);
         }
 
         [HttpGet]
         [Route("Danh-sach-nuoc-hoa-theo-gioi-tinh/{gender?}")]
-        public IActionResult ViewProductByGender(string gender, string? priceSortOrder, List<string>? brand, List<string>? capacity, List<string>? original)
+        public IActionResult ViewProductByGender(string gender, string? priceSortOrder, List<string>? brand, List<string>? capacity, List<string>? original, int page = 1, int pageSize = 8)
         {
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
@@ -157,18 +165,47 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             products = FilterAndSortProducts(products, priceSortOrder, brand, null, capacity, original);
 
 
+            var listAllProduct = products.Skip((page - 1) * pageSize)
+                           .Take(pageSize)
+                           .ToList();
+
+            var url = getUrlQuery(null, null, null, priceSortOrder, brand, null, capacity, original);
+
+            ViewBag.UrlPage = url.ToString();
+
+
+            ViewBag.CurrentPage = page;
+            var total = (int)Math.Ceiling(products.Count() / (double)pageSize);
+            ViewBag.TotalPages = total;
+
+            if (listAllProduct != null && listAllProduct.Any())
+            {
+                MessageStatus = $"Danh sách kết quả sau khi lọc ở trang {page}/{total}";
+                AlertMessage = "alert-success";
+            }
+            else
+            {
+                MessageStatus = "Không có sản phẩm nào phù hợp với kết quả lọc của bạn";
+                AlertMessage = "alert-danger";
+            }
+
+            //Truyền dữ liệu thông báo
+            ViewBag.Message = MessageStatus;
+            ViewBag.Alert = AlertMessage;
+
             ViewBag.PriceSortOrder = priceSortOrder;
             ViewBag.SelectedBrands = brand;
             ViewBag.SelectedCapacities = capacity;
             ViewBag.SelectedOriginals = original;
 
-            return View(products);
+            return View(listAllProduct);
         }
 
         [HttpGet]
-        [Route("Danh-sach-nuoc-hoa-moi/")]
-        public IActionResult ViewProductNew(string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        [Route("Danh-sach-nuoc-hoa-theo-kieu/{style?}")]
+        public IActionResult ViewProductStyle(string? style, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original, int page = 1, int pageSize = 8)
         {
+            var messageStyle = "";
             var userid = HttpContext.Session.GetInt32("UserId");
             if (userid != null)
             {
@@ -178,11 +215,59 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             SetValueViewBag();
 
-            var products = _context.Products.Where(p => p.Product_IsNew == true).ToList();
+            var products = _context.Products.ToList();
 
+            if (style == "new")
+            {
+                products = products.Where(p => p.Product_IsNew == true).ToList();
+                messageStyle = "Danh sách nước hoa mới";
+            }
 
+            if (style == "trending")
+            {
+                products = products.Where(p => p.Product_IsTrending == true).ToList();
+                messageStyle = "Danh sách nước hoa xu hướng";
+            }
+
+            if (style == "rcm")
+            {
+                products = products.Where(p => p.Product_IsRecommend == true).ToList();
+                messageStyle = "Danh sách nước hoa đề xuất";
+
+            }
 
             products = FilterAndSortProducts(products, priceSortOrder, brand, gender, capacity, original);
+
+
+            ViewBag.MessageStyle = messageStyle;
+
+            var listAllProduct = products.Skip((page - 1) * pageSize)
+                           .Take(pageSize)
+                           .ToList();
+
+            var url = getUrlQuery(null, null, style, priceSortOrder, brand, gender, capacity, original);
+
+            ViewBag.UrlPage = url.ToString();
+
+
+            ViewBag.CurrentPage = page;
+            var total = (int)Math.Ceiling(products.Count() / (double)pageSize);
+            ViewBag.TotalPages = total;
+
+            if (listAllProduct != null && listAllProduct.Any())
+            {
+                MessageStatus = $"Danh sách kết quả sau khi lọc ở trang {page}/{total}";
+                AlertMessage = "alert-success";
+            }
+            else
+            {
+                MessageStatus = "Không có sản phẩm nào phù hợp với kết quả lọc của bạn";
+                AlertMessage = "alert-danger";
+            }
+
+            //Truyền dữ liệu thông báo
+            ViewBag.Message = MessageStatus;
+            ViewBag.Alert = AlertMessage;
 
 
             ViewBag.PriceSortOrder = priceSortOrder;
@@ -191,7 +276,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             ViewBag.SelectedCapacities = capacity;
             ViewBag.SelectedOriginals = original;
 
-            return View(products);
+            return View(listAllProduct);
         }
 
         [HttpGet]
@@ -277,7 +362,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             return products;
         }
 
-        public string getUrlQuery(string? searchString, string? searchHistory, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
+        public string getUrlQuery(string? searchString, string? searchHistory, string? style, string? priceSortOrder, List<string>? brand, List<string>? gender, List<string>? capacity, List<string>? original)
         {
             var urlBuilder = new StringBuilder();
             urlBuilder.Append(Request.Path);
@@ -301,6 +386,19 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 urlBuilder.AppendFormat("searchHistory={0}", searchHistory);
             }
 
+            if (style != null && style.Any())
+            {
+                if (!urlBuilder.ToString().Contains("?"))
+                {
+                    urlBuilder.Append("?");
+                }
+                else
+                {
+                    urlBuilder.Append("&");
+                }
+                urlBuilder.AppendFormat("style={0}", style);
+            }
+
             if (priceSortOrder != null && priceSortOrder.Any())
             {
                 if (!urlBuilder.ToString().Contains("?"))
@@ -313,8 +411,6 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                 }
                 urlBuilder.AppendFormat("priceSortOrder={0}", priceSortOrder);
             }
-
-
 
             if (brand != null && brand.Any())
             {
@@ -426,105 +522,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                              .Take(pageSize)
                              .ToList();
 
-            // Sắp xếp danh sách đã lọc và được phân trang
-
-            //var urlBuilder = new StringBuilder();
-            //urlBuilder.Append(Request.Path);
-
-            //if (priceSortOrder != null && priceSortOrder.Any())
-            //{
-            //    urlBuilder.Append("?");
-            //    urlBuilder.AppendFormat("priceSortOrder={0}", priceSortOrder);
-            //}
-
-            //if (brand != null && brand.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < brand.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("brand={0}", brand[i]);
-
-            //        if (i < brand.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            //if (gender != null && gender.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < gender.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("gender={0}", gender[i]);
-
-            //        if (i < gender.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            //if (capacity != null && capacity.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < capacity.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("capacity={0}", capacity[i]);
-
-            //        if (i < capacity.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            //if (original != null && original.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < original.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("original={0}", original[i]);
-
-            //        if (i < original.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-            var url = getUrlQuery(null, null, priceSortOrder, brand, gender, capacity, original);
+            var url = getUrlQuery(null, null, null, priceSortOrder, brand, gender, capacity, original);
 
             ViewBag.UrlPage = url.ToString();
 
@@ -598,134 +596,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
                                          .Take(pageSize)
                                          .ToList();
 
-            // Sắp xếp danh sách đã lọc và được phân trang
-            //listAllProduct = listAllProduct.OrderBy(p => p.Product_ID).ToList();
-
-            //var urlBuilder = new StringBuilder();
-            //urlBuilder.Append(Request.Path);
-
-            //if (searchString != null && searchString.Any())
-            //{
-            //    urlBuilder.Append("?");
-            //    urlBuilder.AppendFormat("searchString={0}", searchString);
-            //}
-
-            //if (searchHistory != null && searchHistory.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-            //    urlBuilder.AppendFormat("searchHistory={0}", searchHistory);
-            //}
-
-            //if (priceSortOrder != null && priceSortOrder.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-            //    urlBuilder.AppendFormat("priceSortOrder={0}", priceSortOrder);
-            //}
-
-
-
-            //if (brand != null && brand.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-            //    for (int i = 0; i < brand.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("brand={0}", brand[i]);
-
-            //        if (i < brand.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            //if (gender != null && gender.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < gender.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("gender={0}", gender[i]);
-
-            //        if (i < gender.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            //if (capacity != null && capacity.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < capacity.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("capacity={0}", capacity[i]);
-
-            //        if (i < capacity.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            //if (original != null && original.Any())
-            //{
-            //    if (!urlBuilder.ToString().Contains("?"))
-            //    {
-            //        urlBuilder.Append("?");
-            //    }
-            //    else
-            //    {
-            //        urlBuilder.Append("&");
-            //    }
-
-            //    for (int i = 0; i < original.Count; i++)
-            //    {
-            //        urlBuilder.AppendFormat("original={0}", original[i]);
-
-            //        if (i < original.Count - 1)
-            //        {
-            //            urlBuilder.Append("&");
-            //        }
-            //    }
-            //}
-
-            var url = getUrlQuery(searchString, searchHistory, priceSortOrder, brand, gender, capacity, original);
+            var url = getUrlQuery(searchString, searchHistory, null, priceSortOrder, brand, gender, capacity, original);
 
             ViewBag.UrlPage = url.ToString();
 

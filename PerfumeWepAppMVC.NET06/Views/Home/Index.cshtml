@@ -109,7 +109,7 @@
 
             <div class="col-xl-3 col-lg-3 col-6 perfume-category">
                 <div class="perfume-category-block">
-                    <a asp-controller="Product" asp-action="ViewProductNew" class="content-cardImage">
+                    <a asp-controller="Product" asp-action="ViewProductStyle" asp-route-style="new" class="content-cardImage">
                         <div class="card-img">
                             <img src="~/img/img-home/new.jpg" alt="" class="img-cart-list">
                         </div>
@@ -150,7 +150,7 @@
             }
 
             <div class="intro-view-all">
-            <a class="btn btn-outline-dark btn-view-all" asp-action="ViewProductTrending" asp-controller="Product">
+                <a class="btn btn-outline-dark btn-view-all" asp-controller="Product" asp-action="ViewProductStyle" asp-route-style="trending">
                     Xem tất cả
             </a>
             </div>
@@ -204,7 +204,7 @@
             }
 
             <div class="intro-view-all">
-                <a class="btn btn-outline-dark btn-view-all" asp-action="ViewProductRecommend" asp-controller="Product">
+                <a class="btn btn-outline-dark btn-view-all" asp-controller="Product" asp-action="ViewProductStyle" asp-route-style="rcm">
                     Xem tất cả
             </a>
             </div>
