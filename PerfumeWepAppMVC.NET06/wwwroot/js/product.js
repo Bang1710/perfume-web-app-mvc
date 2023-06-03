@@ -12,25 +12,47 @@ closeButton.addEventListener('click', function () {
 });
 
 
-var btnFilterToggle = document.getElementsByClassName('btn-filter')[0];
+var btnFilterToggle = document.getElementsByClassName('btn-filter');
 var contentFilter = document.getElementsByClassName('content-filter')[0];
-var closeBtnFilter = document.querySelector('.btn-close-filter');
+var closeBtnFilter = document.querySelectorAll('.fa-solid.fa-xmark.btn-close-filter');
 
 console.log(btnFilterToggle)
 console.log(contentFilter)
 console.log(closeBtnFilter)
 
-btnFilterToggle.addEventListener('click', function () {
-    contentFilter.style.width = '325px';
-    contentFilter.style.padding = '20px';
-    contentFilter.style.border = '1px solid #131212';
-})
 
-closeBtnFilter.addEventListener('click', function () {
-    contentFilter.style.width = 0;
-    contentFilter.style.padding = 0;
-    contentFilter.style.border = none;
-})
+for (var i = 0; i < btnFilterToggle.length; i++) {
+    btnFilterToggle[i].addEventListener('click', function () {
+        contentFilter.style.width = '325px';
+        contentFilter.style.padding = '20px';
+        contentFilter.style.border = '1px solid #131212';
+    });
+}
+
+for (var i = 0; i < closeBtnFilter.length; i++) {
+    closeBtnFilter[i].addEventListener('click', function () {
+        contentFilter.style.width = 0;
+        contentFilter.style.padding = 0;
+        contentFilter.style.border = 'none';
+    });
+}
+
+//var btnFilterToggle = document.querySelectorAll('.btn.btn-outline-dark.btn-filter');
+//var contentFilter = document.querySelector('.content-filter');
+
+//console.log(btnFilterToggle);
+//console.log(contentFilter);
+//console.log(closeBtnFilter);
+
+//// Lặp qua từng nút bấm và gán sự kiện click
+
+
+//// Gán sự kiện click cho nút đóng
+//closeBtnFilter.addEventListener('click', function () {
+//    contentFilter.style.width = '0';
+//    contentFilter.style.padding = '0';
+//    contentFilter.style.border = 'none';
+//});
 
 
 // Lấy form và nút reset

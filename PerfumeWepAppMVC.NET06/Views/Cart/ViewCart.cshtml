@@ -40,6 +40,7 @@
                         <th scope="col">Giá sản phẩm</th>
                         <th scope="col">Số lượng</th>
                         <th scope="col" class="hiden-mobie">Thành tiền</th>
+                        <th scope="col">Chức năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,15 +56,27 @@
                             <td>
                                 <a asp-controller="Product" asp-action="Detail" asp-route-id="@item.Product_ID" style="text-decoration:none;color:black;font-weight: 700; display:flex; justify-content:space-between;">
                                      @item.Product_Name
-                                    <form method="post" action="@Url.Action("RemoveProductFromCart", "Cart")">
-                                        <input type="hidden" name="Product_ID" value="@item.Product_ID" />
-                                        <button type="submit" class="btn btn-primary" style="font-size: 15px; margin-right: 20px;" >Xóa</button>
-                                    </form>
                                 </a>
                             </td>
                             <td>@item.Product_Price.ToString("C0").Replace(",", ".").Substring(1) ₫</td>
-                            <td>@item.Quantity.ToString()</td>
-                            <td class="hiden-mobie">@item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1) ₫</td>
+                            <input type="hidden" class="product_price_hiden" value="@item.Product_Price">
+                            <td>
+                                <input type="number" min="0" max="50" value="@item.Quantity" class="input_quantity">
+                             </td>
+
+                            <td class="hiden-mobie total_price"><span>₫</span></td>
+                            @*<td class="hiden-mobie" id="total_price">@item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1)  ₫ </td>*@
+                            <td style="display:flex; flex-direction: row;">
+                                <form method="post" action="@Url.Action("RemoveProductFromCart", "Cart")">
+                                    <input type="hidden" name="Product_ID" value="@item.Product_ID" />
+                                    <button type="submit" class="btn btn-primary" style="font-size: 15px; margin-right: 10px;">Xóa</button>
+                                </form>
+                                <form method="post" action="@Url.Action("UpdateProductFromCart", "Cart")">
+                                    <input type="hidden" name="Product_ID" value="@item.Product_ID" />
+                                    <input type="hidden" name="Quantity" value="@item.Quantity" class="input_quantity_update" />
+                                    <button type="submit" class="btn btn-primary" style="font-size: 15px;">Cập nhật</button>
+                                </form>
+                            </td>
                         </tr>
                         TotalPriceAll+= item.TotalPrice;
                         i++;
