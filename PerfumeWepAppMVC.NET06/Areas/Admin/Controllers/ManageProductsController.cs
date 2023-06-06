@@ -23,7 +23,7 @@ namespace PerfumeWepAppMVC.NET06.Areas.Admin.Controllers
 
         // GET: Admin/ManageProducts
         [Route("quan-ly-san-pham")]
-        public async Task<IActionResult> Index(int page = 1, int pageSize = 8)
+        public async Task<IActionResult> Index(int page = 1, int pageSize = 4)
         {
             var perfumeDBContext = _context.Products.Include(p => p.Category)
                                             .OrderBy(p => p.Product_ID)

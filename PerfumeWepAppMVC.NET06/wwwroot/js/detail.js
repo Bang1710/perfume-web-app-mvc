@@ -21,85 +21,77 @@ minusBtns.forEach((minusBtn) => {
 });
 
 
+//var inputProductPrice = document.querySelectorAll('.product_price_hiden');
+//var totalPrice = document.querySelectorAll('.hiden-mobie.total_price');
+//var inputQuantitys = document.querySelectorAll('.input_quantity');
+//var inputQuantityUpdates = document.querySelectorAll('.input_quantity_update');
+
+
+//console.log(inputQuantitys)
+//console.log(inputQuantityUpdates)
+
+
+//inputQuantitys.forEach((inputQuantity, i) => { // Thêm biến i vào phạm vi của hàm nặc danh
+//    inputQuantity.addEventListener('change', function (event) {
+//        var newQuantity = parseInt(event.target.value);
+//        console.log(newQuantity)
+//        if (inputQuantityUpdates[i] && inputQuantityUpdates[i].hasAttribute('value')) {
+//            inputQuantityUpdates[i].value = newQuantity;
+//            console.log(inputQuantityUpdates[i].value);
+//        }
+
+//        inputQuantity.setAttribute('value', newQuantity); // Cập nhật giá trị của input number
+//    });
+//});
+
 var inputQuantitys = document.querySelectorAll('.input_quantity');
 var inputQuantityUpdates = document.querySelectorAll('.input_quantity_update');
-var inputProductPrice = document.querySelectorAll('.product_price_hiden');
-var totalPrice = document.querySelectorAll('.hiden-mobie.total_price');
+var totalPriceElement = document.querySelector('.TotalPrice');
 
-for (var i = 0; i < inputQuantitys.length; i++) {
-    var inputQuantity = inputQuantitys[i];
-    var initialQuantity = parseInt(inputQuantity.value);
-    var newQuantity = initialQuantity;
-    console.log(initialQuantity);
+var inputPrices = document.querySelectorAll('.product_price_hiden');
 
-    if (inputQuantityUpdates[i] && inputQuantityUpdates[i].hasAttribute('value')) {
-        inputQuantityUpdates[i].value = initialQuantity;
-        console.log(inputQuantityUpdates[i].value);
-    }
 
+console.log(inputQuantitys)
+console.log(inputQuantityUpdates)
+
+inputQuantitys.forEach((inputQuantity, i) => {
     inputQuantity.addEventListener('change', function (event) {
-        newQuantity = parseInt(event.target.value);
+        var newQuantity = parseInt(event.target.value);
         console.log(newQuantity)
-
         if (inputQuantityUpdates[i] && inputQuantityUpdates[i].hasAttribute('value')) {
             inputQuantityUpdates[i].value = newQuantity;
             console.log(inputQuantityUpdates[i].value);
         }
-    });
+        inputQuantity.setAttribute('value', newQuantity); // Cập nhật giá trị của input number
 
-    if (initialQuantity == newQuantity) {
-        console.log(1)
-        totalPrice[i].innerText = inputProductPrice[i].value * initialQuantity;
-    } else {
-        console.log(2)
-        totalPrice[i].innerText = inputProductPrice[i].value * newQuantity;
-    }
+        // Tính toán tổng giá trị thành tiền
+    });
+});
+
+// Hàm tính toán tổng giá trị
+function calculateTotalPrice() {
+    var total = 0;
+    inputQuantityUpdates.forEach((inputQuantityUpdate, i) => {
+        if (inputQuantityUpdate && inputQuantityUpdate.hasAttribute('value')) {
+            var quantity = parseFloat(inputQuantityUpdate.value);
+            var price = parseInt(inputPrices[i].value);
+            if (!isNaN(price) && !isNaN(quantity)){
+                total += price * quantity;
+            }
+        }
+    });
+    return total;
+}
+
+//// Hàm định dạng giá trị tiền tệ
+function formatCurrency(value) {
+    return value.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' });
 }
 
 
 
-//var i = 0;
-//inputQuantitys.forEach((inputQuantity) => {
-    
-//    var initialQuantity = parseInt(inputQuantity.value);
-//    var newQuantity = initialQuantity;
-//    console.log(initialQuantity);
-
-//    //var productPrice = inputProductPrice[i].value;
-//    //totalPrice[i].innerHTML = productPrice * initialQuantity;
-
-//    if (inputQuantityUpdates[i] && inputQuantityUpdates[i].hasAttribute('value')) {
-//        // Cập nhật giá trị cho trường input ẩn
-//        inputQuantityUpdates[i].value = initialQuantity;
-//        console.log(inputQuantityUpdates[i].value);
-//    }
-//    //i++;
-
-//    inputQuantity.addEventListener('change', function (event) {
-//        newQuantity = parseInt(event.target.value);
-//        console.log(newQuantity)
-
-//        // Kiểm tra xem phần tử trong mảng inputQuantityUpdates có tồn tại và có thuộc tính value không
-//        if (inputQuantityUpdates[i] && inputQuantityUpdates[i].hasAttribute('value')) {
-//            // Cập nhật giá trị cho trường input ẩn
-//            inputQuantityUpdates[i].value = newQuantity;
-//            console.log(inputQuantityUpdates[i].value);
-//        }
-//    });
-
-//    if (initialQuantity == newQuantity) {
-//        console.log(1)
-//        totalPrice[i].innerText = inputProductPrice[i].value * initialQuantity;
-//    } else {
-//        console.log(2)
-//        totalPrice[i].innerText = inputProductPrice[i].value * newQuantity;
-//    }
-//    //var productPrice = inputProductPrice[i].value;
 
 
-//    //totalPrice[i].innerText = newTotalPrice;
-//    //i++;
-//})
 
 
 const tabs = $$('.tab-item')
@@ -205,4 +197,6 @@ closeButton.addEventListener('click', function () {
 //document.addEventListener('DOMContentLoaded', function () {
 //    var inputQuantity = document.getElementById('input_quantity');
 //});
+
+
 

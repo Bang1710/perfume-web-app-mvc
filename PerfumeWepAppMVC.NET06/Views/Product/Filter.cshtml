@@ -190,7 +190,13 @@
                             {
                                 if (!url.ToString().Contains("?"))
                                 {
-                                    <li class="page-item"><a class="page-link" href="@url?page=@i">@i</a></li>
+                                    if (ViewBag.CurrentPage == i)
+                                    {
+                                        <li class="page-item"><a class="page-link" style="background-color: black; color:white;" href="@url?page=@i">@i</a></li>
+                                    } else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@url?page=@i">@i</a></li>
+                                    }
                                 } else
                                 {
                                     <li class="page-item"><a class="page-link" href="@url&page=@i">@i</a></li>

@@ -99,7 +99,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
         }
 
         [Route("gio-hang/chi-tiet-gio-hang-cua-ban")]        
-        public IActionResult ViewCart()
+        public IActionResult ViewCart(int page = 1, int pageSize = 4)
         {
             var userId = HttpContext.Session.GetInt32("UserId");
 
@@ -119,7 +119,16 @@ namespace PerfumeWepAppMVC.NET06.Controllers
             {
                 return View();
             }
-            return View(cart.CartItems.ToList());
+
+            var listCartItems = cart.CartItems.OrderBy(c => c.CartItems_ID)
+                                                .Skip((page - 1)*pageSize)
+                                                .Take(pageSize)
+                                                .ToList();
+            ViewBag.CurrentPage = page;
+            ViewBag.TotalPages = (int)Math.Ceiling(cart.CartItems.Count() / (double)pageSize);
+
+            //return View(cart.CartItems.ToList());
+            return View(listCartItems);
         }
 
         [HttpPost]
@@ -144,5 +153,30 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             return RedirectToAction("ViewCart", "Cart");
         }
+
+        [HttpPost]
+        [Route("cap-nhat-so-luong-san-pham")]
+        public ActionResult UpdateProductFromCart(string Product_ID, int Quantity)
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            Cart cart = _context.Carts.Include(c => c.CartItems).FirstOrDefault(c => c.User_ID == userId);
+
+            if (cart != null)
+            {
+                CartItem cartItem = cart.CartItems.FirstOrDefault(c => c.Product_ID == Product_ID);
+                if (cartItem != null)
+                {
+                    cartItem.Quantity = Quantity;
+                    _context.SaveChanges();
+                }
+                int cartItemCount = _context.CartItems.Count(c => c.Cart_ID == cart.Cart_ID);
+                ViewBag.CountCart = cartItemCount;
+            }
+            TempData["InforSuccessUpdate"] = "Bạn đã cập nhật số lượng sản phẩm trong giỏ hàng thành công";
+
+            return RedirectToAction("ViewCart", "Cart");
+            // Chuyển hướng người dùng về trang giỏ hàng hoặc trang khác tùy ý
+        }
+
     }
 }

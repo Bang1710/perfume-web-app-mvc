@@ -10,12 +10,19 @@
     var i = 1;
 }
 
+
 @if (TempData["InforSuccessRemove"] != null)
 {
     <div class="container">
         <div class="alert alert-success" style="font-size: 15px; margin: 20px 0px;"> @TempData["InforSuccessRemove"]</div>
     </div>
 }
+
+@if (TempData["InforSuccessUpdate"] != null)
+{
+    <div class="container">
+        <div class="alert alert-success" style="font-size: 15px; margin: 20px 0px;"> @TempData["InforSuccessUpdate"]</div>
+    </div>
 }
 
 <div class="stuff" style="margin: 20px 0px 300px;">
@@ -39,8 +46,10 @@
                         <th scope="col">Tên sản phẩm</th>
                         <th scope="col">Giá sản phẩm</th>
                         <th scope="col">Số lượng</th>
-                        <th scope="col" class="hiden-mobie">Thành tiền</th>
-                        <th scope="col">Chức năng</th>
+                        @*<th scope="col" class="hiden-mobie">Thành tiền</th>*@
+                        <th scope="col">Xóa</th>
+                        <th scope="col" style="text-align:center;">Cập nhật</th>
+                        @*<th scope="col">Chức năng</th>*@
                     </tr>
                 </thead>
                 <tbody>
@@ -61,28 +70,37 @@
                             <td>@item.Product_Price.ToString("C0").Replace(",", ".").Substring(1) ₫</td>
                             <input type="hidden" class="product_price_hiden" value="@item.Product_Price">
                             <td>
-                                <input type="number" min="0" max="50" value="@item.Quantity" class="input_quantity">
+                                <input type="number" min="0" max="50" value="@item.Quantity" class="input_quantity"  style="text-align: center; padding: 3px 12px; font-size: 14px;">
                              </td>
-
-                            <td class="hiden-mobie total_price"><span>₫</span></td>
-                            @*<td class="hiden-mobie" id="total_price">@item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1)  ₫ </td>*@
-                            <td style="display:flex; flex-direction: row;">
+                             @*<td>
+                                @item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1)  ₫
+                             </td>*@
+                             <td>
                                 <form method="post" action="@Url.Action("RemoveProductFromCart", "Cart")">
                                     <input type="hidden" name="Product_ID" value="@item.Product_ID" />
                                     <button type="submit" class="btn btn-primary" style="font-size: 15px; margin-right: 10px;">Xóa</button>
                                 </form>
+                             </td>
+                             <td style="text-align:center;">
                                 <form method="post" action="@Url.Action("UpdateProductFromCart", "Cart")">
                                     <input type="hidden" name="Product_ID" value="@item.Product_ID" />
-                                    <input type="hidden" name="Quantity" value="@item.Quantity" class="input_quantity_update" />
+                                    <input type="hidden" name="Quantity" value="" class="input_quantity_update" />
                                     <button type="submit" class="btn btn-primary" style="font-size: 15px;">Cập nhật</button>
                                 </form>
-                            </td>
+                             </td>
+
+                           @* <td class="hiden-mobie total_price"><span>₫</span></td>*@
+                            @*<td class="hiden-mobie" id="total_price">@item.TotalPrice.ToString("C0").Replace(",", ".").Substring(1)  ₫ </td>*@
+                           @* <td style="display:flex; flex-direction: row;">
+                            </td>*@
                         </tr>
-                        TotalPriceAll+= item.TotalPrice;
+                        @*TotalPriceAll+= item.TotalPrice;*@
                         i++;
                     }
                 </tbody>
             </table>
+
+
 
             <table class="table tb-cart tb-cart-mobie">
                 <thead>
@@ -113,12 +131,30 @@
                 </tbody>
             </table>
 
-            <div class="TotalPrice">Tổng giá trị thành tiền: @TotalPriceAll.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
-            <div class="TotalPrice-mobie">Tổng giá trị thành tiền: @TotalPriceAllMobie.ToString("C0").Replace(",", ".").Substring(1) ₫</div>
+            @*<div class="TotalPrice">Tổng giá trị thành tiền: @TotalPriceAll.ToString("C0").Replace(",", ".").Substring(1) ₫</div>*@
+            @*<div class="TotalPrice-mobie">Tổng giá trị thành tiền: @TotalPriceAllMobie.ToString("C0").Replace(",", ".").Substring(1) ₫</div>*@
         } else
         {
             <div class="alert alert-danger" style="font-size: 15px;"> Giỏ hàng của bạn trống !</div>
         }
+
+        <nav aria-label="Page navigation example" class="nav-paging">
+            <ul class="pagination">
+                @for (int j = 1; j <= ViewBag.TotalPages; j++)
+                {
+                    if (@ViewBag.CurrentPage == j)
+                    {
+                        <li class="page-item"><a class="page-link" style="background-color: black; color:white;" asp-action="Index" asp-controller="ManageProducts" asp-route-page="@j">@j</a></li>
+                    }
+                    else
+                    {
+                        <li class="page-item"><a class="page-link" asp-action="ViewCart" asp-controller="Cart" asp-route-page="@j">@j</a></li>
+                    }
+                }
+            </ul>
+        </nav>
+
+
         
     </div>
 
@@ -126,3 +162,6 @@
    
 
 </div>
+
+
+
