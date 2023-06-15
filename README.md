@@ -56,7 +56,7 @@ Run project option 2
 
 
 ## Demo
-link to demo: [demo]((http://perfumewebsite.somee.com))
+link to demo: [demo](http://perfumewebsite.somee.com)
 
 ## Authors
 
