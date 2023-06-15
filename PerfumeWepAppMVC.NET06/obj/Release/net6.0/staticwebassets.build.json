@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "6eAy0vuxD0wt5UzzZdxBE0kksYnru2SLzLBcrAWv6RE=",
+  "Hash": "4tRgnsfxa+KcUfGmtOxBjK1QFXbgZUeI/mNMgKun+lQ=",
   "Source": "PerfumeWepAppMVC.NET06",
   "BasePath": "_content/PerfumeWepAppMVC.NET06",
   "Mode": "Default",
@@ -49,6 +49,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\obj\\Release\\net6.0\\scopedcss\\projectbundle\\PerfumeWepAppMVC.NET06.bundle.scp.css"
+    },
+    {
+      "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\admin.css",
+      "SourceId": "PerfumeWepAppMVC.NET06",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\",
+      "BasePath": "_content/PerfumeWepAppMVC.NET06",
+      "RelativePath": "css/admin.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\admin.css"
     },
     {
       "Identity": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\wwwroot\\css\\detail.css",

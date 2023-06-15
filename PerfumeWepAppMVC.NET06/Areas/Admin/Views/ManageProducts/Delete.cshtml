@@ -1,0 +1,109 @@
+﻿@model PerfumeWepAppMVC.NET06.Models.Product
+@using PerfumeWepAppMVC.NET06
+@using PerfumeWepAppMVC.NET06.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Xóa sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="title-create-product">
+        <div class="create-header">Bạn có chắc chắn muốn xóa sản phẩm này</div>
+        <a asp-action="Index" style="color: black;">Quay lại danh sách sản phẩm</a>
+    </div>
+    <hr />
+
+    <div class="row">
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Name)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Name)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Price)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Price)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Origin)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Origin)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Gender)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Gender)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Style)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Style)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_ReleaseYear)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_ReleaseYear)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Volume)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Volume)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_IsNew)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_IsNew)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_IsRecommend)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_IsRecommend)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_IsTrending)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_IsTrending)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Product_Intro)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Product_Intro)
+        </dd>
+        <hr />
+        <dt class="col-sm-4">
+            @Html.DisplayNameFor(model => model.Category)
+        </dt>
+        <dd class="col-sm-8">
+            @Html.DisplayFor(model => model.Category.Category_Name)
+        </dd>
+    </div>
+
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Product_ID" />
+        <input type="submit" value="Xóa sản phẩm" class="btn btn-danger btn-delete-product" />
+    </form>
+</div>

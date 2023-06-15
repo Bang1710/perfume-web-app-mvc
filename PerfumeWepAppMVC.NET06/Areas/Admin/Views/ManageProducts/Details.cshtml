@@ -1,0 +1,85 @@
+﻿@model PerfumeWepAppMVC.NET06.Models.Product
+@using PerfumeWepAppMVC.NET06
+@using PerfumeWepAppMVC.NET06.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div>
+        <div class="title-create-product">
+            <div class="create-header">Sản phẩm @Model.Product_Name</div>
+            <a asp-action="Index" style="color: black;">Quay lại danh sách sản phẩm</a>
+        </div>
+        <hr />
+        <div class="row">
+            <div class="col-xl-6 col-lg-6 col-12">
+                <div class="form-group">
+                    <label asp-for="Product_Name" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Name" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label  class="control-label form-label form-css-general ">Hình ảnh sản phẩm</label>
+                    <div class="td-content">
+                        <img src="~/img/img-product/@Model.Product_ID-01.png" alt="" class="img-product-cart-detail">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Price" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Price" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Origin" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Origin" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Gender" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Gender" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Style" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Style" class="form-control form-css-general " />
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-12">
+                <div class="form-group">
+                    <label asp-for="Product_ReleaseYear" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_ReleaseYear" class="form-control form-css-general " />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Volume" class="control-label form-label form-css-general "></label>
+                    <input asp-for="Product_Volume" class="form-control form-css-general " />
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label form-css-general ">
+                        <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsNew" /> @Html.DisplayNameFor(model => model.Product_IsNew)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label form-css-general ">
+                        <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsRecommend" /> @Html.DisplayNameFor(model => model.Product_IsRecommend)
+                    </label>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label form-css-general ">
+                        <input type="checkbox" class="form-check-input form-css-general " asp-for="Product_IsTrending" /> @Html.DisplayNameFor(model => model.Product_IsTrending)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Product_Intro" class="control-label form-label form-css-general "></label>
+                    <textarea rows="5" asp-for="Product_Intro" class="form-control form-css-general "></textarea>
+                </div>
+                 <a class="btn btn-success btn-submit-create" asp-action="Edit" asp-route-id="@Model?.Product_ID">Chỉnh sửa sản phẩm</a>
+            </div>
+        </div>
+    </div>
+    <div>
+    </div>
+
+
+</div>
+

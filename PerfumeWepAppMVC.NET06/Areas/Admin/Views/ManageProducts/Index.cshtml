@@ -1,0 +1,96 @@
+﻿@model IEnumerable<PerfumeWepAppMVC.NET06.Models.Product>
+@using PerfumeWepAppMVC.NET06
+@using PerfumeWepAppMVC.NET06.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var j = 1;
+}
+
+<div class="container">
+
+    <div class="tilte-manage">
+        <div class="list-product">Danh sách sản phẩm</div>
+
+        <div class="create-product">
+            <a asp-action="Create" class="btn btn-outline-dark btn-create" >Tạo mới sản phẩm</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="th-header">
+                    STT
+                </th>
+                <th class="th-header" style="text-align:left;" >
+                    @Html.DisplayNameFor(model => model.Product_Name)
+                </th>
+                <th class="th-header">
+                    Hình ảnh
+                </th>
+                <th class="th-header">
+                    @Html.DisplayNameFor(model => model.Product_Price)
+                </th>
+                <th class="th-header">
+                    @Html.DisplayNameFor(model => model.Product_Gender)
+                </th>
+                <th class="th-header">
+                    @Html.DisplayNameFor(model => model.Product_Volume)
+                </th>
+                <th class="th-header">
+                    Chức năng
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td class="td-content" >
+                    @j
+                </td>
+                <td class="td-content" style="text-align: left;">
+                    @Html.DisplayFor(modelItem => item.Product_Name)
+                </td>
+                 <td class="td-content" >
+                         <img src="~/img/img-product/@item.Product_ID-01.png" alt="" class="img-product-cart">
+                </td>
+                <td class="td-content" >
+                        @item.Product_Price.ToString("C0").Replace(",", ".").Substring(1) đ
+                </td>
+                
+                <td class="td-content" >
+                    @Html.DisplayFor(modelItem => item.Product_Gender)
+                </td>
+                <td class="td-content" >
+                    @Html.DisplayFor(modelItem => item.Product_Volume)
+                </td>
+                    <td style="text-align: center;">
+                    <a class="td-btn" asp-action="Edit" asp-route-id="@item.Product_ID">Edit</a> |
+                    <a class="td-btn" asp-action="Details" asp-route-id="@item.Product_ID">Details</a> |
+                    <a class="td-btn" asp-action="Delete" asp-route-id="@item.Product_ID">Delete</a>
+                </td>
+            </tr>
+            j++;
+    }
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example" class="nav-paging">
+        <ul class="pagination">
+            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+            {
+                if (@ViewBag.CurrentPage == i)
+                {
+                    <li class="page-item"><a class="page-link" style="background-color: black; color:white;" asp-action="Index" asp-controller="ManageProducts" asp-route-page="@i">@i</a></li>
+                }
+                else
+                {
+                    <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="ManageProducts" asp-route-page="@i">@i</a></li>
+                }
+            }
+        </ul>
+    </nav>
+</div>
+

@@ -36,27 +36,27 @@
     <div class="container">
         <div class="row">
             <div class="col-xxl col-xl col-lg col image-brand dior">
-                <a href="">
+                <a asp-controller="Product" asp-action="ViewProductByBrand" asp-route-brandID="PF002">
                     <img src="~/img/img-home/dior.png" alt="" class="dior">
                 </a>
             </div>
             <div class="col-xxl col-xl col-lg col image-brand calvin">
-                <a href="">
+                <a asp-controller="Product" asp-action="ViewProductByBrand" asp-route-brandID="PF005">
                     <img src="~/img/img-home/Calvin_Klein_logo-700x123.png" alt="" class="calvin">
                 </a>
             </div>
             <div class="col-xxl col-xl col-lg col image-brand versace">
-                <a href="">
+                <a asp-controller="Product" asp-action="ViewProductByBrand" asp-route-brandID="PF001">
                     <img src="~/img/img-home/versace.png" alt="" class="versace">
                 </a>
             </div>
             <div class="col-xxl col-xl col-lg col image-brand lauder">
-                <a href="">
+                <a asp-controller="Product" asp-action="ViewProductByBrand" asp-route-brandID="PF004">
                     <img src="~/img/img-home/chanel.png" alt="" class="lauder">
                 </a>
             </div>
             <div class="col-xxl col-xl col-lg col image-brand ysl">
-                <a href="">
+                <a asp-controller="Product" asp-action="ViewProductByBrand" asp-route-brandID="PF003">
                     <img src="~/img/img-home/gucci.png" alt="" class="ysl">
                 </a>
             </div>
@@ -70,7 +70,7 @@
         <div class="row">
             <div class="col-xl-3 col-lg-3 col-6 perfume-category">
                 <div class="perfume-category-block">
-                    <a href="" class="content-cardImage">
+                    <a asp-controller="Product" asp-action="ViewProductByGender" asp-route-gender="Nam" class="content-cardImage">
                         <div class="img">
                             <img src="~/img/img-home/female.png" alt="" class="img-cart-list">
                         </div>
@@ -83,7 +83,7 @@
 
             <div class="col-xl-3 col-lg-3 col-6 perfume-category">
                 <div class="perfume-category-block">
-                    <a href="" class="content-cardImage">
+                    <a asp-controller="Product" asp-action="ViewProductByGender" asp-route-gender="Nữ" class="content-cardImage">
                         <div class="img">
                             <img src="~/img/img-home/male.png" alt="" class="img-cart-list">
                         </div>
@@ -96,7 +96,7 @@
 
             <div class="col-xl-3 col-lg-3 col-6 perfume-category">
                 <div class="perfume-category-block">
-                    <a href="" class="content-cardImage">
+                    <a asp-controller="Product" asp-action="ViewProductByGender" asp-route-gender="Unisex" class="content-cardImage">
                         <div class="img">
                             <img src="~/img/img-home/unisex.png" alt="" class="img-cart-list">
                         </div>
@@ -109,7 +109,7 @@
 
             <div class="col-xl-3 col-lg-3 col-6 perfume-category">
                 <div class="perfume-category-block">
-                    <a href="" class="content-cardImage">
+                    <a asp-controller="Product" asp-action="ViewProductStyle" asp-route-style="new" class="content-cardImage">
                         <div class="card-img">
                             <img src="~/img/img-home/new.jpg" alt="" class="img-cart-list">
                         </div>
@@ -148,6 +148,12 @@
                     </div>
                 </div>
             }
+
+            <div class="intro-view-all">
+                <a class="btn btn-outline-dark btn-view-all" asp-controller="Product" asp-action="ViewProductStyle" asp-route-style="trending">
+                    Xem tất cả
+            </a>
+            </div>
             
         </div>
        
@@ -196,6 +202,12 @@
                     </div>
                 </div>
             }
+
+            <div class="intro-view-all">
+                <a class="btn btn-outline-dark btn-view-all" asp-controller="Product" asp-action="ViewProductStyle" asp-route-style="rcm">
+                    Xem tất cả
+            </a>
+            </div>
         </div>
 
 

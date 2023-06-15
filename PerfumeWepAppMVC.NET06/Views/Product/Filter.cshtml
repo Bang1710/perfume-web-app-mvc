@@ -138,6 +138,7 @@
                                 </button>
                             </h2>
                             <div id="panelsStayOpen-collapse5" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-heading5">
+                                
                                 <div class="accordion-body">
                                     @foreach (var item in ViewBag.OriginProduct)
                                     {
@@ -178,6 +179,31 @@
                             </div>
                         </div>
                     }
+
+
+                    <nav aria-label="Page navigation example" class="nav-paging">
+                        <ul class="pagination">
+                            @{
+                                var url = ViewBag.UrlPage.ToString();
+                            }
+                            @for (int i = 1; i <= ViewBag.TotalPages; i++)
+                            {
+                                if (!url.ToString().Contains("?"))
+                                {
+                                    if (ViewBag.CurrentPage == i)
+                                    {
+                                        <li class="page-item"><a class="page-link" style="background-color: black; color:white;" href="@url?page=@i">@i</a></li>
+                                    } else
+                                    {
+                                        <li class="page-item"><a class="page-link" href="@url?page=@i">@i</a></li>
+                                    }
+                                } else
+                                {
+                                    <li class="page-item"><a class="page-link" href="@url&page=@i">@i</a></li>
+                                }
+                            }
+                        </ul>
+                    </nav>
                 </div>
                 
             </div>

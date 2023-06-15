@@ -151,7 +151,7 @@
 
 
             <div class="content-rightbar col-xxl-9 col-xl-9 col-lg-9 col-12">
-                <div class="rightbar-title alert alert-primary" style="font-size:15px;">
+                <div class="rightbar-title alert alert-success" style="font-size:15px;">
                     Sản phẩm ở trang @ViewBag.CurrentPage
                 </div>
                 <button type="button" class="btn btn-outline-dark btn-filter">Bộ lọc  <i class="fa-solid fa-filter"></i></button>
@@ -178,7 +178,14 @@
                     <ul class="pagination">
                         @for (int i = 1; i <= ViewBag.TotalPages; i++)
                         {
-                            <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Product" asp-route-page="@i" >@i</a></li>
+                            if (@ViewBag.CurrentPage == i)
+                            {
+                                <li class="page-item"><a class="page-link" style="background-color: black; color:white;" asp-action="Index" asp-controller="ManageProducts" asp-route-page="@i">@i</a></li>
+                            }
+                            else
+                            {
+                                <li class="page-item"><a class="page-link" asp-action="Index" asp-controller="Product" asp-route-page="@i">@i</a></li>
+                            }
                         }
                     </ul>
                 </nav>
