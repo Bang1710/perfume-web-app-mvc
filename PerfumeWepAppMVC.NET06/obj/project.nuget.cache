@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UIdoK7GwiVt6a/Stx/JRnfGpcvv/4SRdyTdBkJAJPvuNSD4UQILz3pPEB4BTQ3a2PO6+Qa1mFpO0A4s+wgrHAA==",
+  "dgSpecHash": "GfxrsYrCylMWB7X4tR3x2aX9CILPWZEq6EzeFwio2JRAGbRddjX37043x24xdoIgsJl5KfBhyzKL6GWKuDqUiQ==",
   "success": true,
-  "projectFilePath": "D:\\Project\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06.csproj",
+  "projectFilePath": "D:\\PerfumeWeb\\perfume-web-app-mvc\\PerfumeWepAppMVC.NET06\\PerfumeWepAppMVC.NET06.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Van Bang\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Van Bang\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
