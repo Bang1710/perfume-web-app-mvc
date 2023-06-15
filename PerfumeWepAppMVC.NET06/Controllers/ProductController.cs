@@ -118,7 +118,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             if (listAllProduct != null && listAllProduct.Any())
             {
-                MessageStatus = $"Danh sách kết quả sau khi lọc ở trang {page}/{total}";
+                MessageStatus = $"Danh sách sản phẩm ở trang {page}/{total}";
                 AlertMessage = "alert-success";
             }
             else
@@ -180,7 +180,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             if (listAllProduct != null && listAllProduct.Any())
             {
-                MessageStatus = $"Danh sách kết quả sau khi lọc ở trang {page}/{total}";
+                MessageStatus = $"Danh sách sản phẩm ở trang {page}/{total}";
                 AlertMessage = "alert-success";
             }
             else
@@ -256,7 +256,7 @@ namespace PerfumeWepAppMVC.NET06.Controllers
 
             if (listAllProduct != null && listAllProduct.Any())
             {
-                MessageStatus = $"Danh sách kết quả sau khi lọc ở trang {page}/{total}";
+                MessageStatus = $"Danh sách sản phẩm ở trang {page}/{total}";
                 AlertMessage = "alert-success";
             }
             else
